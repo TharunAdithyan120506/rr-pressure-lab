@@ -1,0 +1,7 @@
+innings,phase,balls,mean_li,share_pressure,share_of_all_pressure
+1,death,25958,0.735,0.062,0.04
+1,middle,47392,0.686,0.03,0.035
+1,powerplay,32377,1.077,0.196,0.158
+2,death,18494,1.441,0.35,0.161
+2,middle,45109,0.966,0.263,0.295
+2,powerplay,31631,1.398,0.396,0.312

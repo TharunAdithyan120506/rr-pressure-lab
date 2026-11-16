@@ -1,0 +1,29 @@
+SupeRR Selector Season 2 - Round 1 submission
+Enter these in the Unstop dropdowns, rank 1 to 10. 'Also known as' lists other spellings of the same
+player, in case the dropdown uses a different one.
+
+TOP 10 BATTERS UNDER PRESSURE
+-----------------------------
+ 1. Vaibhav Sooryavanshi     India                          rating 163.0   (also known as: V Suryavanshi)
+ 2. Abhishek Sharma          India                          rating 137.6
+ 3. Tim David                Australia                      rating 130.8   (also known as: TH David)
+ 4. Suryakumar Yadav         Mumbai Indians                 rating 128.7   (also known as: SA Yadav)
+ 5. Priyansh Arya            Punjab Kings                   rating 128.2
+ 6. Heinrich Klaasen         Sunrisers Hyderabad            rating 125.3   (also known as: H Klaasen)
+ 7. Finn Allen               New Zealand                    rating 121.4   (also known as: FH Allen)
+ 8. Andre Russell            West Indies                    rating 120.7   (also known as: AD Russell)
+ 9. Josh Inglis              Australia                      rating 120.1   (also known as: JP Inglis)
+10. Nicholas Pooran          Lucknow Super Giants           rating 120.0   (also known as: N Pooran)
+
+TOP 10 BOWLERS UNDER PRESSURE
+-----------------------------
+ 1. Jasprit Bumrah           India                          rating 141.0   (also known as: JJ Bumrah)
+ 2. Sunil Narine             Kolkata Knight Riders          rating 138.8   (also known as: SP Narine)
+ 3. Kuldeep Yadav            India                          rating 125.8
+ 4. Nathan Ellis             Australia                      rating 122.6   (also known as: NT Ellis)
+ 5. Bhuvneshwar Kumar        India                          rating 120.4   (also known as: B Kumar)
+ 6. Axar Patel               India                          rating 119.2   (also known as: AR Patel)
+ 7. Josh Hazlewood           Royal Challengers Bengaluru    rating 118.9   (also known as: JR Hazlewood)
+ 8. Matheesha Pathirana      Kolkata Knight Riders          rating 117.5   (also known as: M Pathirana)
+ 9. Varun Chakravarthy       India                          rating 117.0   (also known as: CV Varun)
+10. Krunal Pandya            Royal Challengers Bengaluru    rating 116.2   (also known as: KH Pandya)

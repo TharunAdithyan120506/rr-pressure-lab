@@ -1,0 +1,45 @@
+# --- Deep learning (CUDA 12.6 build; installed separately via the PyTorch index, see README) ---
+# torch, torchvision
+
+# --- Core data stack ---
+numpy>=2.1
+pandas>=2.2
+pyarrow>=17
+polars>=1.10
+scipy>=1.14
+statsmodels>=0.14
+duckdb>=1.1
+
+# --- Classical / gradient-boosted ML ---
+scikit-learn>=1.5
+xgboost>=2.1
+lightgbm>=4.5
+catboost>=1.2.7
+optuna>=4.0
+imbalanced-learn>=0.12
+
+# --- Deep tabular / sequence modelling ---
+pytorch-lightning>=2.4
+torchmetrics>=1.5
+tabpfn>=2.0
+huggingface_hub>=0.25
+
+# --- Explainability & uncertainty ---
+shap>=0.46
+mapie>=0.9
+
+# --- Visualisation & reporting ---
+matplotlib>=3.9
+seaborn>=0.13
+plotly>=5.24
+kaleido>=0.2.1
+python-docx>=1.1
+tabulate>=0.9
+
+# --- Utilities ---
+tqdm>=4.66
+requests>=2.32
+pyyaml>=6.0
+joblib>=1.4
+ipykernel>=6.29
+nbformat>=5.10

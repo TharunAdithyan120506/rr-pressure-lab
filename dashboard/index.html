@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RR Pressure Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="rail" aria-hidden="true"><span>SupeRR Selector · Season 2</span></aside>
+  <div class="main">
+    <header class="top">
+      <a class="brand" href="#/squad"><b>RR</b> Pressure Lab</a>
+      <nav id="nav">
+        <a href="#/squad" data-r="squad">Squad</a>
+        <a href="#/purse" data-r="purse">Purse</a>
+        <a href="#/top10" data-r="top10">Top 10</a>
+        <a href="#/method" data-r="method">Method</a>
+      </nav>
+      <span class="tag">Unofficial analysis · SupeRR Selector entry</span>
+    </header>
+    <main id="app"></main>
+    <footer class="foot">Built from the supplied IPL and T20I ball-by-ball data (2022–26). Not affiliated with Rajasthan Royals. Data as of <span id="gen"></span>.</footer>
+  </div>
+</div>
+<div id="tip" role="tooltip"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

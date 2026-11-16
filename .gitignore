@@ -1,0 +1,22 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vercel/
+
+# large generated data and model weights (rebuild with run_all.py)
+data/raw/
+data/interim/
+data/processed/
+data/external/
+models/
+photos/
+
+# keep the dashboard's own copies of the photos and the committed results
+!dashboard/photos/
+
+# junk
+.DS_Store
+catboost_info/
+scratch_*.log
