@@ -68,9 +68,10 @@ tbody tr:hover td, table tr:hover td { background: rgba(255,255,255,.03); }
 .pc .tilebox::before { content: ""; position: absolute; left: -10%; bottom: -55%; width: 120%; height: 135%; background: repeating-conic-gradient(from 0deg at 50% 100%, rgba(255,255,255,.14) 0deg 7deg, transparent 7deg 15deg); opacity: .55; }
 .pc .tilebox::after { content: ""; position: absolute; left: 50%; bottom: -46px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, rgba(10,21,64,.45), transparent 65%); transform: translateX(-50%); }
 .pc:hover .tilebox { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(234,26,127,.42); }
-.pc .flag { position: absolute; left: 11px; top: 11px; font-size: 17px; line-height: 1; z-index: 3; filter: drop-shadow(0 1px 3px rgba(0,0,0,.4)); }
+.pc .flag { position: absolute; left: 11px; top: 11px; z-index: 3; font-size: 9.5px; font-weight: 800; letter-spacing: .08em;
+  color: #fff; background: rgba(10,21,64,.42); border: 1px solid rgba(255,255,255,.35); padding: 3px 7px; border-radius: 999px; line-height: 1; backdrop-filter: blur(3px); }
 .pc .os { position: absolute; right: 11px; top: 11px; z-index: 3; font-size: 14px; opacity: .95; }
-.pc .no { position: absolute; left: 12px; top: 34px; font-size: 27px; font-weight: 800; color: #fff; line-height: 1; z-index: 3; text-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.pc .no { position: absolute; left: 12px; top: 38px; font-size: 27px; font-weight: 800; color: #fff; line-height: 1; z-index: 3; text-shadow: 0 2px 8px rgba(0,0,0,.3); }
 .pc .ph { position: absolute; left: 0; right: 0; bottom: 0; height: 215px; display: flex; align-items: flex-end; justify-content: center; z-index: 2; }
 .pc .ph img { height: 215px; width: auto; max-width: 118%; object-fit: contain; object-position: bottom; filter: drop-shadow(0 10px 20px rgba(0,0,0,.4)); transition: transform .22s cubic-bezier(.2,.8,.3,1); transform-origin: bottom center; }
 .pc:hover .ph img { transform: scale(1.07); }
@@ -86,7 +87,7 @@ tbody tr:hover td, table tr:hover td { background: rgba(255,255,255,.03); }
 .hero { position: relative; background: linear-gradient(135deg, rgba(234,26,127,.22), rgba(10,21,64,.1) 42%), linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid var(--line); border-radius: 18px; padding: 26px 28px 92px; overflow: hidden; display: grid; grid-template-columns: minmax(200px, 1fr) minmax(290px, 1.1fr) minmax(230px, 1fr); gap: 16px; min-height: 450px; }
 .hero::before { content: ""; position: absolute; left: 50%; bottom: -170px; width: 560px; height: 560px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, rgba(234,26,127,.42), rgba(234,26,127,.08) 55%, transparent 70%); }
 .hero .word { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); font-size: 148px; font-weight: 800; letter-spacing: .02em; color: rgba(255,255,255,.055); line-height: 1; pointer-events: none; white-space: nowrap; }
-.hero .jersey { position: absolute; left: 50%; top: 100px; transform: translateX(-128%); font-size: 152px; font-weight: 800; line-height: 1; pointer-events: none; color: transparent; background: linear-gradient(180deg, var(--pink-2), var(--pink-deep)); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 6px 18px rgba(234,26,127,.45)); }
+.hero .jersey { position: absolute; left: 50%; top: 100px; transform: translateX(-104%); font-size: 150px; font-weight: 800; line-height: 1; pointer-events: none; color: transparent; background: linear-gradient(180deg, var(--pink-2), var(--pink-deep)); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 6px 18px rgba(234,26,127,.45)); }
 .hero .jersey small { font-size: 54px; vertical-align: top; }
 .hero .left, .hero .right { position: relative; z-index: 3; }
 .hero .mid { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: center; }

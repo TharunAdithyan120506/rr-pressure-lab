@@ -12,8 +12,10 @@ const ord = (n) => { n = Math.round(n); const s = ["th", "st", "nd", "rd"], v = 
 const vClass = (v) => ({ "Retain": "v-retain", "Release": "v-release", "Release & rebuy": "v-rebuy", "Trade chip": "v-trade" }[v]);
 const chip = (v) => `<span class="chip ${vClass(v)}">${v}</span>`;
 const SIL = `<div class="sil"><svg width="150" height="180" viewBox="0 0 120 145" fill="currentColor" aria-label="No photo"><circle cx="60" cy="40" r="27"/><path d="M6 145c0-35 24-58 54-58s54 23 54 58z"/></svg></div>`;
-const FLAG = { India: "\u{1F1EE}\u{1F1F3}", Australia: "\u{1F1E6}\u{1F1FA}", England: "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}", "South Africa": "\u{1F1FF}\u{1F1E6}", "New Zealand": "\u{1F1F3}\u{1F1FF}", "Sri Lanka": "\u{1F1F1}\u{1F1F0}", "West Indies": "\u{1F3CF}", Pakistan: "\u{1F1F5}\u{1F1F0}", Bangladesh: "\u{1F1E7}\u{1F1E9}", Afghanistan: "\u{1F1E6}\u{1F1EB}", Zimbabwe: "\u{1F1FF}\u{1F1FC}", Ireland: "\u{1F1EE}\u{1F1EA}" };
-const flag = (c) => FLAG[c] || "\u{1F3CF}";
+const CODE = { India: "IND", Australia: "AUS", England: "ENG", "South Africa": "RSA", "New Zealand": "NZ",
+  "Sri Lanka": "SL", "West Indies": "WI", Pakistan: "PAK", Bangladesh: "BAN", Afghanistan: "AFG",
+  Zimbabwe: "ZIM", Ireland: "IRE" };
+const flag = (c) => CODE[c] || (c || "").slice(0, 3).toUpperCase();
 const photo = (p) => (p.photo ? `<img src="photos/${p.photo}" alt="${p.name}" loading="lazy">` : SIL);
 const src = (id) => D.sources.find((s) => s.id === id);
 const byPid = Object.fromEntries(D.squad.map((p) => [p.pid, p]));
