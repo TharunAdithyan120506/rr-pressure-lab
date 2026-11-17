@@ -105,35 +105,47 @@ tbody tr:hover td{background:rgba(255,255,255,.035)}
 /* ---------- stat stack (Moretti-style) ---------- */
 .stat.pink .v{color:var(--pink)} .stat.gold .v{color:var(--gold)} .stat.blue .v{color:var(--blue-2)}
 
-/* ---------- hero: text, a 3D stage, and a compact info column ---------- */
+/* ---------- hero: text, a 3D stage, and a compact info column ----------
+   Every player renders at identical positions and type sizes, so stepping between
+   them reads as a match cut: only the content changes, never the layout.          */
 .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,.96fr);
-  gap:clamp(16px,2vw,30px);align-items:end;min-height:clamp(400px,calc(100vh - 320px),560px);perspective:1200px}
+  gap:clamp(16px,2vw,30px);align-items:end;min-height:clamp(410px,calc(100vh - 320px),560px);perspective:1100px}
 .hero .left,.hero .right{position:relative;z-index:3;min-width:0;padding-bottom:6px}
-.hero .left{align-self:end}
 
-/* the circular stage the player stands on */
-.stage{grid-column:2;grid-row:1;position:relative;align-self:stretch;display:grid;place-items:end center;
-  min-width:0;transform-style:preserve-3d}
-.stage .disc,.stage .ring,.stage .ring2{position:absolute;left:50%;bottom:4%;width:min(86%,330px);aspect-ratio:1;
-  border-radius:50%;transform:translateX(-50%) rotateX(74deg);pointer-events:none}
-.stage .disc{background:radial-gradient(circle,rgba(255,30,122,.5) 0%,rgba(255,30,122,.16) 45%,transparent 68%);
-  filter:blur(2px);animation:pulse 5s ease-in-out infinite}
-.stage .ring{border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 0 44px rgba(255,30,122,.35),inset 0 0 36px rgba(255,30,122,.14)}
-.stage .ring2{width:min(62%,235px);border:1px solid rgba(255,255,255,.10)}
-@keyframes pulse{0%,100%{opacity:.82}50%{opacity:1}}
-.stage .fig{position:relative;z-index:2;height:92%;display:flex;align-items:flex-end;justify-content:center;min-width:0}
+/* --- the circular stage the player stands on ---------------------------------- */
+.stage{--foot:62px;--disc:min(88%,340px);
+  grid-column:2;grid-row:1;position:relative;align-self:stretch;min-width:0;transform-style:preserve-3d}
+.stage i,.stage .fig{position:absolute;left:50%;bottom:var(--foot)}
+/* every ring is centred on the foot line: translateY(50%) drops the box half its height */
+.stage i{width:var(--disc);aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,50%) rotateX(74deg);pointer-events:none}
+.stage .glow{background:radial-gradient(circle,rgba(255,30,122,.55) 0%,rgba(255,30,122,.17) 42%,transparent 66%);
+  filter:blur(3px);animation:pulse 5s ease-in-out infinite;z-index:1}
+.stage .ring{border:1px solid rgba(255,255,255,.2);box-shadow:0 0 42px rgba(255,30,122,.34),inset 0 0 40px rgba(255,30,122,.13);z-index:1}
+.stage .ring2{width:calc(var(--disc) * .66);border:1px solid rgba(255,255,255,.1);z-index:1}
+/* contact shadow hugging the feet, so he is planted rather than pasted on */
+.stage .contact{width:calc(var(--disc) * .5);background:radial-gradient(circle,rgba(0,0,0,.85) 0%,rgba(0,0,0,.5) 42%,transparent 70%);
+  filter:blur(7px);z-index:3}
+/* front half of the ring, drawn over the ankles: the trick that sells "standing in it" */
+.stage .ringf{border:1px solid rgba(255,120,180,.5);clip-path:inset(50% 0 0 0);z-index:5;
+  box-shadow:0 0 22px rgba(255,30,122,.5)}
+@keyframes pulse{0%,100%{opacity:.8}50%{opacity:1}}
+.stage .fig{transform:translateX(-50%);height:calc(100% - var(--foot));display:flex;align-items:flex-end;
+  justify-content:center;z-index:4;width:100%}
 .stage .fig img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:bottom;
-  filter:drop-shadow(0 10px 14px rgba(0,0,0,.6))}
-.stage .fig .sil{height:78%;opacity:.3;display:grid;place-items:end center}
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.55))}
+.stage .fig .sil{height:74%;opacity:.3;display:grid;place-items:end center}
 
-/* direction-aware swap, like flicking through products */
-.hero[data-anim] .stage .fig,.hero[data-anim] .left,.hero[data-anim] .right{animation:swapIn .46s cubic-bezier(.22,.9,.3,1) both}
-.hero[data-anim] .left{animation-delay:.03s}
-.hero[data-anim] .right{animation-delay:.07s}
-@keyframes swapIn{
-  from{opacity:0;transform:translateX(calc(var(--dir,1) * 46px)) scale(.965)}
-  to{opacity:1;transform:none}}
+/* --- match cut: positions hold, only the content changes ---------------------- */
+.hero[data-anim] .stage .fig{animation:cutFig .26s cubic-bezier(.3,.9,.3,1) both}
+.hero[data-anim] .left,.hero[data-anim] .right{animation:cutText .22s ease-out both}
+.hero[data-anim] .right{animation-delay:.04s}
+@keyframes cutFig{from{opacity:0;transform:translateX(-50%) scale(.98)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+@keyframes cutText{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .hero[data-anim] .stage .fig,.hero[data-anim] .left,.hero[data-anim] .right{animation:none}
+  .stage .glow{animation:none}
+}
 
 .hero .rankword{position:absolute;left:50%;top:0;transform:translateX(-50%);font-family:var(--disp);font-weight:900;
   font-size:clamp(72px,11vw,168px);line-height:.8;color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.045);
@@ -145,22 +157,29 @@ tbody tr:hover td{background:rgba(255,255,255,.035)}
 .hero .arrow.l{justify-self:start;margin-left:-14px} .hero .arrow.r{justify-self:end;margin-right:-14px}
 .hero .arrow svg{width:18px;height:18px}
 
-/* name: never spills out of its column (sized to fit in app.js) */
-.hero h1{font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.035em;overflow-wrap:anywhere}
+/* --- left column: fixed slots so nothing reflows between players --------------- */
+.hero .left{display:flex;flex-direction:column;justify-content:flex-end;gap:0}
+.rankbadge{display:flex;align-items:baseline;gap:9px;font-family:var(--disp);font-weight:900;height:58px}
+.rankbadge i{font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--pink-2);font-family:var(--mono)}
+.rankbadge b{font-size:clamp(34px,4vw,54px);line-height:1;padding-block:.02em;
+  background:linear-gradient(170deg,#fff 20%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.035em;
+  height:calc(2 * .95em + .06em);display:flex;flex-direction:column;justify-content:center}
 .hero h1 .l1,.hero h1 .l2{display:block;white-space:nowrap;padding-block:.03em}
 .hero h1 .l2{color:transparent;-webkit-text-stroke:1.4px var(--pink)}
-.hero .meta{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 14px}
+.hero .meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px;height:46px;margin:10px 0 14px;overflow:hidden}
 .pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:var(--panel);
   border:1px solid var(--line);font-size:11.5px;font-weight:600;color:var(--mut);white-space:nowrap}
 .pill b{color:var(--ink);font-weight:700}
-.rankbadge{display:flex;align-items:baseline;gap:9px;font-family:var(--disp);font-weight:900;margin-bottom:2px}
-.rankbadge i{font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--pink-2);font-family:var(--mono)}
-.rankbadge b{font-size:clamp(34px,4vw,54px);line-height:1;padding-block:.02em;background:linear-gradient(170deg,#fff 20%,var(--pink));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .right{display:flex;flex-direction:column;gap:11px;justify-content:flex-end}
 .stack{display:grid;gap:clamp(10px,1.4vw,16px)}
+.stat{min-height:62px}
 .stat .v{font-family:var(--disp);font-size:clamp(26px,3.1vw,40px);font-weight:900;line-height:1;letter-spacing:-.03em}
 .stat .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--mut);margin-top:5px}
+
+/* --- right column: fixed slots too -------------------------------------------- */
+.hero .right{display:flex;flex-direction:column;gap:11px;justify-content:flex-end}
+.hero .right .whycard{min-height:150px}
+.hero .right .recent{min-height:118px;align-content:start}
 
 /* ---------- the ten, always visible under the hero ---------- */
 .rail10{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:9px;margin-top:clamp(20px,2.6vw,34px);
@@ -279,7 +298,9 @@ code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:5px;font-fam
   .hero .rankword{font-size:84px;top:0}
   .hero .left,.hero .right{padding-bottom:0}
   .grid3,.grid2{grid-template-columns:1fr}.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stage{grid-column:1;grid-row:1;height:300px;order:-1}
+  .stage{grid-column:1;grid-row:1;height:320px;order:-1;--foot:44px;--disc:min(74%,250px)}
+  .hero .left{justify-content:flex-start}
+  .hero .right .whycard,.hero .right .recent{min-height:0}
   .hero .arrow{grid-column:1;grid-row:1}
   .hero .rankword{font-size:76px}
 }

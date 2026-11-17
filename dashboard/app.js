@@ -37,29 +37,56 @@ function mac(opts, active, onPick) {
 /** put a built node into the placeholder the template left behind */
 const mount = (sel, node) => { const h = app.querySelector(sel); if (h) h.replaceWith(node); };
 /** Player standing on a circular 3D stage. */
-const stage = (photo) => `<div class="stage"><i class="disc"></i><i class="ring"></i><i class="ring2"></i>
-  <span class="fig">${img(photo)}</span></div>`;
-/** Shrink a heading until every line fits its column — names vary a lot in length. */
-function fitName(el, max = 74, min = 20) {
+const stage = (photo) => `<div class="stage">
+  <i class="glow"></i><i class="ring"></i><i class="ring2"></i>
+  <span class="fig">${img(photo)}</span>
+  <i class="contact"></i><i class="ringf"></i></div>`;
+/** One type size that fits EVERY name in the set, so the heading never resizes between
+ *  players and stepping reads as a match cut. Measured on a canvas, re-run once the
+ *  display face has loaded (the fallback is narrower and would size too large). */
+function fitNames(el, names, max = 74, min = 20) {
   if (!el) return;
-  // the display face loads async, so measure again once it is in
-  if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(() => fitName(el, max, min));
   const w = el.clientWidth;
-  if (!w) return;
-  const lines = [...el.children];
-  const widest = () => Math.max(...lines.map((l) => l.scrollWidth));
+  if (!w || !names.length) return;
+  const cs = getComputedStyle(el);
+  const ctx = fitNames._c || (fitNames._c = document.createElement("canvas").getContext("2d"));
+  const widest = (px) => {
+    ctx.font = `${cs.fontWeight} ${px}px ${cs.fontFamily}`;
+    return Math.max(...names.map((n) => ctx.measureText(n).width));
+  };
   let size = max;
+  while (size > min && widest(size) > w) size -= 1;
   el.style.fontSize = size + "px";
-  while (widest() > w && size > min) { size -= 1; el.style.fontSize = size + "px"; }
+  if (document.fonts && document.fonts.status !== "loaded") {
+    document.fonts.ready.then(() => fitNames(el, names, max, min));
+  }
+}
+/** Reserve the height of the LONGEST note in the set, so the card never resizes between
+ *  players and the cut stays clean. Measured on a hidden clone of the real card. */
+function lockNoteHeight(list) {
+  const card = app.querySelector(".whycard");
+  if (!card || !card.parentNode) return;
+  const probe = card.cloneNode(true);
+  probe.style.cssText += `position:absolute;left:-9999px;top:0;visibility:hidden;min-height:0;width:${card.clientWidth}px`;
+  card.parentNode.appendChild(probe);
+  const h = probe.querySelector(".h"), body = probe.querySelector("p");
+  let max = 0;
+  for (const r of list) {
+    if (!r.note) continue;
+    h.textContent = r.note.head;
+    body.textContent = r.note.body;
+    max = Math.max(max, probe.offsetHeight);
+  }
+  probe.remove();
+  if (max) card.style.minHeight = max + "px";
+  if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(() => lockNoteHeight(list));
 }
 
-const tip = document.getElementById("tip");
-addEventListener("mousemove", (e) => {
-  const t = e.target.closest("[data-tip]");
-  if (!t) { tip.style.opacity = 0; return; }
-  tip.innerHTML = t.dataset.tip; tip.style.opacity = 1;
-  tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 10) + "px";
-  tip.style.top = Math.min(e.clientY + 16, innerHeight - tip.offsetHeight - 10) + "px";
+/** Both display lines of every name in a list, for measuring. */
+const nameLines = (list) => list.flatMap((r) => {
+  const parts = String(r.name || r).split(" ");
+  const first = parts.shift();
+  return [first, parts.join(" ") || first];
 });
 
 const stat = (v, k, cls = "") => `<div class="stat ${cls}"><div class="v num">${v}</div><div class="k">${k}</div></div>`;
@@ -123,8 +150,8 @@ function splitTable(s, role) {
 }
 
 /* ---------- 01 · TOP 10 ---------- */
-let lbRole = "batters", lbSel = 0, lbDir = 1;
-const lbStep = (d) => { lbDir = d; const n = Math.min(10, D[lbRole].length); lbSel = (lbSel + d + n) % n; viewTop10(); };
+let lbRole = "batters", lbSel = 0;
+const lbStep = (d) => { const n = Math.min(10, D[lbRole].length); lbSel = (lbSel + d + n) % n; viewTop10(); };
 
 function viewTop10() {
   const isBat = lbRole === "batters", list = D[lbRole], hero = list[lbSel] || list[0];
@@ -147,7 +174,7 @@ function viewTop10() {
     </div>
   </div>
 
-  <section class="hero" data-anim style="--dir:${lbDir}">
+  <section class="hero" data-anim>
     <div class="rankword">${esc(first.toUpperCase())}</div>
     <div class="left">
       <div class="rankbadge"><i>RANK</i><b>${hero.rank}</b></div>
@@ -155,7 +182,7 @@ function viewTop10() {
       <div class="meta">
         <span class="pill">${esc(hero.team2027 || hero.team)}</span>
         <span class="pill">Rating <b>${f1(hero.rating)}</b></span>
-        <span class="pill" data-tip="Share of 1,000 resamples of his matches in which he still ranks top 10">Top-10 odds <b>${pc(hero.p_top10)}</b></span>
+        <span class="pill" data-tip="Share of 1,000 resamples of his matches in which he still ranks top 10">Top 10 <b>${pc(hero.p_top10)}</b></span>
       </div>
       <div class="stack">${heroStats.map(([v2, k, cl]) => stat(v2, k, cl)).join("")}</div>
     </div>
@@ -222,10 +249,10 @@ function viewTop10() {
     (v) => { lbRole = v; lbSel = 0; viewTop10(); }));
   app.querySelector("#prev").onclick = app.querySelector("#aprev").onclick = () => lbStep(-1);
   app.querySelector("#next").onclick = app.querySelector("#anext").onclick = () => lbStep(1);
-  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => {
-    lbDir = +el.dataset.i >= lbSel ? 1 : -1; lbSel = +el.dataset.i; viewTop10();
-  });
-  fitName(app.querySelector("#heroName"));
+  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => { lbSel = +el.dataset.i; viewTop10(); });
+  const ten = list.slice(0, 10);
+  fitNames(app.querySelector("#heroName"), nameLines(ten));
+  lockNoteHeight(ten);
 }
 
 /* ---------------- 02 · ROYALS ---------------- */
@@ -302,7 +329,7 @@ function viewPlayer(pid) {
     ? [[pw ? f2(pw.econ) : "–", "Economy under pressure", "pink"], [pw ? f0(pw.wkts) : "–", "Wickets under pressure", "gold"], [f0(mdl?.n_p || 0), "Pressure balls", "blue"]]
     : [[pb ? f0(pb.sr) : "–", "Strike rate under pressure", "pink"], [pb && pb.outs ? f1(pb.avg) : "–", "Average under pressure", "gold"], [f0(mdl?.n_p || 0), "Pressure balls", "blue"]];
   app.innerHTML = `
-  <section class="hero" data-anim style="--dir:1">
+  <section class="hero" data-anim>
     <div class="rankword">ROYALS</div>
     <div class="left">
       <a class="note" href="#/royals" style="font-weight:600">← Squad</a>
@@ -329,7 +356,7 @@ function viewPlayer(pid) {
   <section class="sec-pad" style="display:flex;justify-content:space-between;gap:12px">
     <a class="note" href="#/royals/${prev.pid}" style="font-weight:600">← ${esc(prev.name)}</a>
     <a class="note" href="#/royals/${next.pid}" style="font-weight:600">${esc(next.name)} →</a></section>`;
-  fitName(app.querySelector("#heroName"));
+  fitNames(app.querySelector("#heroName"), nameLines(D.squad));
   app.querySelector("#pprev").onclick = () => location.hash = `#/royals/${prev.pid}`;
   app.querySelector("#pnext").onclick = () => location.hash = `#/royals/${next.pid}`;
 }
@@ -644,7 +671,7 @@ function route() {
   scrollTo(0, 0);
 }
 let fitTimer;
-addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => fitName(app.querySelector("#heroName")), 120); });
+addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(route, 140); });
 addEventListener("hashchange", route);
 addEventListener("keydown", (e) => {
   if (!(location.hash || "#/top10").startsWith("#/top10")) return;
