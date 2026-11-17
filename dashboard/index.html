@@ -11,25 +11,32 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="grid"></i></div>
 
-<header class="nav">
-  <a class="logo" href="#/top10"><span class="mark">PL</span><span class="wordmark">Pressure<b>Lab</b></span></a>
-  <nav class="tabs" id="tabs">
-    <a href="#/top10" data-r="top10"><span>01</span>Top 10</a>
-    <a href="#/royals" data-r="royals"><span>02</span>Royals</a>
-    <a href="#/auction" data-r="auction"><span>03</span>Auction</a>
-    <a href="#/method" data-r="method"><span>04</span>Method</a>
+<aside class="rail">
+  <a class="crest" href="#/top10" aria-label="Pressure Lab — home">
+    <img src="rr-crest.svg" alt="">
+  </a>
+  <nav class="railnav" id="railnav">
+    <a href="#/top10" data-r="top10" data-label="Top 10">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v5a6 6 0 0 1-12 0V4Z"/><path d="M6 6H3.5A2.5 2.5 0 0 0 6 9.5M18 6h2.5A2.5 2.5 0 0 1 18 9.5"/><path d="M12 15v3M8.5 21h7l-1-3h-5l-1 3Z"/></svg></a>
+    <a href="#/royals" data-r="royals" data-label="Royals">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v6c0 4.4-3.3 7.9-8 9-4.7-1.1-8-4.6-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg></a>
+    <a href="#/auction" data-r="auction" data-label="Auction">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14 4 6 6M17 7 9.5 14.5M4 20h9"/><path d="m11 10 3 3-5.5 5.5a2.1 2.1 0 0 1-3-3L11 10Z"/></svg></a>
+    <a href="#/pressure" data-r="pressure" data-label="What is pressure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 18a9 9 0 1 1 17 0"/><path d="m12 14 4.5-4.5"/><circle cx="12" cy="14" r="1.6"/></svg></a>
   </nav>
-  <div class="navmeta"><span class="dot"></span>IPL + T20I · 2022–26</div>
-</header>
+  <div class="railfoot"><span>Pressure<b>Lab</b></span></div>
+</aside>
 
-<main id="app" aria-live="polite"></main>
-
-<footer class="foot">
-  <div>Unofficial analysis for SupeRR Selector Season 2. Not affiliated with Rajasthan Royals or the IPL.</div>
-  <div>Player images © IPL/BCCI, from iplt20.com · Supporting data from Cricsheet (ODC-By 1.0) · Built <span id="gen"></span></div>
-</footer>
+<div class="shell">
+  <main id="app" aria-live="polite"></main>
+  <footer class="foot">
+    <div>Unofficial analysis for SupeRR Selector Season 2. Not affiliated with Rajasthan Royals, the IPL or the BCCI.</div>
+    <div>Player images and crest © IPL/BCCI, from iplt20.com · Supporting data from Cricsheet (ODC-By 1.0) · Built <span id="gen"></span></div>
+  </footer>
+</div>
 
 <div id="tip" role="tooltip"></div>
 <script src="data.js"></script>

@@ -136,14 +136,14 @@ reality. With more players the slope rises to 0.96.
 
 ## The dashboard
 
-Dark, Royals-accented, built around full-size player cutouts. Four tabs:
+Dark, Royals-accented, with a fixed icon rail down the left and the RR crest as the mark. Built around full-size player cutouts; on the Top 10 you step through all ten with the arrows or the keyboard, without scrolling. Four tabs:
 
 - **01 Top 10** — the ranked ten with photos, a hero panel for whichever player you click, pressure
   vs ordinary splits, percentile meters, and how the ten were found
 - **02 Royals** — all 27 squad players, our retain/release call on each, and **what RR actually did**
 - **03 Auction** — purse after retention, the three gaps the data shows, and a target board built
   from every player released league-wide
-- **04 Method** — the full method, the weight sweep, the consistency test, and all 17 checks
+- **04 What is pressure** — the definition, the weight sweep, the consistency test, and all 17 checks
 
 ```bash
 python -m http.server 8777 --directory dashboard   # → http://localhost:8777

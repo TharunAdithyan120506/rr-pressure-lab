@@ -17,6 +17,25 @@ const SIL = `<svg viewBox="0 0 120 150" fill="rgba(255,255,255,.16)" aria-hidden
 const img = (p, cls = "") => (p ? `<img class="${cls}" src="photos/${p}" alt="" loading="lazy">` : `<span class="${cls}" style="display:grid;place-items:end center;height:100%">${SIL}</span>`);
 const byPid = Object.fromEntries(D.squad.map((p) => [p.pid, p]));
 const src = (id) => D.sources.find((s) => s.id === id);
+const ARROW_L = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>`;
+const ARROW_R = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>`;
+/** macOS-style segmented control: a sliding knob behind the labels. */
+function mac(opts, active, onPick) {
+  const i = opts.findIndex((o) => o.v === active);
+  const el = document.createElement("div");
+  el.className = "mac";
+  el.innerHTML = `<i></i>` + opts.map((o) => `<button data-v="${o.v}" class="${o.v === active ? "on" : ""}">${o.l}</button>`).join("");
+  requestAnimationFrame(() => {
+    const b = el.querySelectorAll("button")[i < 0 ? 0 : i];
+    const k = el.querySelector("i");
+    k.style.left = b.offsetLeft + "px";
+    k.style.width = b.offsetWidth + "px";
+  });
+  el.querySelectorAll("button").forEach((b) => b.onclick = () => onPick(b.dataset.v));
+  return el;
+}
+/** put a built node into the placeholder the template left behind */
+const mount = (sel, node) => { const h = app.querySelector(sel); if (h) h.replaceWith(node); };
 
 const tip = document.getElementById("tip");
 addEventListener("mousemove", (e) => {
@@ -87,8 +106,10 @@ function splitTable(s, role) {
     ${rows.map(([n, r]) => `<tr><td>${n}</td>${cell(r).map((v) => `<td class="r num">${v}</td>`).join("")}</tr>`).join("")}</table></div>`;
 }
 
-/* ---------------- 01 · TOP 10 ---------------- */
+/* ---------- 01 · TOP 10 ---------- */
 let lbRole = "batters", lbSel = 0;
+const lbStep = (d) => { const n = Math.min(10, D[lbRole].length); lbSel = (lbSel + d + n) % n; viewTop10(); };
+
 function viewTop10() {
   const isBat = lbRole === "batters", list = D[lbRole], hero = list[lbSel] || list[0];
   const c = D.top_cards[hero.pid], card = c ? (isBat ? c.bat : c.bowl) : null;
@@ -99,12 +120,21 @@ function viewTop10() {
     : [[f2(hero.econ_p), "Economy under pressure", "pink"], [f0(hero.wkts_p), "Wickets under pressure", "gold"], [f0(hero.n_p), "Pressure balls bowled", "blue"]];
 
   app.innerHTML = `
+  <div class="head">
+    <div class="ttl"><span class="eyebrow">Round 1 · most reliable under pressure</span>
+      <h1>The top ten</h1></div>
+    <span id="macslot"></span>
+    <div class="stepper">
+      <button id="prev" aria-label="Previous player">${ARROW_L}</button>
+      <span class="pos num">${String(lbSel + 1).padStart(2, "0")} / 10</span>
+      <button id="next" aria-label="Next player">${ARROW_R}</button>
+    </div>
+  </div>
+
   <section class="hero">
-    <i class="glow"></i><div class="rankword">${esc(first.toUpperCase())}</div>
+    <div class="rankword">${esc(first.toUpperCase())}</div>
     <div class="left">
       <div class="rankbadge"><i>RANK</i><b>${hero.rank}</b></div>
-      <div style="height:clamp(56px,8vw,96px)"></div>
-      <div class="eyebrow">Most reliable ${isBat ? "batters" : "bowlers"} under pressure</div>
       <h1>${esc(first)}<span class="l2">${esc(last)}</span></h1>
       <div class="meta">
         <span class="pill">${esc(hero.team2027 || hero.team)}</span>
@@ -113,46 +143,29 @@ function viewTop10() {
       </div>
       <div class="stack">${heroStats.map(([v2, k, cl]) => stat(v2, k, cl)).join("")}</div>
     </div>
+    <button class="arrow l" id="aprev" aria-label="Previous player">${ARROW_L}</button>
+    <button class="arrow r" id="anext" aria-label="Next player">${ARROW_R}</button>
     <div class="cut">${img(hero.photo)}</div>
     <div class="right">
       <div class="card"><h3>Pressure v ordinary</h3>${card ? pairBars(isBat ? batRows(card.splits) : bowlRows(card.splits)) : `<p class="note">—</p>`}</div>
-      <div class="card" style="margin-top:14px"><h3>Where he stands</h3>
+      <div class="card"><h3>Where he stands</h3>
         ${card?.model ? meter("Under pressure", card.model.level_pct, `${card.model.level >= 0 ? "+" : ""}${f1(100 * card.model.level)} runs per 100 balls v an average player`)
       + meter("Everyday level", card.model.ordinary_pct, "his baseline on ordinary balls")
-      + meter("Lift when it matters", card.model.lift_pct, `${card.model.lift >= 0 ? "+" : ""}${f1(100 * card.model.lift)} runs per 100 balls v his own everyday level`) : ""}
+      + meter("Lift when it matters", card.model.lift_pct, `${card.model.lift >= 0 ? "+" : ""}${f1(100 * card.model.lift)} v his own everyday level`) : ""}
       </div>
     </div>
   </section>
 
-  <section class="sec-pad">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px">
-      <div><h2 class="sec">The top ten</h2><p class="note">Click a player to load him above. ${D.counts[lbRole]} ${isBat ? "batters" : "bowlers"} qualified.</p></div>
-      <div class="seg"><button class="${isBat ? "on" : ""}" data-r="batters">Batters</button><button class="${isBat ? "" : "on"}" data-r="bowlers">Bowlers</button></div>
-    </div>
-    <div class="rail">${list.slice(0, 10).map((r, i) => `
-      <div class="rc ${i === lbSel ? "on" : ""}" data-i="${i}">
-        ${img(r.photo)}<span class="scrim"></span><span class="n num">${String(r.rank).padStart(2, "0")}</span>
-        <h4>${esc(r.name)}</h4><div class="t">${esc(r.team2027 || r.team)}</div><div class="rt num">${f1(r.rating)}</div>
-      </div>`).join("")}</div>
-  </section>
+  <div class="rail10">${list.slice(0, 10).map((r, i) => `
+    <div class="rc ${i === lbSel ? "on" : ""}" data-i="${i}">
+      ${img(r.photo)}<span class="scrim"></span><span class="n num">${String(r.rank).padStart(2, "0")}</span>
+      <h4>${esc(r.name)}</h4><div class="rt num">${f1(r.rating)}</div>
+    </div>`).join("")}</div>
 
   <section class="sec-pad grid3">
     ${tile(pc(pd.pressure_share_of_total_abs_wpa), "Of a match's win probability", "moves on the 20% of balls we call pressure")}
     ${tile(pc(pd.team_won_pressure_wpa_and_match), "Of sides that win those balls", "go on to win the match")}
     ${tile(f2(D.ctx.wp_v2_context.auc), "Win-probability model AUC", "on 2024–26 matches it never saw")}
-  </section>
-
-  <section class="sec-pad">
-    <h2 class="sec">How these ten were found</h2>
-    <p class="sub">Pressure is measured, not asserted. Four steps, each one testable.</p>
-    <div class="grid4" style="margin-top:18px">
-      ${[["01", "Win probability, every ball", `A model trained on 9,606 T20 matches gives the batting side's chance of winning before each delivery. On unseen matches its predictions are calibrated to within ${f1(100 * D.verification.checks[1].detail.match(/error ([\d.]+)/)[1])}%.`],
-      ["02", "Leverage Index", `How far that chance can swing across the ball's possible outcomes, divided by the average swing. 1.0 is an average ball; a pressure ball is one in the top 20% (LI ≥ ${f2(pd.q80)}).`],
-      ["03", "Value against expectation", `Each ball is compared with what an average player does in that exact situation — including how set the batter is and where he walked in — then credited for the opponent faced.`],
-      ["04", "Level and Lift", `Level is how good he is on pressure balls; Lift is how that compares with his own everyday standard. Both shrunk for sample size, then resampled 1,000 times.`]]
-      .map(([n, t, d]) => `<div class="card"><div style="font-family:var(--mono);color:var(--pink-2);font-size:11px;letter-spacing:.2em">${n}</div>
-        <h4 style="font-size:16px;margin:8px 0 7px">${t}</h4><p class="note" style="margin:0">${d}</p></div>`).join("")}
-    </div>
   </section>
 
   <section class="sec-pad grid2">
@@ -161,12 +174,13 @@ function viewTop10() {
       ${[["Balls", "balls", f0], ["Win probability moved per ball", "mean_abs_wpa_pct", (x) => f1(x) + "%"], ["Strike rate", "strike_rate", f0],
       ["Dot balls", "dot_pct", (x) => f1(x) + "%"], ["Boundaries", "boundary_pct", (x) => f1(x) + "%"], ["Wickets", "wicket_pct", (x) => f1(x) + "%"]]
       .map(([l, k, f]) => `<tr><td>${l}</td><td class="r num">${f(pd.pressure_vs_ordinary.pressure[k])}</td><td class="r num">${f(pd.pressure_vs_ordinary.ordinary[k])}</td></tr>`).join("")}
-      </table></div></div>
+      </table></div>
+      <p class="note" style="margin-top:10px"><a href="#/pressure" style="color:var(--pink-2);text-decoration:underline">How pressure is defined →</a></p></div>
     <div class="card"><h3>How far to trust the order</h3><ul class="why">
       <li>Split the matches in two at random and the halves agree at <b>${f2(v.split_half.composite.full_sample_reliability)}</b>, against ${f2(v.split_half.raw_level.full_sample_reliability)} for raw pressure averages.</li>
       <li>Estimated from half the matches, the rating predicts pressure results in the other half at <b>${f2(v.holdout_prediction["joint_shrunk_level (ours)"])}</b>, better than raw pressure averages (${f2(v.holdout_prediction.raw_pressure_average)}) or everyday balls alone (${f2(v.holdout_prediction.ordinary_ball_average)}).</li>
       <li>Top-10 odds below about 60% mean a player could plausibly sit a few places lower. Places 6–10 are close calls.</li>
-      <li><a href="#/method" style="color:var(--pink-2);text-decoration:underline">All 17 verification checks pass →</a></li></ul></div>
+      <li><a href="#/pressure" style="color:var(--pink-2);text-decoration:underline">All 17 verification checks pass →</a></li></ul></div>
   </section>
 
   <section class="sec-pad">
@@ -179,8 +193,11 @@ function viewTop10() {
     </table></div></div>
   </section>`;
 
-  app.querySelectorAll(".seg button").forEach((b) => b.onclick = () => { lbRole = b.dataset.r; lbSel = 0; viewTop10(); });
-  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => { lbSel = +el.dataset.i; viewTop10(); scrollTo({ top: 0, behavior: "smooth" }); });
+  mount("#macslot", mac([{ v: "batters", l: "Batters" }, { v: "bowlers", l: "Bowlers" }], lbRole,
+    (v) => { lbRole = v; lbSel = 0; viewTop10(); }));
+  app.querySelector("#prev").onclick = app.querySelector("#aprev").onclick = () => lbStep(-1);
+  app.querySelector("#next").onclick = app.querySelector("#anext").onclick = () => lbStep(1);
+  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => { lbSel = +el.dataset.i; viewTop10(); });
 }
 
 /* ---------------- 02 · ROYALS ---------------- */
@@ -191,9 +208,8 @@ function viewRoyals() {
   const fb = (k, v, l) => `<button class="${sqFilter[k] === v ? "on" : ""}" data-k="${k}" data-v="${v}">${l}</button>`;
   const best = [...D.squad].filter((p) => p.value.surplus_cr != null).sort((x, y) => y.value.surplus_cr - x.value.surplus_cr);
   app.innerHTML = `
-    <section style="padding-top:clamp(24px,4vw,46px)">
-      <div class="eyebrow">Rajasthan Royals · 2026 squad</div>
-      <h1 class="page">Who was worth keeping</h1>
+    <div class="head"><div class="ttl"><span class="eyebrow">Rajasthan Royals · 2026 squad</span><h1>Who was worth keeping</h1></div></div>
+    <section>
       <p class="sub">Every player rated on the same pressure scale, then priced against his contract. We published these calls on 16 November; RR announced their real list on the 17th. Both are shown.</p>
     </section>
 
@@ -309,9 +325,8 @@ function viewAuction() {
   const a = D.auction, p = a.purse, isB = auRole === "bowl";
   const board = a.board[auRole], spentPct = Math.min(100, 100 * p.spent / p.total);
   app.innerHTML = `
-    <section style="padding-top:clamp(24px,4vw,46px)">
-      <div class="eyebrow">Mini-auction · ${a.auction.date} · ${esc(a.auction.venue)}</div>
-      <h1 class="page">What Rajasthan should do</h1>
+    <div class="head"><div class="ttl"><span class="eyebrow">Mini-auction · ${a.auction.date} · ${esc(a.auction.venue)}</span><h1>What Rajasthan should do</h1></div></div>
+    <section>
       <p class="sub">RR go to Goa with ${cr(p.left)} and ${p.slots} slots. These are the gaps the data says they still have, and the released players who best fill them.</p>
     </section>
 
@@ -340,7 +355,7 @@ function viewAuction() {
       <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px">
         <div><h2 class="sec">The target board</h2>
           <p class="note">${a.pool_size} players were released league-wide; ${a.pool_rated} have enough pressure balls for us to rate. Ranked by how they perform when it matters.</p></div>
-        <div class="seg"><button class="${isB ? "on" : ""}" data-r="bowl">Bowlers</button><button class="${isB ? "" : "on"}" data-r="bat">Batters</button></div>
+        <span id="macslot"></span>
       </div>
       <div class="card">${board.map((t) => `
         <div class="target">
@@ -365,20 +380,25 @@ function viewAuction() {
           <b style="font-size:13.5px">${esc(l.title)}</b><p class="note" style="margin:5px 0 0">${esc(l.text)}</p>
           ${s ? `<a class="note" href="${s.url}" target="_blank" rel="noopener" style="color:var(--pink-2);text-decoration:underline">source</a>` : ""}</div>`; }).join("")}</div>
     </section>`;
-  app.querySelectorAll(".seg button").forEach((b) => b.onclick = () => { auRole = b.dataset.r; viewAuction(); });
+  mount("#macslot", mac([{ v: "bowl", l: "Bowlers" }, { v: "bat", l: "Batters" }], auRole, (v) => { auRole = v; viewAuction(); }));
 }
 
 /* ---------------- 04 · METHOD ---------------- */
-function viewMethod() {
+function viewPressure() {
   const pd = D.pressure_def, vb = D.validation.batters, vw = D.validation.bowlers, hb = D.hp.bat, hw = D.hp.bowl;
   const ver = D.verification, w = D.weights;
   const sensT = (rows) => `<div class="scroll"><table><tr><th>Change to the method</th><th class="r">Players</th><th class="r">Rank corr.</th><th class="r">Top 10 kept</th></tr>
     ${rows.map((r) => `<tr><td>${esc(r.variant)}</td><td class="r num">${r.players_compared}</td><td class="r num">${f2(r.spearman_vs_primary)}</td><td class="r num">${r.primary_top10_in_variant_top10}/10</td></tr>`).join("")}</table></div>`;
   app.innerHTML = `
-    <section style="padding-top:clamp(24px,4vw,46px)">
-      <div class="eyebrow">Method & verification</div>
-      <h1 class="page">Show the working</h1>
-      <p class="sub">Every claim here is produced by code in the repository, and every step that could be wrong has a test that can fail.</p>
+    <div class="head"><div class="ttl"><span class="eyebrow">The definition, and the tests behind it</span><h1>What is pressure</h1></div></div>
+    <section>
+      <p class="sub">Pressure is measured, not asserted. Every claim here is produced by code in the repository, and every step that could be wrong has a test that can fail.</p>
+    </section>
+
+    <section class="sec-pad grid3">
+      ${tile(f2(pd.q80), "A ball counts as pressure", "when its Leverage Index clears this; 1.0 is an average ball")}
+      ${tile(pc(pd.pressure_share_of_total_abs_wpa), "Of all win probability", "that moves in a match, moves on those balls")}
+      ${tile(`${f0(pd.pressure_vs_ordinary.pressure.strike_rate)} v ${f0(pd.pressure_vs_ordinary.ordinary.strike_rate)}`, "Strike rate, pressure v ordinary", "scoring really is harder when it matters")}
     </section>
 
     <section class="sec-pad card">
@@ -457,9 +477,9 @@ function viewMethod() {
 /* ---------------- router ---------------- */
 function route() {
   const [, r, id] = (location.hash || "#/top10").split("/");
-  document.querySelectorAll("#tabs a").forEach((a) => a.classList.toggle("on", a.dataset.r === r || (r === "royals" && a.dataset.r === "royals")));
+  document.querySelectorAll("#railnav a").forEach((a) => a.classList.toggle("on", a.dataset.r === r));
   try {
-    ({ top10: viewTop10, royals: () => (id ? viewPlayer(id) : viewRoyals()), auction: viewAuction, method: viewMethod }[r] || viewTop10)();
+    ({ top10: viewTop10, royals: () => (id ? viewPlayer(id) : viewRoyals()), auction: viewAuction, pressure: viewPressure }[r] || viewTop10)();
   } catch (e) {
     app.innerHTML = `<section class="sec-pad card"><h3>Something broke rendering this page</h3><p class="note">${esc(e.message)}</p></section>`;
     console.error(e);
@@ -467,4 +487,10 @@ function route() {
   scrollTo(0, 0);
 }
 addEventListener("hashchange", route);
+addEventListener("keydown", (e) => {
+  if (!(location.hash || "#/top10").startsWith("#/top10")) return;
+  if (e.target.closest("input,textarea")) return;
+  if (e.key === "ArrowLeft") { e.preventDefault(); lbStep(-1); }
+  if (e.key === "ArrowRight") { e.preventDefault(); lbStep(1); }
+});
 route();
