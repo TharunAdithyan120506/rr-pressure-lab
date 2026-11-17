@@ -36,6 +36,22 @@ function mac(opts, active, onPick) {
 }
 /** put a built node into the placeholder the template left behind */
 const mount = (sel, node) => { const h = app.querySelector(sel); if (h) h.replaceWith(node); };
+/** Player standing on a circular 3D stage. */
+const stage = (photo) => `<div class="stage"><i class="disc"></i><i class="ring"></i><i class="ring2"></i>
+  <span class="fig">${img(photo)}</span></div>`;
+/** Shrink a heading until every line fits its column — names vary a lot in length. */
+function fitName(el, max = 74, min = 20) {
+  if (!el) return;
+  // the display face loads async, so measure again once it is in
+  if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(() => fitName(el, max, min));
+  const w = el.clientWidth;
+  if (!w) return;
+  const lines = [...el.children];
+  const widest = () => Math.max(...lines.map((l) => l.scrollWidth));
+  let size = max;
+  el.style.fontSize = size + "px";
+  while (widest() > w && size > min) { size -= 1; el.style.fontSize = size + "px"; }
+}
 
 const tip = document.getElementById("tip");
 addEventListener("mousemove", (e) => {
@@ -107,8 +123,8 @@ function splitTable(s, role) {
 }
 
 /* ---------- 01 · TOP 10 ---------- */
-let lbRole = "batters", lbSel = 0;
-const lbStep = (d) => { const n = Math.min(10, D[lbRole].length); lbSel = (lbSel + d + n) % n; viewTop10(); };
+let lbRole = "batters", lbSel = 0, lbDir = 1;
+const lbStep = (d) => { lbDir = d; const n = Math.min(10, D[lbRole].length); lbSel = (lbSel + d + n) % n; viewTop10(); };
 
 function viewTop10() {
   const isBat = lbRole === "batters", list = D[lbRole], hero = list[lbSel] || list[0];
@@ -131,11 +147,11 @@ function viewTop10() {
     </div>
   </div>
 
-  <section class="hero">
+  <section class="hero" data-anim style="--dir:${lbDir}">
     <div class="rankword">${esc(first.toUpperCase())}</div>
     <div class="left">
       <div class="rankbadge"><i>RANK</i><b>${hero.rank}</b></div>
-      <h1>${esc(first)}<span class="l2">${esc(last)}</span></h1>
+      <h1 id="heroName"><span class="l1">${esc(first)}</span><span class="l2">${esc(last)}</span></h1>
       <div class="meta">
         <span class="pill">${esc(hero.team2027 || hero.team)}</span>
         <span class="pill">Rating <b>${f1(hero.rating)}</b></span>
@@ -145,14 +161,13 @@ function viewTop10() {
     </div>
     <button class="arrow l" id="aprev" aria-label="Previous player">${ARROW_L}</button>
     <button class="arrow r" id="anext" aria-label="Next player">${ARROW_R}</button>
-    <div class="cut">${img(hero.photo)}</div>
+    ${stage(hero.photo)}
     <div class="right">
       ${hero.note ? `<div class="whycard"><div class="h">${esc(hero.note.head)}</div><p>${esc(hero.note.body)}</p></div>` : ""}
       ${hero.recent?.length ? `<div class="recent">${hero.recent.map((m) => `
         <div class="r" data-tip="${esc(m.comp)} · moved his side's win probability by ${m.wpa >= 0 ? "+" : ""}${f1(m.wpa)}%">
           <b>${esc(m.line)}</b><span class="o">v ${esc(m.opp)}</span><span class="w">${m.wpa >= 0 ? "+" : ""}${f0(m.wpa)}%</span>
         </div>`).join("")}</div>` : ""}
-      <div class="card"><h3>Pressure v ordinary</h3>${card ? pairBars(isBat ? batRows(card.splits) : bowlRows(card.splits)) : `<p class="note">—</p>`}</div>
     </div>
   </section>
 
@@ -161,6 +176,16 @@ function viewTop10() {
       ${img(r.photo)}<span class="scrim"></span><span class="n num">${String(r.rank).padStart(2, "0")}</span>
       <h4>${esc(r.name)}</h4><div class="rt num">${f1(r.rating)}</div>
     </div>`).join("")}</div>
+
+  <section class="sec-pad grid2">
+    <div class="card"><h3>${esc(hero.name)} — pressure v ordinary</h3>
+      ${card ? pairBars(isBat ? batRows(card.splits) : bowlRows(card.splits)) : `<p class="note">—</p>`}</div>
+    <div class="card"><h3>Where he stands</h3>
+      ${card?.model ? meter("Under pressure", card.model.level_pct, `${card.model.level >= 0 ? "+" : ""}${f1(100 * card.model.level)} runs per 100 balls v an average player`)
+      + meter("Everyday level", card.model.ordinary_pct, "his baseline on ordinary balls")
+      + meter("Lift when it matters", card.model.lift_pct, `${card.model.lift >= 0 ? "+" : ""}${f1(100 * card.model.lift)} v his own everyday level`)
+      + `<p class="note" style="margin:0">${f0(card.model.n_p)} pressure balls across ${f0(card.model.m_p)} matches.</p>` : `<p class="note">—</p>`}</div>
+  </section>
 
   <section class="sec-pad grid3">
     ${tile(pc(pd.pressure_share_of_total_abs_wpa), "Of a match's win probability", "moves on the 20% of balls we call pressure")}
@@ -197,7 +222,10 @@ function viewTop10() {
     (v) => { lbRole = v; lbSel = 0; viewTop10(); }));
   app.querySelector("#prev").onclick = app.querySelector("#aprev").onclick = () => lbStep(-1);
   app.querySelector("#next").onclick = app.querySelector("#anext").onclick = () => lbStep(1);
-  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => { lbSel = +el.dataset.i; viewTop10(); });
+  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => {
+    lbDir = +el.dataset.i >= lbSel ? 1 : -1; lbSel = +el.dataset.i; viewTop10();
+  });
+  fitName(app.querySelector("#heroName"));
 }
 
 /* ---------------- 02 · ROYALS ---------------- */
@@ -274,18 +302,18 @@ function viewPlayer(pid) {
     ? [[pw ? f2(pw.econ) : "–", "Economy under pressure", "pink"], [pw ? f0(pw.wkts) : "–", "Wickets under pressure", "gold"], [f0(mdl?.n_p || 0), "Pressure balls", "blue"]]
     : [[pb ? f0(pb.sr) : "–", "Strike rate under pressure", "pink"], [pb && pb.outs ? f1(pb.avg) : "–", "Average under pressure", "gold"], [f0(mdl?.n_p || 0), "Pressure balls", "blue"]];
   app.innerHTML = `
-  <section class="hero">
-    <i class="glow"></i><div class="rankword">ROYALS</div>
+  <section class="hero" data-anim style="--dir:1">
+    <div class="rankword">ROYALS</div>
     <div class="left">
       <a class="note" href="#/royals" style="font-weight:600">← Squad</a>
-      <h1 style="margin-top:14px">${esc(first)}<span class="l2">${esc(last)}</span></h1>
+      <h1 id="heroName" style="margin-top:14px"><span class="l1">${esc(first)}</span><span class="l2">${esc(last)}</span></h1>
       <div class="meta"><span class="pill">${esc(p.role)}</span><span class="pill">Age <b>${p.age}</b></span>
         <span class="pill">${esc(p.country)}${p.overseas ? " ✈" : ""}</span><span class="pill">${esc(p.bats)} · ${esc(p.bowls)}</span></div>
       <div class="stack">${heroLeft.map(([a2, k, cl]) => stat(a2, k, cl)).join("")}</div>
     </div>
     <button class="arrow l" id="pprev" aria-label="Previous player">${ARROW_L}</button>
     <button class="arrow r" id="pnext" aria-label="Next player">${ARROW_R}</button>
-    <div class="cut">${img(p.photo)}</div>
+    ${stage(p.photo)}
     <div class="right">
       <div class="card"><h3>Pressure rating</h3>
         <div style="display:flex;gap:22px;flex-wrap:wrap">
@@ -301,6 +329,7 @@ function viewPlayer(pid) {
   <section class="sec-pad" style="display:flex;justify-content:space-between;gap:12px">
     <a class="note" href="#/royals/${prev.pid}" style="font-weight:600">← ${esc(prev.name)}</a>
     <a class="note" href="#/royals/${next.pid}" style="font-weight:600">${esc(next.name)} →</a></section>`;
+  fitName(app.querySelector("#heroName"));
   app.querySelector("#pprev").onclick = () => location.hash = `#/royals/${prev.pid}`;
   app.querySelector("#pnext").onclick = () => location.hash = `#/royals/${next.pid}`;
 }
@@ -614,6 +643,8 @@ function route() {
   }
   scrollTo(0, 0);
 }
+let fitTimer;
+addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(() => fitName(app.querySelector("#heroName")), 120); });
 addEventListener("hashchange", route);
 addEventListener("keydown", (e) => {
   if (!(location.hash || "#/top10").startsWith("#/top10")) return;
