@@ -15226,11 +15226,11 @@
    "confidence": "High",
    "headline": "Five straight productive seasons and no pressure dip; expensive but not replaceable.",
    "reasons": [
-    "81st percentile under pressure (20th of 110), strike rate 154 under pressure v 158 otherwise.",
+    "73rd percentile under pressure (28th of 111), strike rate 160 under pressure v 156 otherwise, and a lift in the 92nd percentile: he is one of the few RR batters who does not dip.",
     "400+ runs in each of the last four IPL seasons at 152-164.",
     "At Rs 18 crore the model values his output nearer Rs 10 crore, but an Indian opener of this quality does not reach a mini-auction."
    ],
-   "watch": "Trade speculation exists; franchise sources say he stays. Middle-overs strike rate (139) is the growth area.",
+   "watch": "Trade speculation exists; franchise sources say he stays. Average drops from 37 to 32 under pressure even as the strike rate holds.",
    "sources": [
     "jaiswal-trade"
    ],
@@ -15970,8 +15970,8 @@
    "confidence": "High",
    "headline": "The best pressure batter in the entire dataset, at Rs 1.1 crore.",
    "reasons": [
-    "Ranked No. 1 of 110 batters under pressure; probability of being a true top-10 player 99.9%.",
-    "IPL 2026: 776 runs at a strike rate of 238 (Orange Cap). On pressure balls he averages 65 at 218.",
+    "Ranked No. 1 of 111 batters under pressure; he tops the list in essentially every resample of his matches.",
+    "IPL 2026: 776 runs at a strike rate of 238 (Orange Cap). On pressure balls he averages 79 at a strike rate of 240.",
     "Model value about Rs 31 crore a season against a Rs 1.1 crore salary: the largest surplus on any contract we can see."
    ],
    "watch": "Only 673 balls of evidence and he is 15: manage workload and expect bowlers to adjust.",
@@ -16444,7 +16444,7 @@
    "headline": "Captain and Indian middle-order core; average under pressure, paid as a star.",
    "reasons": [
     "IPL 2024-26: 573, 393 and 309 runs at 150-167.",
-    "Under pressure: strike rate 135 v 156 otherwise, average 23. Lift in the 8th percentile.",
+    "Under pressure: strike rate 148 v 153 otherwise, average 28. Lift in the 18th percentile, 58th percentile overall.",
     "Worth about Rs 6 crore on our scale against Rs 14 crore. Continuity as captain and the lack of a like-for-like Indian replacement at a mini-auction carry the decision."
    ],
    "watch": "If results stall, this is the contract to revisit before the 2028 mega auction.",
@@ -17355,8 +17355,8 @@
    "headline": "Keeper and 515 runs in 2026, but the squad's clearest pressure dip.",
    "reasons": [
     "IPL 2026: 515 runs, strike rate 155, six fifties; keeps wicket, which the model does not value.",
-    "Under pressure his strike rate falls from 157 to 132 and his average from 34 to 24: lift in the 3rd percentile.",
-    "Strike rate 128 against spin. Output is worth about Rs 6 crore on our scale against a Rs 14 crore salary."
+    "Under pressure his strike rate falls from 159 to 129 and his average from 34 to 23: lift in the 5th percentile, the worst in the squad.",
+    "14th percentile overall under pressure, 101st of 111. Output is worth about Rs 6 crore on our scale against a Rs 14 crore salary."
    ],
    "watch": "Keep, but do not build the chase around him: pair with a spin-hitter at 4 or 5.",
    "sources": [
@@ -17855,7 +17855,7 @@
    "reasons": [
     "IPL 2026: 78 runs at a strike rate of 113, average 13; dropped by the last league game.",
     "IPL output has fallen 314 -> 299 -> 113 -> 239 -> 78 runs.",
-    "Under pressure he averages 17 (31 otherwise). Deficit about Rs 9 crore, the largest in the squad."
+    "Under pressure he averages 21 against 29 otherwise. Deficit about Rs 9 crore, the largest in the squad."
    ],
    "watch": "Still strong in internationals (strike rate 186 since 2025): worth a bid below Rs 4 crore, not a retention.",
    "sources": [
@@ -18400,9 +18400,9 @@
    "reasons": [
     "IPL 2026: 317 runs at 179, average 35; 206 at the death.",
     "Equally quick against pace (162) and spin (168): the profile the middle order lacks.",
-    "86th percentile batting estimate; surplus about Rs 6.7 crore."
+    "88th percentile batting estimate; surplus about Rs 6.7 crore."
    ],
-   "watch": "Only 39 pressure balls so far: the estimate leans on his overall record.",
+   "watch": "Only 34 pressure balls so far: the estimate leans on his overall record.",
    "sources": [
     "rr-purse-2026"
    ],
@@ -20464,8 +20464,8 @@
    "confidence": "Medium",
    "headline": "Still RR's best bowler when it matters, but Rs 14 crore buys far more at auction.",
    "reasons": [
-    "Bowling under pressure: economy 7.1 v 8.1 otherwise; lift in the 90th percentile, level 67th.",
-    "Batting: strike rate 136 in each of the last two seasons (135 across five), bottom percentile of ranked batters; 112 against spin.",
+    "Bowling under pressure: economy 7.69 v 7.94 otherwise; 59th percentile with the ball, 43rd of 115.",
+    "Batting: 4th percentile of ranked batters under pressure, 102nd of 111, and 128 strike rate when it tightens.",
     "Turns 38 in December and missed games injured in 2026. Output worth about Rs 7 crore against Rs 14 crore."
    ],
    "watch": "Bold call: only release if the plan is to bid back up to about Rs 7 crore. The safe scenario keeps him.",
@@ -21425,9 +21425,9 @@
    "reasons": [
     "Ruled out of IPL 2026 with a groin injury.",
     "IPL bowling economy 10.2, 10.2, 11.1 in his last three seasons; batting strike rate 124-139.",
-    "Bowling 29th percentile, batting 16th under pressure. Uses an overseas slot."
+    "Bowling 25th percentile (84th of 115), batting 21st (70th of 111) under pressure. Uses an overseas slot."
    ],
-   "watch": "Reported swap for Mohammed Shami is unconfirmed. Shami ranks 60th of 112 under pressure (economy 7.6) and is 36: useful, not a fix.",
+   "watch": "Reported swap for Mohammed Shami is unconfirmed. Shami rates around the middle of the pool under pressure and is 36: useful, not a fix.",
    "sources": [
     "outlook-curran",
     "fpj-shami",
@@ -22369,7 +22369,7 @@
    "headline": "Injury replacement who made little impact; 35 years old.",
    "reasons": [
     "IPL 2026: 63 runs and 1 wicket in 7 matches.",
-    "Mid-table estimates in both skills (45th and 41st percentile).",
+    "Mid-table estimates in both skills (64th percentile batting, 47th bowling).",
     "Frees an overseas slot."
    ],
    "watch": "None.",
@@ -23312,7 +23312,7 @@
    "headline": "The only strike bowler: 25 wickets in 2026. Needs a partner for the pressure overs.",
    "reasons": [
     "IPL 2026: 25 wickets in 16 matches, 44% dot balls.",
-    "Overall quality 73rd percentile, but pressure economy 9.6 v 8.9: lift in the 2nd percentile.",
+    "67th percentile with the ball, but his lift sits in the 17th: economy 8.82 under pressure against 9.14 otherwise is barely a gain on an already expensive baseline.",
     "Model value (Rs 12.9 crore) matches his Rs 12.5 crore salary."
    ],
    "watch": "Do not use him as the sole death option; workload across formats.",
@@ -24188,7 +24188,7 @@
    "headline": "Two poor IPL seasons in a row at Rs 7.2 crore; still a good international bowler.",
    "reasons": [
     "IPL economy 10.8 (2025) and 9.9 (2026); dropped after 1 May 2026.",
-    "Five-season record is average-plus (56th percentile), and he has 11 international wickets at an economy of 8.4 since 2025.",
+    "Five-season record is middling (52nd percentile, 63rd of 115), though he has 11 international wickets at an economy of 8.4 since 2025.",
     "Output worth about Rs 4 crore against Rs 7.2 crore."
    ],
    "watch": "Rebuy up to about Rs 4 crore; otherwise the money goes to a spinner who bowls the pressure overs.",
@@ -25132,7 +25132,7 @@
    "reasons": [
     "IPL 2026: 4 wickets in 7 matches, economy 12.0.",
     "Economy by season: 9.9, 8.8, 10.6, 12.0.",
-    "34th percentile under pressure; deficit about Rs 3 crore."
+    "33rd percentile under pressure, 80th of 115; deficit about Rs 3 crore."
    ],
    "watch": "None.",
    "sources": [
@@ -25985,7 +25985,7 @@
    "headline": "A fine record that has faded: economy 8.2 -> 9.9 -> 11.4.",
    "reasons": [
     "IPL 2026: 5 wickets in 6 matches, economy 11.4.",
-    "Five-season quality is good (78th percentile) but pressure economy is 10.3 v 8.8: lift in the 5th percentile.",
+    "Five-season quality is good (70th percentile, 39th of 115) but his pressure economy is 9.89 against 8.81 otherwise: lift in the 8th percentile.",
     "Turns 34 in May."
    ],
    "watch": "A base-price rebuy as new-ball cover would be reasonable (powerplay economy 7.5).",
@@ -26670,7 +26670,7 @@
    "headline": "Useful left-arm depth at a fair price, not the answer for the second strike bowler.",
    "reasons": [
     "IPL 2026: 14 wickets in 13 matches but economy 10.1.",
-    "25th percentile under pressure (economy 10.2).",
+    "31st percentile under pressure, 76th of 115.",
     "Value (Rs 4.4 crore) roughly matches salary (Rs 3.5 crore); a like-for-like overseas seamer would cost more at auction."
    ],
    "watch": "Release becomes right if an overseas slot is needed for a better quick.",
@@ -27383,7 +27383,7 @@
    "headline": "One game in 2026 for Rs 2.4 crore.",
    "reasons": [
     "IPL 2026: 20 balls, economy 12.3.",
-    "21st percentile under pressure; 34 years old.",
+    "27th percentile under pressure, 92nd of 115; 34 years old.",
     "Frees an overseas slot and Rs 2.4 crore."
    ],
    "watch": "None.",
@@ -28930,7 +28930,7 @@
    "headline": "Uncapped find: 14 wickets in 13 matches at base price.",
    "reasons": [
     "IPL 2026: 14 wickets, bowled 297 balls: RR's second-most-used seamer.",
-    "Early estimate 80th percentile (only 90 pressure balls, so heavily shrunk toward average).",
+    "Early estimate 82nd percentile, though only 87 pressure balls, so it is heavily shrunk toward average.",
     "Surplus about Rs 10 crore at a Rs 0.3 crore salary."
    ],
    "watch": "One season of evidence; economy 10.6 at the death.",
@@ -29941,7 +29941,7 @@
    "headline": "Did not play in 2026.",
    "reasons": [
     "No IPL appearance since 2024 (economy 10.2 that year).",
-    "21st percentile estimate.",
+    "24th percentile estimate, on only 80 pressure balls.",
     "Squad slot is worth more than the Rs 0.75 crore."
    ],
    "watch": "None.",
@@ -30484,7 +30484,7 @@
    "headline": "No games in 2026; economy 12 in 2025.",
    "reasons": [
     "138 IPL balls at an economy of 11.0.",
-    "Bottom-decile estimate (10th percentile).",
+    "Bottom-decile estimate (13th percentile).",
     "Rs 0.35 crore: the squad slot matters more than the money."
    ],
    "watch": "One report says RR intend to retain him; our numbers do not support it, but the stakes are small.",
