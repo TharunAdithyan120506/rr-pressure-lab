@@ -11,10 +11,15 @@ from .features import WP_FEATURES
 
 # state + era + competition + venue: used for expected runs / wickets (no team strength, so a
 # player is not penalised or flattered for the team he plays in; opponents are handled later).
-CTX_FEATURES = WP_FEATURES + ["year", "is_ipl", "venue_factor"]
+# Expected runs / wickets also see how set the batter is, where he walked in, and how deep the
+# bowler is into his spell. Without these a finisher arriving fresh at the death is compared with
+# an average batter who is already set, which flatters anchors and punishes finishers.
+SITUATION = ["batter_balls_before", "batter_entry_wkt", "bowler_balls_before", "over_ball"]
+CTX_FEATURES = WP_FEATURES + ["year", "is_ipl", "venue_factor"] + SITUATION
 # win probability additionally knows how strong the two teams are
 WP2_FEATURES = CTX_FEATURES + ["bat_elo", "bowl_elo", "elo_diff"]
 # crr is included so wicket cost compares like-for-like scoring so far (less confounding)
+END_FEATURES = ["runs_required", "balls_left", "wickets_in_hand"]
 REM_FEATURES = ["balls_left", "wickets", "crr", "year", "is_ipl", "is_t20i", "venue_factor"]
 
 ALIASES = {

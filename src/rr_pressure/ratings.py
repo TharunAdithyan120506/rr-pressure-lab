@@ -24,11 +24,17 @@ from scipy import sparse
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import GroupKFold
 
-# Level = estimated true pressure performance; Lift = pressure minus own ordinary baseline.
-# The share of positive pressure appearances ("cons") is reported as evidence only: it has no
-# detectable between-player signal (variance below binomial noise). Consistency enters through
-# the match bootstrap instead: the final score is a lower quantile, not the mean.
-WEIGHTS = {"level": 0.7, "lift": 0.3}
+# Level = estimated true pressure performance; Lift = pressure minus the player's own everyday level.
+# The split is not hand-picked. scripts/11_weights_consistency.py sweeps it and measures how well
+# each mix predicts a player's pressure performance in matches the estimate never saw. The curve is
+# flat near its peak, so a band of weights is statistically indistinguishable from the optimum
+# (batters: optimum 0.65, band from 0.50;
+# bowlers: optimum 0.90, band from 0.60). The brief asks explicitly for
+# performance "compared with their usual performance levels", so we take the midpoint between the
+# optimum and the most Lift-leaning weight the data still supports.
+WEIGHTS = {"level": 0.6, "lift": 0.4}                      # batters
+WEIGHTS_BOWL = {"level": 0.75, "lift": 0.25}                 # bowlers
+ROLE_WEIGHTS = {"bat": WEIGHTS, "bowl": WEIGHTS_BOWL}
 MIN_PRESSURE_BALLS = 100
 MIN_PRESSURE_MATCHES = 15
 ACTIVE_SINCE = "2025-01-01"
@@ -297,8 +303,13 @@ class Rater:
         if only_elig:
             x, N, idx, cons = x[self.elig], N[self.elig], idx[self.elig], cons[self.elig]
         Sig, mu = hp["Sig"], hp["mu"]
-        u = np.linalg.solve(Sig[None] + self._D(N, hp["K"]), (x - mu)[:, :, None])[:, :, 0]
+        A = Sig[None] + self._D(N, hp["K"])
+        u = np.linalg.solve(A, (x - mu)[:, :, None])[:, :, 0]
         post = mu + u @ Sig                                   # posterior mean of the four talents
+        # posterior covariance V = Sig - Sig A^-1 Sig: how much genuine uncertainty is left about
+        # this player's talent. The bootstrap below measures something different (how much the
+        # estimate moves when his matches are resampled), so both are reported.
+        V = Sig[None] - Sig[None] @ np.linalg.solve(A, np.broadcast_to(Sig, A.shape))
         level, ordinary = post @ A_LEVEL, post @ A_ORD
         lift = (level - mu @ A_LEVEL) - (ordinary - mu @ A_ORD)
         # standardise in units of TRUE-talent spread, so a part with little real signal adds little
@@ -306,7 +317,11 @@ class Rater:
         z_lift = lift / hp["sd_lift"] if hp["sd_lift"] > 0 else np.zeros_like(lift)
         w = self.weights
         comp = w["level"] * z_level + w["lift"] * z_lift
-        return pd.DataFrame({"level": level, "ordinary": ordinary, "lift": lift,
+        # the composite is a fixed linear function of the four talents, so its posterior SD is c'Vc
+        c = w["level"] * A_LEVEL / hp["sd_level"] + (w["lift"] * (A_LEVEL - A_ORD) / hp["sd_lift"]
+                                                     if hp["sd_lift"] > 0 else 0)
+        post_sd = np.sqrt(np.maximum(np.einsum("i,nij,j->n", c, V, c), 0))
+        return pd.DataFrame({"level": level, "ordinary": ordinary, "lift": lift, "post_sd": post_sd,
                              "level_runs": post[:, 0], "level_wkt": post[:, 1],
                              "raw_level": x[:, 0] + x[:, 1], "raw_ordinary": x[:, 2] + x[:, 3], "cons": cons,
                              "z_level": z_level, "z_lift": z_lift, "composite": comp}, index=idx)
@@ -322,7 +337,11 @@ class Rater:
         ranks = (-comps).argsort(0).argsort(0) + 1
         res["name"] = self.meta["name"].reindex(res.index)
         res["boot_mean"], res["boot_sd"] = comps.mean(1), comps.std(1)
-        res["lo"], res["hi"] = np.quantile(comps, 0.05, axis=1), np.quantile(comps, 0.95, axis=1)
+        # 90% credible interval for true talent, from the posterior; the bootstrap quantiles are
+        # kept separately because they answer a different question (stability, not uncertainty)
+        res["lo"] = res["composite"] - 1.645 * res["post_sd"]
+        res["hi"] = res["composite"] + 1.645 * res["post_sd"]
+        res["boot_lo"], res["boot_hi"] = np.quantile(comps, 0.05, axis=1), np.quantile(comps, 0.95, axis=1)
         res["score"] = np.quantile(comps, 0.25, axis=1)          # conservative: 75% sure to be at least this
         res["p_top10"] = (ranks <= 10).mean(1)
         res["p_top20"] = (ranks <= 20).mean(1)

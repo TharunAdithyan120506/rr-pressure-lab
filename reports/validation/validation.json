@@ -1,37 +1,37 @@
 {
  "pressure_definition": {
-  "li_mean_raw": 0.015506492220932533,
+  "li_mean_raw": 0.014080557438911099,
   "knockout_mult": 1.25,
-  "q50": 0.7890824110298262,
-  "q70": 1.1805624553382996,
-  "q80": 1.500697749636074,
-  "q85": 1.7399513260771595,
-  "q90": 2.086722680927811,
+  "q50": 0.8036778873346077,
+  "q70": 1.1702635095748328,
+  "q80": 1.4741724194459669,
+  "q85": 1.6974745368983772,
+  "q90": 2.0166305168402556,
   "pressure_vs_ordinary": {
    "ordinary": {
-    "balls": 153973,
-    "strike_rate": 140.69,
-    "dot_pct": 36.386,
-    "boundary_pct": 18.732,
-    "wicket_pct": 5.509,
-    "mean_abs_wpa_pct": 1.164,
-    "mean_li": 0.648
+    "balls": 154017,
+    "strike_rate": 140.594,
+    "dot_pct": 36.51,
+    "boundary_pct": 18.752,
+    "wicket_pct": 5.496,
+    "mean_abs_wpa_pct": 1.127,
+    "mean_li": 0.671
    },
    "pressure": {
-    "balls": 38439,
-    "strike_rate": 134.529,
-    "dot_pct": 39.861,
-    "boundary_pct": 18.564,
-    "wicket_pct": 5.282,
-    "mean_abs_wpa_pct": 4.007,
-    "mean_li": 2.41
+    "balls": 38395,
+    "strike_rate": 134.909,
+    "dot_pct": 39.366,
+    "boundary_pct": 18.484,
+    "wicket_pct": 5.336,
+    "mean_abs_wpa_pct": 3.528,
+    "mean_li": 2.315
    }
   },
-  "pressure_share_of_total_abs_wpa": 0.46313293715337117,
-  "team_won_pressure_wpa_and_match": 0.7392761394101877,
+  "pressure_share_of_total_abs_wpa": 0.4395380552026768,
+  "team_won_pressure_wpa_and_match": 0.7438127090301003,
   "rule_overlap": {
-   "p_li_given_rule": 0.3332945285215367,
-   "p_rule_given_li": 0.21369392680317467,
+   "p_li_given_rule": 0.36515327900659683,
+   "p_rule_given_li": 0.23412036921852064,
    "rule_share": 0.128233836416021
   }
  },
@@ -39,181 +39,181 @@
   {
    "match": "IPL 2023 final, CSK chase v GT",
    "balls": 94,
-   "mean_li_first_10_overs": 1.557,
-   "mean_li_last_3_overs": 4.086666666666666,
-   "peak_li": 14.069353054147237,
+   "mean_li_first_10_overs": 2.1239999999999997,
+   "mean_li_last_3_overs": 3.92,
+   "peak_li": 15.494153170725541,
    "peak_at_ball": 90,
    "peak_needed": "4 off 1",
-   "wp_at_peak": 0.4847469925880432,
-   "pressure_share": 0.6808510638297872
+   "wp_at_peak": 0.4892520260395908,
+   "pressure_share": 0.9361702127659575
   },
   {
    "match": "IPL 2023, KKR chase v GT (Rinku Singh)",
    "balls": 123,
-   "mean_li_first_10_overs": 0.951,
-   "mean_li_last_3_overs": 1.19,
-   "peak_li": 16.786077024814702,
+   "mean_li_first_10_overs": 0.8160000000000001,
+   "mean_li_last_3_overs": 1.4666666666666668,
+   "peak_li": 18.48599914701906,
    "peak_at_ball": 120,
    "peak_needed": "4 off 1",
-   "wp_at_peak": 0.2425377368927002,
-   "pressure_share": 0.34146341463414637
+   "wp_at_peak": 0.3001819284414797,
+   "pressure_share": 0.2845528455284553
   },
   {
    "match": "IPL 2025 final, PBKS chase v RCB",
    "balls": 123,
-   "mean_li_first_10_overs": 1.8830000000000002,
-   "mean_li_last_3_overs": 0.25333333333333335,
-   "peak_li": 5.08789775701257,
-   "peak_at_ball": 4,
-   "peak_needed": "185 off 117",
-   "wp_at_peak": 0.6070457696914673,
-   "pressure_share": 0.6178861788617886
+   "mean_li_first_10_overs": 1.3930000000000002,
+   "mean_li_last_3_overs": 0.39666666666666667,
+   "peak_li": 4.578783960506168,
+   "peak_at_ball": 93,
+   "peak_needed": "70 off 28",
+   "wp_at_peak": 0.20904391229425395,
+   "pressure_share": 0.43902439024390244
   },
   {
    "match": "Asia Cup 2025 final, India chase v Pakistan",
    "balls": 120,
-   "mean_li_first_10_overs": 2.152,
-   "mean_li_last_3_overs": 3.073333333333333,
-   "peak_li": 5.9576412437640895,
-   "peak_at_ball": 115,
-   "peak_needed": "10 off 6",
-   "wp_at_peak": 0.7210966348648071,
-   "pressure_share": 0.9333333333333333
+   "mean_li_first_10_overs": 1.8850000000000002,
+   "mean_li_last_3_overs": 3.4466666666666668,
+   "peak_li": 6.796983893657596,
+   "peak_at_ball": 116,
+   "peak_needed": "8 off 5",
+   "wp_at_peak": 0.7128309572301424,
+   "pressure_share": 0.8833333333333333
   }
  ],
  "batters": {
   "split_half": {
    "composite": {
-    "half_vs_half": 0.376,
-    "full_sample_reliability": 0.546
+    "half_vs_half": 0.392,
+    "full_sample_reliability": 0.564
    },
    "level": {
-    "half_vs_half": 0.385,
-    "full_sample_reliability": 0.556
+    "half_vs_half": 0.394,
+    "full_sample_reliability": 0.565
    },
    "lift": {
-    "half_vs_half": 0.136,
-    "full_sample_reliability": 0.239
+    "half_vs_half": 0.173,
+    "full_sample_reliability": 0.295
    },
    "raw_level": {
-    "half_vs_half": 0.099,
-    "full_sample_reliability": 0.18
+    "half_vs_half": 0.111,
+    "full_sample_reliability": 0.201
    },
    "raw_lift": {
-    "half_vs_half": -0.008,
-    "full_sample_reliability": -0.015
+    "half_vs_half": -0.003,
+    "full_sample_reliability": -0.005
    }
   },
   "holdout_prediction": {
-   "raw_pressure_average": 0.16,
-   "pressure_only_shrunk": 0.24,
-   "joint_shrunk_level (ours)": 0.273,
-   "ordinary_ball_average": 0.234
+   "raw_pressure_average": 0.207,
+   "pressure_only_shrunk": 0.216,
+   "joint_shrunk_level (ours)": 0.277,
+   "ordinary_ball_average": 0.229
   },
   "persistence": {
-   "players": 56,
+   "players": 54,
    "predict_later_pressure_level": {
-    "raw_pressure_average": 0.041,
-    "pressure_only_shrunk": 0.033,
-    "joint_shrunk_level (ours)": 0.033,
-    "ordinary_ball_average": 0.026
+    "raw_pressure_average": 0.035,
+    "pressure_only_shrunk": -0.084,
+    "joint_shrunk_level (ours)": -0.079,
+    "ordinary_ball_average": -0.017
    },
    "lift_persistence": {
-    "raw_lift_then_vs_later": -0.117,
-    "shrunk_lift_then_vs_later": -0.022
+    "raw_lift_then_vs_later": 0.006,
+    "shrunk_lift_then_vs_later": -0.11
    }
   },
-  "score_vs_pressure_wpa_per_ball": 0.584,
+  "score_vs_pressure_wpa_per_ball": 0.61,
   "sensitivity": [
    {
     "variant": "LI top 30%",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.969,
-    "primary_top10_in_variant_top10": 9,
+    "players_compared": 111,
+    "spearman_vs_primary": 0.943,
+    "primary_top10_in_variant_top10": 8,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "LI top 15%",
-    "players_compared": 85,
-    "spearman_vs_primary": 0.968,
-    "primary_top10_in_variant_top10": 9,
-    "primary_top10_in_variant_top20": 9
+    "players_compared": 88,
+    "spearman_vs_primary": 0.971,
+    "primary_top10_in_variant_top10": 8,
+    "primary_top10_in_variant_top20": 8
    },
    {
     "variant": "LI top 10%",
-    "players_compared": 48,
-    "spearman_vs_primary": 0.916,
-    "primary_top10_in_variant_top10": 5,
-    "primary_top10_in_variant_top20": 5
+    "players_compared": 45,
+    "spearman_vs_primary": 0.887,
+    "primary_top10_in_variant_top10": 3,
+    "primary_top10_in_variant_top20": 3
    },
    {
     "variant": "no knockout multiplier",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.995,
+    "players_compared": 111,
+    "spearman_vs_primary": 0.994,
     "primary_top10_in_variant_top10": 10,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "rule-based pressure",
-    "players_compared": 57,
-    "spearman_vs_primary": 0.904,
+    "players_compared": 58,
+    "spearman_vs_primary": 0.875,
     "primary_top10_in_variant_top10": 5,
     "primary_top10_in_variant_top20": 5
    },
    {
     "variant": "pressure sample only (no borrowing)",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.487,
-    "primary_top10_in_variant_top10": 4,
-    "primary_top10_in_variant_top20": 4
+    "players_compared": 111,
+    "spearman_vs_primary": 0.485,
+    "primary_top10_in_variant_top10": 3,
+    "primary_top10_in_variant_top20": 5
    },
    {
     "variant": "level only (no lift)",
-    "players_compared": 110,
+    "players_compared": 111,
+    "spearman_vs_primary": 0.967,
+    "primary_top10_in_variant_top10": 9,
+    "primary_top10_in_variant_top20": 10
+   },
+   {
+    "variant": "level 50 / lift 50",
+    "players_compared": 111,
+    "spearman_vs_primary": 0.993,
+    "primary_top10_in_variant_top10": 10,
+    "primary_top10_in_variant_top20": 10
+   },
+   {
+    "variant": "no lift talent (kappa 0)",
+    "players_compared": 111,
+    "spearman_vs_primary": 0.909,
+    "primary_top10_in_variant_top10": 8,
+    "primary_top10_in_variant_top20": 10
+   },
+   {
+    "variant": "large lift talent (kappa 0.8)",
+    "players_compared": 111,
     "spearman_vs_primary": 0.982,
     "primary_top10_in_variant_top10": 10,
     "primary_top10_in_variant_top20": 10
    },
    {
-    "variant": "level 50 / lift 50",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.984,
-    "primary_top10_in_variant_top10": 9,
-    "primary_top10_in_variant_top20": 10
-   },
-   {
-    "variant": "no lift talent (kappa 0)",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.936,
-    "primary_top10_in_variant_top10": 9,
-    "primary_top10_in_variant_top20": 10
-   },
-   {
-    "variant": "large lift talent (kappa 0.8)",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.979,
-    "primary_top10_in_variant_top10": 8,
-    "primary_top10_in_variant_top20": 10
-   },
-   {
     "variant": "no opponent adjustment",
-    "players_compared": 110,
-    "spearman_vs_primary": 0.986,
-    "primary_top10_in_variant_top10": 10,
+    "players_compared": 111,
+    "spearman_vs_primary": 0.989,
+    "primary_top10_in_variant_top10": 9,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "IPL only",
-    "players_compared": 63,
-    "spearman_vs_primary": 0.909,
+    "players_compared": 65,
+    "spearman_vs_primary": 0.914,
     "primary_top10_in_variant_top10": 8,
-    "primary_top10_in_variant_top20": 8
+    "primary_top10_in_variant_top20": 9
    },
    {
     "variant": "T20I only",
     "players_compared": 71,
-    "spearman_vs_primary": 0.795,
-    "primary_top10_in_variant_top10": 5,
+    "spearman_vs_primary": 0.851,
+    "primary_top10_in_variant_top10": 4,
     "primary_top10_in_variant_top20": 5
    }
   ]
@@ -221,58 +221,58 @@
  "bowlers": {
   "split_half": {
    "composite": {
-    "half_vs_half": 0.426,
-    "full_sample_reliability": 0.597
+    "half_vs_half": 0.399,
+    "full_sample_reliability": 0.571
    },
    "level": {
-    "half_vs_half": 0.457,
-    "full_sample_reliability": 0.627
+    "half_vs_half": 0.464,
+    "full_sample_reliability": 0.634
    },
    "lift": {
-    "half_vs_half": 0.115,
-    "full_sample_reliability": 0.207
+    "half_vs_half": 0.101,
+    "full_sample_reliability": 0.184
    },
    "raw_level": {
-    "half_vs_half": 0.086,
-    "full_sample_reliability": 0.159
+    "half_vs_half": 0.091,
+    "full_sample_reliability": 0.168
    },
    "raw_lift": {
-    "half_vs_half": -0.019,
-    "full_sample_reliability": -0.038
+    "half_vs_half": 0.032,
+    "full_sample_reliability": 0.062
    }
   },
   "holdout_prediction": {
-   "raw_pressure_average": 0.101,
-   "pressure_only_shrunk": 0.154,
-   "joint_shrunk_level (ours)": 0.225,
-   "ordinary_ball_average": 0.165
+   "raw_pressure_average": 0.066,
+   "pressure_only_shrunk": 0.105,
+   "joint_shrunk_level (ours)": 0.172,
+   "ordinary_ball_average": 0.143
   },
   "persistence": {
-   "players": 61,
+   "players": 56,
    "predict_later_pressure_level": {
-    "raw_pressure_average": 0.269,
-    "pressure_only_shrunk": 0.161,
-    "joint_shrunk_level (ours)": 0.318,
-    "ordinary_ball_average": 0.317
+    "raw_pressure_average": 0.077,
+    "pressure_only_shrunk": 0.26,
+    "joint_shrunk_level (ours)": 0.353,
+    "ordinary_ball_average": 0.285
    },
    "lift_persistence": {
-    "raw_lift_then_vs_later": 0.13,
-    "shrunk_lift_then_vs_later": 0.03
+    "raw_lift_then_vs_later": -0.041,
+    "shrunk_lift_then_vs_later": 0.197
    }
   },
-  "score_vs_pressure_wpa_per_ball": 0.629,
+  "score_vs_pressure_wpa_per_ball": 0.536,
   "sensitivity": [
    {
     "variant": "LI top 30%",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.964,
+    "players_compared": 115,
+    "spearman_vs_primary": 0.963,
     "primary_top10_in_variant_top10": 9,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "LI top 15%",
     "players_compared": 91,
-    "spearman_vs_primary": 0.977,
+    "spearman_vs_primary": 0.952,
     "primary_top10_in_variant_top10": 9,
     "primary_top10_in_variant_top20": 10
    },
@@ -280,77 +280,77 @@
     "variant": "LI top 10%",
     "players_compared": 57,
     "spearman_vs_primary": 0.957,
-    "primary_top10_in_variant_top10": 6,
-    "primary_top10_in_variant_top20": 6
+    "primary_top10_in_variant_top10": 8,
+    "primary_top10_in_variant_top20": 8
    },
    {
     "variant": "no knockout multiplier",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.995,
+    "players_compared": 113,
+    "spearman_vs_primary": 0.981,
     "primary_top10_in_variant_top10": 9,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "rule-based pressure",
-    "players_compared": 91,
-    "spearman_vs_primary": 0.87,
-    "primary_top10_in_variant_top10": 5,
+    "players_compared": 92,
+    "spearman_vs_primary": 0.855,
+    "primary_top10_in_variant_top10": 6,
     "primary_top10_in_variant_top20": 8
    },
    {
     "variant": "pressure sample only (no borrowing)",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.457,
+    "players_compared": 115,
+    "spearman_vs_primary": 0.191,
     "primary_top10_in_variant_top10": 3,
     "primary_top10_in_variant_top20": 4
    },
    {
     "variant": "level only (no lift)",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.975,
-    "primary_top10_in_variant_top10": 9,
+    "players_compared": 115,
+    "spearman_vs_primary": 0.987,
+    "primary_top10_in_variant_top10": 10,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "level 50 / lift 50",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.972,
+    "players_compared": 115,
+    "spearman_vs_primary": 0.953,
     "primary_top10_in_variant_top10": 9,
     "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "no lift talent (kappa 0)",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.924,
-    "primary_top10_in_variant_top10": 6,
-    "primary_top10_in_variant_top20": 9
-   },
-   {
-    "variant": "large lift talent (kappa 0.8)",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.97,
-    "primary_top10_in_variant_top10": 9,
+    "players_compared": 115,
+    "spearman_vs_primary": 0.947,
+    "primary_top10_in_variant_top10": 7,
     "primary_top10_in_variant_top20": 10
    },
    {
-    "variant": "no opponent adjustment",
-    "players_compared": 112,
-    "spearman_vs_primary": 0.981,
+    "variant": "large lift talent (kappa 0.8)",
+    "players_compared": 115,
+    "spearman_vs_primary": 0.911,
     "primary_top10_in_variant_top10": 8,
     "primary_top10_in_variant_top20": 10
    },
    {
+    "variant": "no opponent adjustment",
+    "players_compared": 115,
+    "spearman_vs_primary": 0.964,
+    "primary_top10_in_variant_top10": 10,
+    "primary_top10_in_variant_top20": 10
+   },
+   {
     "variant": "IPL only",
-    "players_compared": 68,
-    "spearman_vs_primary": 0.88,
-    "primary_top10_in_variant_top10": 7,
-    "primary_top10_in_variant_top20": 8
+    "players_compared": 67,
+    "spearman_vs_primary": 0.878,
+    "primary_top10_in_variant_top10": 8,
+    "primary_top10_in_variant_top20": 10
    },
    {
     "variant": "T20I only",
-    "players_compared": 68,
-    "spearman_vs_primary": 0.865,
-    "primary_top10_in_variant_top10": 5,
+    "players_compared": 71,
+    "spearman_vs_primary": 0.812,
+    "primary_top10_in_variant_top10": 4,
     "primary_top10_in_variant_top20": 6
    }
   ]

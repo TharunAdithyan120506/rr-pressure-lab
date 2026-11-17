@@ -414,8 +414,10 @@ def main() -> None:
         f"balls; bowlers {f2(100 * hw['sd_level'])}.",
         f"**Lift** = Level minus the player's own ordinary talent. Spread: batters {f2(100 * hb['sd_lift'])} runs per 100 "
         f"balls, bowlers {f2(100 * hw['sd_lift'])}.",
-        f"**Composite** = {P['weights']['level']:.0%} Level + {P['weights']['lift']:.0%} Lift, each in units of its own "
-        "true-talent spread, so a component with little real signal contributes little.",
+        f"**Composite** = {P['weights']['bat']['level']:.0%} Level + {P['weights']['bat']['lift']:.0%} Lift for batters and "
+        f"{P['weights']['bowl']['level']:.0%} / {P['weights']['bowl']['lift']:.0%} for bowlers. These are not hand-picked: we sweep the mix and keep the one "
+        "that best predicts pressure performance in matches the estimate never saw, leaning to Lift within the band "
+        "that is statistically indistinguishable from the optimum.",
         f"**Final score** = the first quartile of the composite across {P['bootstrap']:,} bootstrap resamples of whole "
         "matches. A player is only rated highly if he stays high when his matches are reshuffled. The published rating "
         "rescales this so 100 is the average qualified player and 15 points is one standard deviation.",

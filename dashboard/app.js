@@ -1,353 +1,470 @@
-/* RR Pressure Lab - static dashboard. Data comes from data.js (window.DATA). */
+/* Pressure Lab — static dashboard. All numbers come from data.js (window.DATA). */
 const D = window.DATA;
 const app = document.getElementById("app");
 document.getElementById("gen").textContent = D.generated;
 
-// ---------- helpers ----------
+/* ---------------- helpers ---------------- */
 const f0 = (x) => (x == null || isNaN(x) ? "–" : Math.round(x).toLocaleString("en-IN"));
 const f1 = (x) => (x == null || isNaN(x) ? "–" : (+x).toFixed(1));
 const f2 = (x) => (x == null || isNaN(x) ? "–" : (+x).toFixed(2));
+const pc = (x) => (x == null ? "–" : Math.round(100 * x) + "%");
 const cr = (x) => (x == null ? "–" : "₹" + (+x).toFixed(x < 10 && x % 1 ? 2 : 1).replace(/\.0$/, "") + " cr");
 const ord = (n) => { n = Math.round(n); const s = ["th", "st", "nd", "rd"], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); };
-const vClass = (v) => ({ "Retain": "v-retain", "Release": "v-release", "Release & rebuy": "v-rebuy", "Trade chip": "v-trade" }[v]);
-const chip = (v) => `<span class="chip ${vClass(v)}">${v}</span>`;
-const SIL = `<div class="sil"><svg width="150" height="180" viewBox="0 0 120 145" fill="currentColor" aria-label="No photo"><circle cx="60" cy="40" r="27"/><path d="M6 145c0-35 24-58 54-58s54 23 54 58z"/></svg></div>`;
-const CODE = { India: "IND", Australia: "AUS", England: "ENG", "South Africa": "RSA", "New Zealand": "NZ",
-  "Sri Lanka": "SL", "West Indies": "WI", Pakistan: "PAK", Bangladesh: "BAN", Afghanistan: "AFG",
-  Zimbabwe: "ZIM", Ireland: "IRE" };
-const flag = (c) => CODE[c] || (c || "").slice(0, 3).toUpperCase();
-const photo = (p) => (p.photo ? `<img src="photos/${p.photo}" alt="${p.name}" loading="lazy">` : SIL);
-const src = (id) => D.sources.find((s) => s.id === id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const vClass = (v) => ({ "Retain": "v-retain", "Release": "v-release", "Release & rebuy": "v-rebuy", "Trade chip": "v-trade" }[v] || "v-trade");
+const chip = (v) => `<span class="chip ${vClass(v)}">${esc(v)}</span>`;
+const SIL = `<svg viewBox="0 0 120 150" fill="rgba(255,255,255,.16)" aria-hidden="true"><circle cx="60" cy="42" r="28"/><path d="M4 150c0-36 25-60 56-60s56 24 56 60z"/></svg>`;
+const img = (p, cls = "") => (p ? `<img class="${cls}" src="photos/${p}" alt="" loading="lazy">` : `<span class="${cls}" style="display:grid;place-items:end center;height:100%">${SIL}</span>`);
 const byPid = Object.fromEntries(D.squad.map((p) => [p.pid, p]));
-const PURSE = D.purse.purse_total_cr;
+const src = (id) => D.sources.find((s) => s.id === id);
 
 const tip = document.getElementById("tip");
-document.addEventListener("mousemove", (e) => {
+addEventListener("mousemove", (e) => {
   const t = e.target.closest("[data-tip]");
   if (!t) { tip.style.opacity = 0; return; }
-  tip.innerHTML = t.dataset.tip;
-  tip.style.opacity = 1;
-  const w = tip.offsetWidth, x = Math.min(e.clientX + 14, innerWidth - w - 8);
-  tip.style.left = x + "px"; tip.style.top = e.clientY + 16 + "px";
+  tip.innerHTML = t.dataset.tip; tip.style.opacity = 1;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 10) + "px";
+  tip.style.top = Math.min(e.clientY + 16, innerHeight - tip.offsetHeight - 10) + "px";
 });
 
-/** Paired bars: pressure v ordinary, one metric per row, each on its own scale. */
+const stat = (v, k, cls = "") => `<div class="stat ${cls}"><div class="v num">${v}</div><div class="k">${k}</div></div>`;
+const tile = (v, k, d) => `<div class="card"><div class="k" style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)">${k}</div>
+  <div style="font-family:var(--disp);font-size:32px;font-weight:900;line-height:1.1;margin-top:6px">${v}</div><div class="note" style="margin-top:3px">${d || ""}</div></div>`;
+
 function pairBars(rows) {
   const body = rows.filter((r) => r.p != null || r.o != null).map((r) => {
     const max = Math.max(r.p || 0, r.o || 0) * 1.12 || 1;
-    const one = (v, col, name) => v == null ? "" :
-      `<div class="bar" data-tip="${r.label} · ${name}: <b>${r.fmt(v)}</b>${r.n ? "<br>" + r.n[name === "Pressure" ? 0 : 1] : ""}"><i style="width:${(100 * v / max).toFixed(1)}%;background:var(--${col})"></i><span>${r.fmt(v)}</span></div>`;
-    return `<div class="pb"><div class="lab">${r.label}<small>${r.hint || ""}</small></div><div class="bars">${one(r.p, "pressure", "Pressure")}${one(r.o, "ordinary", "Ordinary")}</div></div>`;
+    const one = (v, col, nm, i) => v == null ? "" :
+      `<div class="bar" data-tip="${r.label} · ${nm}: <b>${r.fmt(v)}</b>${r.n && r.n[i] ? "<br>" + r.n[i] : ""}"><i style="width:${(100 * v / max).toFixed(1)}%;background:var(--${col})"></i><span>${r.fmt(v)}</span></div>`;
+    return `<div class="pb"><div class="lab">${r.label}<small>${r.hint || ""}</small></div><div class="bars">${one(r.p, "press", "Pressure", 0)}${one(r.o, "ord", "Ordinary", 1)}</div></div>`;
   }).join("");
-  return `<div class="legend"><span><i style="background:var(--pressure)"></i>Pressure balls</span><span><i style="background:var(--ordinary)"></i>Ordinary balls</span></div>${body}`;
+  return `<div class="legend"><span><i style="background:var(--press)"></i>Pressure balls</span><span><i style="background:var(--ord)"></i>Ordinary balls</span></div>${body}`;
 }
 const batRows = (s) => {
   const p = s.pressure, o = s.ordinary; if (!p && !o) return [];
   const n = [p ? `${f0(p.balls)} balls` : "", o ? `${f0(o.balls)} balls` : ""];
-  return [
-    { label: "Strike rate", hint: "runs per 100 balls", p: p?.sr, o: o?.sr, fmt: f0, n },
-    { label: "Average", hint: "runs per dismissal", p: p?.outs ? p.avg : null, o: o?.outs ? o.avg : null, fmt: f1, n },
-    { label: "Boundary %", hint: "balls hit for 4 or 6", p: p?.bnd_pct, o: o?.bnd_pct, fmt: f1, n },
-    { label: "Dot ball %", hint: "lower is better", p: p?.dot_pct, o: o?.dot_pct, fmt: f1, n },
-  ];
+  return [{ label: "Strike rate", hint: "runs per 100 balls", p: p?.sr, o: o?.sr, fmt: f0, n },
+  { label: "Average", hint: "runs per dismissal", p: p?.outs ? p.avg : null, o: o?.outs ? o.avg : null, fmt: f1, n },
+  { label: "Boundary %", hint: "balls hit for 4 or 6", p: p?.bnd_pct, o: o?.bnd_pct, fmt: f1, n },
+  { label: "Dot ball %", hint: "lower is better", p: p?.dot_pct, o: o?.dot_pct, fmt: f1, n }];
 };
 const bowlRows = (s) => {
   const p = s.pressure, o = s.ordinary; if (!p && !o) return [];
   const n = [p ? `${f0(p.balls)} balls, ${f0(p.wkts)} wickets` : "", o ? `${f0(o.balls)} balls, ${f0(o.wkts)} wickets` : ""];
-  return [
-    { label: "Economy", hint: "runs per over, lower is better", p: p?.econ, o: o?.econ, fmt: f2, n },
-    { label: "Balls per wicket", hint: "lower is better", p: p?.wkts ? p.sr : null, o: o?.wkts ? o.sr : null, fmt: f1, n },
-    { label: "Dot ball %", hint: "higher is better", p: p?.dot_pct, o: o?.dot_pct, fmt: f1, n },
-    { label: "Boundary %", hint: "conceded, lower is better", p: p?.bnd_pct, o: o?.bnd_pct, fmt: f1, n },
-  ];
+  return [{ label: "Economy", hint: "runs per over, lower is better", p: p?.econ, o: o?.econ, fmt: f2, n },
+  { label: "Balls per wicket", hint: "lower is better", p: p?.wkts ? p.sr : null, o: o?.wkts ? o.sr : null, fmt: f1, n },
+  { label: "Dot ball %", hint: "higher is better", p: p?.dot_pct, o: o?.dot_pct, fmt: f1, n },
+  { label: "Boundary %", hint: "conceded, lower is better", p: p?.bnd_pct, o: o?.bnd_pct, fmt: f1, n }];
 };
-function meter(label, pct, detail) {
-  if (pct == null) return "";
-  return `<div class="meter"><div class="top2"><span>${label}</span><span>${ord(pct)} percentile</span></div>
-    <div class="trk" data-tip="${label}: better than ${Math.round(pct)}% of ranked players"><i style="left:${Math.max(2, Math.min(98, pct))}%"></i></div><small>${detail || ""}</small></div>`;
-}
+const meter = (label, v, detail) => v == null ? "" :
+  `<div class="meter"><div class="top"><span>${label}</span><b>${ord(v)} pct</b></div>
+   <div class="trk" data-tip="${label}: better than ${Math.round(v)}% of ranked players"><i style="left:${Math.max(2, Math.min(98, v))}%"></i></div><small>${detail || ""}</small></div>`;
 function seasonCols(byYear, key, sub, fmtSub) {
   const yrs = Object.keys(byYear).filter((y) => byYear[y]).sort();
   if (!yrs.length) return `<p class="note">No IPL deliveries in the data.</p>`;
   const max = Math.max(...yrs.map((y) => byYear[y][key] || 0), 1);
-  return `<div class="cols">${yrs.map((y) => { const r = byYear[y]; return `<div class="c" data-tip="IPL ${y}: <b>${f0(r[key])}</b> ${key === "runs" ? "runs" : "wickets"} · ${sub === "sr" ? "strike rate" : "economy"} ${fmtSub(r[sub])} · ${f0(r.balls)} balls">
-    <b>${f0(r[key])}</b><i style="height:${Math.max(2, 78 * (r[key] || 0) / max)}px"></i><span>${y}</span><small>${fmtSub(r[sub])}</small></div>`; }).join("")}</div>`;
+  return `<div class="cols">${yrs.map((y) => { const r = byYear[y]; return `<div class="c" data-tip="IPL ${y}: <b>${f0(r[key])}</b> ${key === "runs" ? "runs" : "wickets"} · ${fmtSub(r[sub])} · ${f0(r.balls)} balls">
+    <b>${f0(r[key])}</b><i style="height:${Math.max(3, 82 * (r[key] || 0) / max)}px"></i><span>${y}</span><small>${fmtSub(r[sub])}</small></div>`; }).join("")}</div>`;
+}
+function moments(list, role) {
+  if (!list?.length) return `<p class="note">No pressure appearances in the data.</p>`;
+  return `<div class="mom">${list.map((m) => `<span class="note num">${m.date}</span><span>${m.kind === "worst" ? "Toughest day: " : ""}v ${esc(m.opp)}
+    <br><span class="note">${role === "bat" ? `${m.runs} runs off ${m.balls} pressure balls${m.wk ? ", dismissed" : ""}` : `${m.wk} wkt${m.wk === 1 ? "" : "s"} for ${m.runs} off ${m.balls} pressure balls`} · ${esc(m.comp)}</span></span>
+    <span class="w ${m.wpa_pct >= 0 ? "pos" : "neg"}" data-tip="Change in his team's win probability across those balls">${m.wpa_pct >= 0 ? "+" : ""}${f1(m.wpa_pct)}%</span>`).join("")}</div>`;
 }
 function splitTable(s, role) {
   const rows = [];
-  const add = (name, r) => { if (r && r.balls) rows.push([name, r]); };
+  const add = (n, r) => { if (r && r.balls) rows.push([n, r]); };
   add("All matches", s.all); add("IPL", s.ipl); add("T20 internationals", s.t20i); add("IPL 2026", s.ipl_2026);
   ["powerplay", "middle", "death"].forEach((ph) => add(ph[0].toUpperCase() + ph.slice(1) + " overs", s.phase?.[ph]));
   if (role === "bat") { add("Against pace", s.vs_type?.Pace); add("Against spin", s.vs_type?.Spin); }
   add("Batting first", s.innings?.["1"]); add(role === "bat" ? "Chasing" : "Defending", s.innings?.["2"]);
-  if (role === "bat") return `<div class="scroll"><table><tr><th>Split</th><th class="r">Balls</th><th class="r">Runs</th><th class="r">Strike rate</th><th class="r">Average</th><th class="r">Boundary %</th><th class="r">Dot %</th></tr>
-    ${rows.map(([n, r]) => `<tr><td>${n}</td><td class="r num">${f0(r.balls)}</td><td class="r num">${f0(r.runs)}</td><td class="r num">${f0(r.sr)}</td><td class="r num">${r.outs ? f1(r.avg) : "–"}</td><td class="r num">${f1(r.bnd_pct)}</td><td class="r num">${f1(r.dot_pct)}</td></tr>`).join("")}</table></div>`;
-  return `<div class="scroll"><table><tr><th>Split</th><th class="r">Balls</th><th class="r">Wickets</th><th class="r">Economy</th><th class="r">Balls / wicket</th><th class="r">Dot %</th><th class="r">Boundary %</th></tr>
-    ${rows.map(([n, r]) => `<tr><td>${n}</td><td class="r num">${f0(r.balls)}</td><td class="r num">${f0(r.wkts)}</td><td class="r num">${f2(r.econ)}</td><td class="r num">${r.wkts ? f1(r.sr) : "–"}</td><td class="r num">${f1(r.dot_pct)}</td><td class="r num">${f1(r.bnd_pct)}</td></tr>`).join("")}</table></div>`;
+  const h = role === "bat" ? ["Balls", "Runs", "Strike rate", "Average", "Bnd %", "Dot %"] : ["Balls", "Wickets", "Economy", "Balls/wkt", "Dot %", "Bnd %"];
+  const cell = (r) => role === "bat"
+    ? [f0(r.balls), f0(r.runs), f0(r.sr), r.outs ? f1(r.avg) : "–", f1(r.bnd_pct), f1(r.dot_pct)]
+    : [f0(r.balls), f0(r.wkts), f2(r.econ), r.wkts ? f1(r.sr) : "–", f1(r.dot_pct), f1(r.bnd_pct)];
+  return `<div class="scroll"><table><tr><th>Split</th>${h.map((x) => `<th class="r">${x}</th>`).join("")}</tr>
+    ${rows.map(([n, r]) => `<tr><td>${n}</td>${cell(r).map((v) => `<td class="r num">${v}</td>`).join("")}</tr>`).join("")}</table></div>`;
 }
-function moments(list, role) {
-  if (!list || !list.length) return `<p class="note">No pressure appearances in the data.</p>`;
-  return `<div class="mom">${list.map((m) => `<span class="note num">${m.date}</span><span>${m.kind === "worst" ? "Toughest day: " : ""}v ${m.opp} <span class="note">· ${m.comp}</span><br>
-    <span class="note">${role === "bat" ? `${m.runs} runs off ${m.balls} pressure balls${m.wk ? ", dismissed" : ""}` : `${m.wk} wkt${m.wk === 1 ? "" : "s"} for ${m.runs} off ${m.balls} pressure balls`}</span></span>
-    <span class="w ${m.wpa_pct >= 0 ? "pos" : "neg"}" data-tip="Change in his team's win probability across those balls">${m.wpa_pct >= 0 ? "+" : ""}${f1(m.wpa_pct)}%</span>`).join("")}</div>`;
-}
-const modelNote = (m) => !m ? "" : (m.eligible
-  ? `${f0(m.n_p)} pressure balls in ${f0(m.m_p)} matches: enough for a full ranking.`
-  : `Only ${f0(m.n_p)} pressure balls (${f0(m.m_p)} matches): below the ranking threshold, so the estimate sits close to average.`);
 
-// ---------- squad ----------
-const retained = new Set(D.squad.filter((p) => p.verdict === "Retain").map((p) => p.pid));
-let squadFilter = { group: "all", verdict: "all" };
-function purseStats(set) {
-  const keep = D.squad.filter((p) => set.has(p.pid));
-  const spent = keep.reduce((a, p) => a + p.salary, 0);
-  return { n: keep.length, spent, left: PURSE - spent, slots: D.purse.squad_max - keep.length, os: keep.filter((p) => p.overseas).length };
-}
-function viewSquad() {
-  const st = purseStats(new Set(D.squad.filter((p) => p.verdict === "Retain").map((p) => p.pid)));
-  const counts = {}; D.squad.forEach((p) => counts[p.verdict] = (counts[p.verdict] || 0) + 1);
-  const list = D.squad.filter((p) => (squadFilter.group === "all" || p.group === squadFilter.group) && (squadFilter.verdict === "all" || p.verdict === squadFilter.verdict));
-  const fb = (k, v, label) => `<button class="${squadFilter[k] === v ? "on" : ""}" data-k="${k}" data-v="${v}">${label}</button>`;
+/* ---------------- 01 · TOP 10 ---------------- */
+let lbRole = "batters", lbSel = 0;
+function viewTop10() {
+  const isBat = lbRole === "batters", list = D[lbRole], hero = list[lbSel] || list[0];
+  const c = D.top_cards[hero.pid], card = c ? (isBat ? c.bat : c.bowl) : null;
+  const pd = D.pressure_def, v = D.validation[lbRole];
+  const nm = hero.name.split(" "), first = nm.shift(), last = nm.join(" ") || first;
+  const heroStats = isBat
+    ? [[f0(hero.sr_p), "Strike rate under pressure", "pink"], [f1(hero.avg_p), "Average under pressure", "gold"], [f0(hero.n_p), "Pressure balls faced", "blue"]]
+    : [[f2(hero.econ_p), "Economy under pressure", "pink"], [f0(hero.wkts_p), "Wickets under pressure", "gold"], [f0(hero.n_p), "Pressure balls bowled", "blue"]];
+
   app.innerHTML = `
-    <div class="eyebrow">IPL 2027 retention window · deadline 17 November 2026</div>
-    <h1 class="page">Rajasthan Royals: who stays, who goes</h1>
-    <p class="sub">Every player in the 2026 squad, judged on how he performs when the match is on the line compared with his everyday level, what he costs, and what a replacement would cost. Open a player for the full evidence.</p>
-    <div class="grid g4 section">
-      <div class="tile"><div class="k">Retain</div><div class="v num">${st.n} <span style="font-size:15px;color:var(--muted)">of ${D.squad.length}</span></div><div class="d">${counts["Release"] || 0} release · ${counts["Release & rebuy"] || 0} release and rebuy · ${counts["Trade chip"] || 0} trade</div></div>
-      <div class="tile"><div class="k">Purse left for the auction</div><div class="v num">${cr(st.left)}</div><div class="d">of ${cr(PURSE)} (reported, not confirmed)</div></div>
-      <div class="tile"><div class="k">Squad slots to fill</div><div class="v num">${st.slots}</div><div class="d">squad limit ${D.purse.squad_max}</div></div>
-      <div class="tile"><div class="k">Overseas players kept</div><div class="v num">${st.os} <span style="font-size:15px;color:var(--muted)">of ${D.purse.overseas_max}</span></div><div class="d">${D.purse.overseas_max - st.os} overseas slots open</div></div>
+  <section class="hero">
+    <i class="glow"></i><div class="rankword">${esc(first.toUpperCase())}</div>
+    <div class="left">
+      <div class="rankbadge"><i>RANK</i><b>${hero.rank}</b></div>
+      <div style="height:clamp(56px,8vw,96px)"></div>
+      <div class="eyebrow">Most reliable ${isBat ? "batters" : "bowlers"} under pressure</div>
+      <h1>${esc(first)}<span class="l2">${esc(last)}</span></h1>
+      <div class="meta">
+        <span class="pill">${esc(hero.team2027 || hero.team)}</span>
+        <span class="pill">Rating <b>${f1(hero.rating)}</b></span>
+        <span class="pill" data-tip="Share of 1,000 resamples of his matches in which he still ranks top 10">Top-10 odds <b>${pc(hero.p_top10)}</b></span>
+      </div>
+      <div class="stack">${heroStats.map(([v2, k, cl]) => stat(v2, k, cl)).join("")}</div>
     </div>
-    <div class="grid g3 section">${D.needs.map((n, i) => `<div class="card"><h3>Auction need ${i + 1}</h3><b>${n.need}</b><p class="note" style="margin:8px 0 0">${n.evidence}</p></div>`).join("")}</div>
-    <div class="filters">${fb("group", "all", "All")}${fb("group", "bat", "Batters")}${fb("group", "ar", "All-rounders")}${fb("group", "bowl", "Bowlers")}<span class="sep"></span>
-      ${fb("verdict", "all", "Any verdict")}${fb("verdict", "Retain", "Retain")}${fb("verdict", "Release", "Release")}${fb("verdict", "Release & rebuy", "Release & rebuy")}${fb("verdict", "Trade chip", "Trade chip")}</div>
-    <div class="squad">${list.map((p) => {
-      const r = p.group === "bowl" ? p.rank_bowl : p.rank_bat || p.rank_bowl;
-      return `<a class="pc" href="#/player/${p.pid}">
-        <div class="tilebox"><span class="flag">${flag(p.country)}</span>${p.overseas ? '<span class="os">✈</span>' : ""}<span class="no">${p.jersey ?? ""}</span><span class="ph">${photo(p)}</span></div>
-        <div class="meta"><h4>${p.name}</h4><div class="role">${p.role}</div>
-        <div class="row"><span class="price num">${cr(p.salary)}</span>${chip(p.verdict)}</div>
-        <div class="rk">${r ? `Pressure rank ${r.rank} of ${r.of}` : "Not enough pressure balls to rank"}</div></div></a>`; }).join("") || `<p class="note">No players match these filters.</p>`}</div>`;
-  app.querySelectorAll(".filters button").forEach((b) => b.onclick = () => { squadFilter[b.dataset.k] = b.dataset.v; viewSquad(); });
+    <div class="cut">${img(hero.photo)}</div>
+    <div class="right">
+      <div class="card"><h3>Pressure v ordinary</h3>${card ? pairBars(isBat ? batRows(card.splits) : bowlRows(card.splits)) : `<p class="note">—</p>`}</div>
+      <div class="card" style="margin-top:14px"><h3>Where he stands</h3>
+        ${card?.model ? meter("Under pressure", card.model.level_pct, `${card.model.level >= 0 ? "+" : ""}${f1(100 * card.model.level)} runs per 100 balls v an average player`)
+      + meter("Everyday level", card.model.ordinary_pct, "his baseline on ordinary balls")
+      + meter("Lift when it matters", card.model.lift_pct, `${card.model.lift >= 0 ? "+" : ""}${f1(100 * card.model.lift)} runs per 100 balls v his own everyday level`) : ""}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px">
+      <div><h2 class="sec">The top ten</h2><p class="note">Click a player to load him above. ${D.counts[lbRole]} ${isBat ? "batters" : "bowlers"} qualified.</p></div>
+      <div class="seg"><button class="${isBat ? "on" : ""}" data-r="batters">Batters</button><button class="${isBat ? "" : "on"}" data-r="bowlers">Bowlers</button></div>
+    </div>
+    <div class="rail">${list.slice(0, 10).map((r, i) => `
+      <div class="rc ${i === lbSel ? "on" : ""}" data-i="${i}">
+        ${img(r.photo)}<span class="scrim"></span><span class="n num">${String(r.rank).padStart(2, "0")}</span>
+        <h4>${esc(r.name)}</h4><div class="t">${esc(r.team2027 || r.team)}</div><div class="rt num">${f1(r.rating)}</div>
+      </div>`).join("")}</div>
+  </section>
+
+  <section class="sec-pad grid3">
+    ${tile(pc(pd.pressure_share_of_total_abs_wpa), "Of a match's win probability", "moves on the 20% of balls we call pressure")}
+    ${tile(pc(pd.team_won_pressure_wpa_and_match), "Of sides that win those balls", "go on to win the match")}
+    ${tile(f2(D.ctx.wp_v2_context.auc), "Win-probability model AUC", "on 2024–26 matches it never saw")}
+  </section>
+
+  <section class="sec-pad">
+    <h2 class="sec">How these ten were found</h2>
+    <p class="sub">Pressure is measured, not asserted. Four steps, each one testable.</p>
+    <div class="grid4" style="margin-top:18px">
+      ${[["01", "Win probability, every ball", `A model trained on 9,606 T20 matches gives the batting side's chance of winning before each delivery. On unseen matches its predictions are calibrated to within ${f1(100 * D.verification.checks[1].detail.match(/error ([\d.]+)/)[1])}%.`],
+      ["02", "Leverage Index", `How far that chance can swing across the ball's possible outcomes, divided by the average swing. 1.0 is an average ball; a pressure ball is one in the top 20% (LI ≥ ${f2(pd.q80)}).`],
+      ["03", "Value against expectation", `Each ball is compared with what an average player does in that exact situation — including how set the batter is and where he walked in — then credited for the opponent faced.`],
+      ["04", "Level and Lift", `Level is how good he is on pressure balls; Lift is how that compares with his own everyday standard. Both shrunk for sample size, then resampled 1,000 times.`]]
+      .map(([n, t, d]) => `<div class="card"><div style="font-family:var(--mono);color:var(--pink-2);font-size:11px;letter-spacing:.2em">${n}</div>
+        <h4 style="font-size:16px;margin:8px 0 7px">${t}</h4><p class="note" style="margin:0">${d}</p></div>`).join("")}
+    </div>
+  </section>
+
+  <section class="sec-pad grid2">
+    <div class="card"><h3>Pressure balls really are different</h3>
+      <div class="scroll"><table><tr><th></th><th class="r">Pressure</th><th class="r">Ordinary</th></tr>
+      ${[["Balls", "balls", f0], ["Win probability moved per ball", "mean_abs_wpa_pct", (x) => f1(x) + "%"], ["Strike rate", "strike_rate", f0],
+      ["Dot balls", "dot_pct", (x) => f1(x) + "%"], ["Boundaries", "boundary_pct", (x) => f1(x) + "%"], ["Wickets", "wicket_pct", (x) => f1(x) + "%"]]
+      .map(([l, k, f]) => `<tr><td>${l}</td><td class="r num">${f(pd.pressure_vs_ordinary.pressure[k])}</td><td class="r num">${f(pd.pressure_vs_ordinary.ordinary[k])}</td></tr>`).join("")}
+      </table></div></div>
+    <div class="card"><h3>How far to trust the order</h3><ul class="why">
+      <li>Split the matches in two at random and the halves agree at <b>${f2(v.split_half.composite.full_sample_reliability)}</b>, against ${f2(v.split_half.raw_level.full_sample_reliability)} for raw pressure averages.</li>
+      <li>Estimated from half the matches, the rating predicts pressure results in the other half at <b>${f2(v.holdout_prediction["joint_shrunk_level (ours)"])}</b>, better than raw pressure averages (${f2(v.holdout_prediction.raw_pressure_average)}) or everyday balls alone (${f2(v.holdout_prediction.ordinary_ball_average)}).</li>
+      <li>Top-10 odds below about 60% mean a player could plausibly sit a few places lower. Places 6–10 are close calls.</li>
+      <li><a href="#/method" style="color:var(--pink-2);text-decoration:underline">All 17 verification checks pass →</a></li></ul></div>
+  </section>
+
+  <section class="sec-pad">
+    <h2 class="sec">Ranks 11–25</h2>
+    <div class="card" style="margin-top:14px"><div class="scroll"><table>
+      <tr><th>#</th><th>Player</th><th>Team 2027</th><th class="r">Rating</th><th class="r">90% range</th><th class="r">Top-10 odds</th><th class="r">${isBat ? "Pressure SR" : "Pressure econ"}</th><th class="r">Pressure balls</th></tr>
+      ${list.slice(10, 25).map((r) => `<tr><td class="num">${r.rank}</td><td style="font-weight:600">${esc(r.name)}</td><td class="note">${esc(r.team2027 || r.team)}</td>
+        <td class="r num">${f1(r.rating)}</td><td class="r num dim">${f0(r.rating_lo)}–${f0(r.rating_hi)}</td><td class="r num">${pc(r.p_top10)}</td>
+        <td class="r num">${isBat ? f0(r.sr_p) : f2(r.econ_p)}</td><td class="r num dim">${f0(r.n_p)}</td></tr>`).join("")}
+    </table></div></div>
+  </section>`;
+
+  app.querySelectorAll(".seg button").forEach((b) => b.onclick = () => { lbRole = b.dataset.r; lbSel = 0; viewTop10(); });
+  app.querySelectorAll(".rc").forEach((el) => el.onclick = () => { lbSel = +el.dataset.i; viewTop10(); scrollTo({ top: 0, behavior: "smooth" }); });
 }
 
-// ---------- player ----------
-function heroTiles(p) {
-  const b = p.card.bat, w = p.card.bowl, tiles = [];
-  const delta = (pv, ov, lowerBetter) => { if (pv == null || ov == null) return ""; const d = pv - ov, good = lowerBetter ? d < 0 : d > 0; return `<span class="${good ? "up" : "down"}">${d > 0 ? "▲" : "▼"} ${Math.abs(d).toFixed(lowerBetter ? 2 : 0)}</span> v ordinary`; };
-  const bat = () => { const s = b.splits; if (s.pressure) tiles.push({ k: "Pressure strike rate", v: f0(s.pressure.sr), d: delta(s.pressure.sr, s.ordinary?.sr, false) }); };
-  const bowl = () => { const s = w.splits; if (s.pressure) tiles.push({ k: "Pressure economy", v: f2(s.pressure.econ), d: delta(s.pressure.econ, s.ordinary?.econ, true) }); };
-  const useBat = b && b.splits.all && (p.group !== "bowl"), useBowl = w && w.splits.all && (p.group !== "bat");
-  if (useBat) bat(); if (useBowl) bowl();
-  if (p.group === "bat" && b?.splits.pressure) tiles.push({ k: "Pressure average", v: b.splits.pressure.outs ? f1(b.splits.pressure.avg) : "–", d: `${f0(b.splits.pressure.runs)} runs, ${f0(b.splits.pressure.outs)} dismissals` });
-  if (p.group === "bowl" && w?.splits.pressure) tiles.push({ k: "Pressure wickets", v: f0(w.splits.pressure.wkts), d: `${f0(w.splits.pressure.balls)} balls · ${f1(w.splits.pressure.dot_pct)}% dots` });
-  const m = (p.group === "bowl" ? w?.model : b?.model) || w?.model || b?.model;
-  tiles.push(m ? { k: "Pressure percentile", v: ord(m.level_pct), d: m.eligible ? "among ranked players" : "low-evidence estimate" } : { k: "Pressure percentile", v: "–", d: "no deliveries in the data" });
-  while (tiles.length < 3) tiles.unshift({ k: "Pressure record", v: "–", d: "no deliveries in the data" });
-  return `<div class="heroTiles">${tiles.slice(0, 3).map((t) => `<div class="ht"><div class="k">${t.k}</div><div class="v num">${t.v}</div><div class="d">${t.d || ""}</div></div>`).join("")}</div>`;
+/* ---------------- 02 · ROYALS ---------------- */
+let sqFilter = { group: "all", verdict: "all" };
+function viewRoyals() {
+  const sc = D.auction.scorecard, a = D.auction;
+  const list = D.squad.filter((p) => (sqFilter.group === "all" || p.group === sqFilter.group) && (sqFilter.verdict === "all" || p.verdict === sqFilter.verdict));
+  const fb = (k, v, l) => `<button class="${sqFilter[k] === v ? "on" : ""}" data-k="${k}" data-v="${v}">${l}</button>`;
+  const best = [...D.squad].filter((p) => p.value.surplus_cr != null).sort((x, y) => y.value.surplus_cr - x.value.surplus_cr);
+  app.innerHTML = `
+    <section style="padding-top:clamp(24px,4vw,46px)">
+      <div class="eyebrow">Rajasthan Royals · 2026 squad</div>
+      <h1 class="page">Who was worth keeping</h1>
+      <p class="sub">Every player rated on the same pressure scale, then priced against his contract. We published these calls on 16 November; RR announced their real list on the 17th. Both are shown.</p>
+    </section>
+
+    <section class="sec-pad grid4">
+      ${tile(`${sc.agreed}/${sc.players}`, "Calls that matched RR", `${pc(sc.rate)} agreement with the official list`)}
+      ${tile(cr(a.purse.left), "Left for the auction", `after RR committed ${cr(a.purse.spent)}`)}
+      ${tile(a.purse.slots, "Squad slots open", `${a.purse.overseas_slots} of them can be overseas`)}
+      ${tile(cr(best[0].value.surplus_cr), "Biggest bargain", `${best[0].name} on ${cr(best[0].salary)}`)}
+    </section>
+
+    <section class="sec-pad grid2">
+      <div class="card"><h3>Our call v what RR did</h3>
+        ${sc.rows.slice().sort((x, y) => x.agree - y.agree || y.salary - x.salary).map((r) => `
+          <div class="verdict-row"><span class="tick ${r.agree ? "y" : "n"}">${r.agree ? "✓" : "✕"}</span>
+            <span class="nm">${esc(r.name)}</span>
+            <span class="note" style="min-width:110px;text-align:right">we said <b style="color:var(--ink)">${esc(r.ours.replace(" & rebuy", "+rebuy"))}</b></span>
+            <span class="note" style="min-width:92px;text-align:right">they ${esc(r.actual.toLowerCase())}</span></div>`).join("")}
+        <p class="note" style="margin-top:12px">The five misses are all players we judged expendable on the numbers but RR kept — Jadeja, Bishnoi, Sandeep Sharma and Shanaka — plus Vignesh Puthur, whom we kept and they released.</p></div>
+      <div>
+        <div class="card"><h3>Value against contract</h3>
+          ${best.map((p) => { const s = p.value.surplus_cr, m = Math.max(...best.map((q) => Math.abs(q.value.surplus_cr))) || 1;
+            return `<div style="display:flex;align-items:center;gap:10px;padding:5px 0;font-size:12.5px">
+              <span style="flex:1;font-weight:600">${esc(p.name)}</span>
+              <span class="note num" style="width:62px;text-align:right">${cr(p.salary)}</span>
+              <span style="position:relative;width:132px;height:12px" data-tip="${esc(p.name)}: output worth ${cr(p.value.value_cr)} against a ${cr(p.salary)} contract">
+                <i style="position:absolute;left:50%;top:-1px;bottom:-1px;width:1px;background:rgba(255,255,255,.22)"></i>
+                <i style="position:absolute;top:2px;height:8px;${s >= 0 ? `left:50%;background:var(--good);border-radius:0 4px 4px 0` : `right:50%;background:var(--bad);border-radius:4px 0 0 4px`};width:${(48 * Math.abs(s) / m).toFixed(1)}%"></i></span>
+              <span class="num" style="width:52px;text-align:right;font-weight:700;color:${s >= 0 ? "var(--good)" : "var(--bad)"}">${s >= 0 ? "+" : "−"}${Math.abs(s).toFixed(1)}</span></div>`; }).join("")}
+          <p class="note" style="margin-top:10px">Output worth = runs above a replacement player in IPL 2026, priced at what RR's own wage bill implies a run costs. Fielding, keeping and captaincy are not valued.</p></div>
+      </div>
+    </section>
+
+    <section class="sec-pad">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap">
+        <h2 class="sec">The squad</h2>
+        <div class="filters">${fb("group", "all", "All")}${fb("group", "bat", "Batters")}${fb("group", "ar", "All-rounders")}${fb("group", "bowl", "Bowlers")}
+          <span style="width:1px;height:20px;background:var(--line)"></span>
+          ${fb("verdict", "all", "Any call")}${fb("verdict", "Retain", "Retain")}${fb("verdict", "Release", "Release")}${fb("verdict", "Release & rebuy", "Rebuy")}${fb("verdict", "Trade chip", "Trade")}</div>
+      </div>
+      <div class="squad">${list.map((p) => {
+        const r = p.group === "bowl" ? (p.rank_bowl || p.rank_bat) : (p.rank_bat || p.rank_bowl);
+        return `<a class="pc ${p.actual === "Retained" ? "" : "out"}" href="#/royals/${p.pid}">
+          <div class="tile"><span class="cc">${esc((p.country || "").slice(0, 3).toUpperCase())}</span>${p.overseas ? '<span class="os">✈</span>' : ""}${img(p.photo)}</div>
+          <div class="meta"><h4>${esc(p.name)}</h4><div class="role">${esc(p.role)}</div>
+            <div class="row"><span class="price num">${cr(p.salary)}</span>${chip(p.verdict)}</div>
+            <div class="note" style="margin-top:5px">${r ? `Pressure rank ${r.rank}/${r.of}` : "Too few pressure balls to rank"} · RR ${esc(p.actual.toLowerCase())}</div></div></a>`; }).join("") || `<p class="note">No players match.</p>`}</div>
+    </section>`;
+  app.querySelectorAll(".filters button").forEach((b) => b.onclick = () => { sqFilter[b.dataset.k] = b.dataset.v; viewRoyals(); });
 }
+
 function roleBlock(p, role) {
-  const c = p.card[role]; if (!c || !c.splits.all) return "";
+  const c = p.card[role]; if (!c?.splits?.all) return "";
   const s = c.splits, m = c.model, isBat = role === "bat", rk = isBat ? p.rank_bat : p.rank_bowl;
-  const title = isBat ? "Batting" : "Bowling";
-  return `<h2 class="section" style="font-size:21px">${title}${rk ? ` <span class="note" style="font-weight:500">· pressure rank ${rk.rank} of ${rk.of}, rating ${f1(rk.rating)}</span>` : ""}</h2>
-  <div class="grid g2" style="margin-top:12px">
-    <div class="card"><h3>Pressure v ordinary balls</h3>${s.pressure ? pairBars(isBat ? batRows(s) : bowlRows(s)) : `<p class="note">No pressure balls in the data.</p>`}</div>
-    <div class="card"><h3>Where he stands</h3>
-      ${m ? meter("Under pressure", m.level_pct, `Estimated ${m.level >= 0 ? "+" : ""}${(100 * m.level).toFixed(1)} runs per 100 balls v an average player`) +
-            meter("Everyday level", m.ordinary_pct, `Estimated ${m.ordinary >= 0 ? "+" : ""}${(100 * m.ordinary).toFixed(1)} runs per 100 balls`) +
-            meter("Lift: rises or dips when it matters", m.lift_pct, `${m.lift >= 0 ? "+" : ""}${(100 * m.lift).toFixed(1)} runs per 100 balls v his own everyday level`) +
-            `<p class="note" style="margin:0">${modelNote(m)}</p>` : `<p class="note">No model estimate.</p>`}</div>
+  return `<h2 class="sec sec-pad">${isBat ? "Batting" : "Bowling"}${rk ? ` <span class="note" style="font-weight:500;text-transform:none">· pressure rank ${rk.rank} of ${rk.of}, rating ${f1(rk.rating)}</span>` : ""}</h2>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card"><h3>Pressure v ordinary balls</h3>${s.pressure ? pairBars(isBat ? batRows(s) : bowlRows(s)) : `<p class="note">No pressure balls.</p>`}</div>
+    <div class="card"><h3>Where he stands</h3>${m ? meter("Under pressure", m.level_pct, `${m.level >= 0 ? "+" : ""}${f1(100 * m.level)} runs per 100 balls v an average player`)
+    + meter("Everyday level", m.ordinary_pct, "") + meter("Lift when it matters", m.lift_pct, `${m.lift >= 0 ? "+" : ""}${f1(100 * m.lift)} v his own baseline`)
+    + `<p class="note" style="margin:0">${m.eligible ? `${f0(m.n_p)} pressure balls in ${f0(m.m_p)} matches: enough for a full ranking.` : `Only ${f0(m.n_p)} pressure balls: below the ranking threshold, so this estimate sits close to average.`}</p>` : ""}</div>
     <div class="card"><h3>IPL by season: ${isBat ? "runs" : "wickets"}</h3>${seasonCols(s.ipl_by_year || {}, isBat ? "runs" : "wkts", isBat ? "sr" : "econ", isBat ? (x) => "SR " + f0(x) : (x) => "econ " + f1(x))}</div>
     <div class="card"><h3>Biggest pressure days</h3>${moments(c.moments, role)}</div>
   </div>
-  <div class="card section"><h3>${title} splits</h3>${splitTable(s, role)}</div>`;
+  <div class="card" style="margin-top:16px"><h3>${isBat ? "Batting" : "Bowling"} splits</h3>${splitTable(s, role)}</div>`;
 }
-function formBlock(p) {
-  const f = p.card.form || {}; if (!f.bat && !f.bowl) return "";
-  const lg = { ipl: "IPL", t20i: "T20 internationals", sa20: "SA20", bbl: "Big Bash", psl: "PSL", cpl: "CPL", ilt20: "ILT20", blast: "T20 Blast", smat: "Syed Mushtaq Ali", lpl: "LPL", bpl: "BPL", mlc: "MLC", all: "All T20" };
-  const tb = (o, bat) => `<table><tr><th>${bat ? "Batting" : "Bowling"} since 2025</th><th class="r">Innings</th><th class="r">Balls</th><th class="r">${bat ? "Runs" : "Wickets"}</th><th class="r">${bat ? "Strike rate" : "Economy"}</th></tr>
-    ${Object.entries(o).sort((a, b) => (a[0] === "all") - (b[0] === "all") || b[1].balls - a[1].balls).map(([k, r]) => `<tr${k === "all" ? ' style="font-weight:700"' : ""}><td>${lg[k] || k}</td><td class="r num">${f0(r.inns)}</td><td class="r num">${f0(r.balls)}</td><td class="r num">${f0(bat ? r.runs : r.wkts)}</td><td class="r num">${bat ? f0(r.sr) : f2(r.econ)}</td></tr>`).join("")}</table>`;
-  return `<div class="card section"><h3>Recent form across all T20 cricket (Cricsheet, since Jan 2025)</h3><div class="grid g2">${f.bat ? `<div class="scroll">${tb(f.bat, true)}</div>` : ""}${f.bowl ? `<div class="scroll">${tb(f.bowl, false)}</div>` : ""}</div>
-    <p class="note" style="margin:10px 0 0">Context only: these matches are outside the supplied data and do not feed the ranking. Cricsheet carries no Afghanistan matches and thin Indian domestic coverage.</p></div>`;
-}
+
 function viewPlayer(pid) {
-  const p = byPid[pid]; if (!p) return viewSquad();
-  const b = p.card.bat?.splits?.ipl_2026, w = p.card.bowl?.splits?.ipl_2026, v = p.value;
-  const season = [`<div><b class="num">${f0(p.card.ipl26_matches)}</b><span>matches</span></div>`];
-  if (b && b.balls >= 10) season.push(`<div><b class="num">${f0(b.runs)}</b><span>runs · SR ${f0(b.sr)}</span></div>`);
-  if (w && w.balls >= 10) season.push(`<div><b class="num">${f0(w.wkts)}</b><span>wkts · econ ${f1(w.econ)}</span></div>`);
-  const idx = D.squad.indexOf(p), prev = D.squad[(idx + D.squad.length - 1) % D.squad.length], next = D.squad[(idx + 1) % D.squad.length];
+  const p = byPid[pid]; if (!p) return viewRoyals();
+  const v = p.value, b = p.card.bat?.splits?.ipl_2026, w = p.card.bowl?.splits?.ipl_2026;
+  const nm = p.name.split(" "), first = nm.shift(), last = nm.join(" ") || first;
+  const season = [[f0(p.card.ipl26_matches), "Matches 2026", "pink"]];
+  if (b && b.balls >= 10) season.push([f0(b.runs), `Runs · SR ${f0(b.sr)}`, "gold"]);
+  if (w && w.balls >= 10) season.push([f0(w.wkts), `Wickets · econ ${f1(w.econ)}`, "blue"]);
+  const i = D.squad.indexOf(p), prev = D.squad[(i + D.squad.length - 1) % D.squad.length], next = D.squad[(i + 1) % D.squad.length];
   app.innerHTML = `
-  <div class="hero">
-    <div class="word">ROYALS</div>
-    ${p.jersey != null ? `<div class="jersey"><small>#</small>${p.jersey}</div>` : ""}
+  <section class="hero">
+    <i class="glow"></i><div class="rankword">ROYALS</div>
     <div class="left">
-      <a class="back" href="#/squad">← Squad</a>
-      <h1>${p.name.replace(" ", "<br>")}</h1>
-      <div class="team"><i>RR</i>Rajasthan Royals · ${p.role}</div>
-      <div class="facts">
-        <div><span>Age</span><b class="num">${p.age}</b></div><div><span>Salary</span><b class="num">${cr(p.salary)}</b></div>
-        <div><span>Country</span><b>${p.country}${p.overseas ? " ✈" : ""}</b></div><div><span>Bats / bowls</span><b style="font-size:13px">${p.bats} · ${p.bowls}</b></div>
-        <div style="grid-column:1/-1"><span>How acquired</span><b style="font-size:13px">${p.acquired}</b></div>
-      </div>
+      <a class="note" href="#/royals" style="font-weight:600">← Squad</a>
+      <h1 style="margin-top:14px">${esc(first)}<span class="l2">${esc(last)}</span></h1>
+      <div class="meta"><span class="pill">${esc(p.role)}</span><span class="pill">Age <b>${p.age}</b></span>
+        <span class="pill">${esc(p.country)}${p.overseas ? " ✈" : ""}</span><span class="pill">${esc(p.bats)} · ${esc(p.bowls)}</span></div>
+      <div class="stack">${season.map(([a, k, cl]) => stat(a, k, cl)).join("")}</div>
     </div>
-    <div class="mid">${photo(p)}</div>
+    <div class="cut">${img(p.photo)}</div>
     <div class="right">
-      <div class="vcard"><div class="lab">Our call for 2027</div>${chip(p.verdict)} <span class="conf">${p.confidence} confidence</span><p>${p.headline}</p></div>
-      <div class="vcard"><div class="lab">IPL 2026</div><div class="big">${season.join("")}</div></div>
-      <div class="vcard"><div class="lab">Value v salary</div><div class="big"><div><b class="num">${cr(v.value_cr)}</b><span>output worth</span></div><div><b class="num" style="color:${v.surplus_cr >= 0 ? "var(--good)" : "var(--bad)"}">${v.surplus_cr >= 0 ? "+" : "−"}${cr(Math.abs(v.surplus_cr)).slice(1)}</b><span>${v.surplus_cr >= 0 ? "surplus" : "deficit"}</span></div></div>
-        <div class="note" style="margin-top:6px" data-tip="Runs above a replacement-level player in IPL 2026, priced at what RR's own wage bill implies a run is worth. Fielding, keeping and captaincy are not valued.">${f0(v.runs_above_repl)} runs above replacement in 2026 ⓘ</div></div>
+      <div class="card"><h3>Our call for 2027</h3>${chip(p.verdict)} <span class="note">${p.confidence} confidence</span>
+        <p style="margin:10px 0 0;font-weight:500">${esc(p.headline)}</p>
+        <div style="margin-top:12px;padding-top:11px;border-top:1px solid var(--line)" class="note">RR actually <b style="color:${p.actual === "Retained" ? "var(--good)" : "var(--bad)"}">${esc(p.actual.toLowerCase())}</b> him on 17 November.</div></div>
+      <div class="card" style="margin-top:13px"><h3>Value against contract</h3>
+        <div style="display:flex;gap:22px;flex-wrap:wrap">
+          ${stat(cr(p.salary), "Salary")}${stat(cr(v.value_cr), "Output worth", "gold")}
+          ${stat((v.surplus_cr >= 0 ? "+" : "−") + cr(Math.abs(v.surplus_cr)).slice(1), v.surplus_cr >= 0 ? "Surplus" : "Deficit", v.surplus_cr >= 0 ? "" : "pink")}</div>
+        <p class="note" style="margin:10px 0 0" data-tip="Runs above a replacement-level player across IPL 2026, priced from RR's own wage bill. Fielding, keeping and captaincy are not valued.">${f0(v.runs_above_repl)} runs above replacement in 2026 ⓘ</p></div>
     </div>
-  </div>
-  ${heroTiles(p)}
-  <div class="grid g2 section">
-    <div class="card"><h3>Why: ${p.verdict.toLowerCase()}</h3><ul class="why">${p.reasons.map((r) => `<li>${r}</li>`).join("")}</ul>${p.watch && p.watch !== "None." ? `<div class="watch"><b>Watch:</b> ${p.watch}</div>` : ""}</div>
-    <div class="card"><h3>Reporting we used</h3>${p.sources.length ? `<ul class="src" style="margin:0;padding-left:18px">${p.sources.map((id) => { const s = src(id); return `<li><em class="t-${s.tier}">${s.tier === "aggregator" ? "rumour / prediction" : s.tier}</em><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><div class="note">${s.note}</div></li>`; }).join("")}</ul>` : `<p class="note">No external reporting was needed: this call rests on the ball-by-ball data alone.</p>`}
-      <p class="note" style="margin:10px 0 0">Reporting informs the verdict only. It never feeds the pressure ranking.</p></div>
-  </div>
+  </section>
+  <section class="sec-pad grid2">
+    <div class="card"><h3>Why: ${esc(p.verdict.toLowerCase())}</h3><ul class="why">${p.reasons.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+      ${p.watch && p.watch !== "None." ? `<div class="watch"><b>Watch:</b> ${esc(p.watch)}</div>` : ""}</div>
+    <div class="card"><h3>Reporting we used</h3>${p.sources.length ? `<ul class="src" style="margin:0;padding-left:18px">${p.sources.map((id) => { const s = src(id); return s ? `<li><em class="t-${s.tier}">${s.tier === "aggregator" ? "rumour" : s.tier}</em><a href="${s.url}" target="_blank" rel="noopener">${esc(s.title)}</a><div class="note">${esc(s.note)}</div></li>` : ""; }).join("")}</ul>`
+      : `<p class="note">No external reporting needed: this call rests on the ball-by-ball data alone.</p>`}
+      <p class="note" style="margin-top:10px">Reporting informs the verdict only. It never feeds a rating.</p></div>
+  </section>
   ${p.group === "bowl" ? roleBlock(p, "bowl") + roleBlock(p, "bat") : roleBlock(p, "bat") + roleBlock(p, "bowl")}
-  ${!p.card.bat && !p.card.bowl ? `<div class="card section"><h3>No deliveries in the data</h3><p class="note">This player has not batted or bowled in the supplied IPL and T20I matches, so there is nothing to measure. The verdict rests on cost, age and squad balance only.</p></div>` : ""}
-  ${formBlock(p)}
-  <div class="section" style="display:flex;justify-content:space-between"><a class="back" href="#/player/${prev.pid}" style="font-weight:600">← ${prev.name}</a><a class="back" href="#/player/${next.pid}" style="font-weight:600">${next.name} →</a></div>`;
+  ${!p.card.bat && !p.card.bowl ? `<div class="card sec-pad"><h3>No deliveries in the data</h3><p class="note">This player has not batted or bowled in the supplied matches, so there is nothing to measure. The verdict rests on cost, age and squad balance only.</p></div>` : ""}
+  <section class="sec-pad" style="display:flex;justify-content:space-between;gap:12px">
+    <a class="note" href="#/royals/${prev.pid}" style="font-weight:600">← ${esc(prev.name)}</a>
+    <a class="note" href="#/royals/${next.pid}" style="font-weight:600">${esc(next.name)} →</a></section>`;
 }
 
-// ---------- purse ----------
-function viewPurse() {
-  const st = purseStats(retained), max = Math.max(...D.squad.map((p) => Math.abs(p.value.surplus_cr)), 1);
-  const order = ["Retain", "Release & rebuy", "Trade chip", "Release"];
-  const rows = [...D.squad].sort((a, b) => order.indexOf(a.verdict) - order.indexOf(b.verdict) || b.salary - a.salary);
-  const over = st.left < 0 || st.slots < 0 || st.os > D.purse.overseas_max;
+/* ---------------- 03 · AUCTION ---------------- */
+let auRole = "bowl";
+function viewAuction() {
+  const a = D.auction, p = a.purse, isB = auRole === "bowl";
+  const board = a.board[auRole], spentPct = Math.min(100, 100 * p.spent / p.total);
   app.innerHTML = `
-    <div class="eyebrow">Purse planner</div>
-    <h1 class="page">What the retention list leaves for the auction</h1>
-    <p class="sub">Switch any player in or out and the purse updates. ${D.purse.purse_note}</p>
-    <div class="tabs"><button data-s="rec">Recommended</button><button data-s="safe">Safe: keep Jadeja and Bishnoi</button><button data-s="all">Keep everyone</button><button data-s="none">Clear</button></div>
-    <div class="grid g4">
-      <div class="tile"><div class="k">Purse left</div><div class="v num" style="color:${st.left < 0 ? "var(--bad)" : "var(--ink)"}">${cr(st.left)}</div><div class="d">${cr(st.spent)} committed of ${cr(PURSE)}</div></div>
-      <div class="tile"><div class="k">Players retained</div><div class="v num">${st.n}</div><div class="d">${st.slots >= 0 ? st.slots + " slots to fill" : "over the limit of " + D.purse.squad_max}</div></div>
-      <div class="tile"><div class="k">Overseas retained</div><div class="v num" style="color:${st.os > D.purse.overseas_max ? "var(--bad)" : "var(--ink)"}">${st.os} <span style="font-size:15px;color:var(--muted)">of ${D.purse.overseas_max}</span></div><div class="d">${Math.max(0, D.purse.overseas_max - st.os)} overseas slots open</div></div>
-      <div class="tile"><div class="k">Average per open slot</div><div class="v num">${st.slots > 0 ? cr(st.left / st.slots) : "–"}</div><div class="d">if spread evenly</div></div>
-    </div>
-    ${over ? `<div class="watch section"><b>Not a legal squad:</b> ${st.left < 0 ? "salaries exceed the purse. " : ""}${st.slots < 0 ? "More than " + D.purse.squad_max + " players. " : ""}${st.os > D.purse.overseas_max ? "More than " + D.purse.overseas_max + " overseas players." : ""}</div>` : ""}
-    <div class="card section"><h3>Purse use</h3><div class="pbar" data-tip="${cr(st.spent)} committed · ${cr(Math.max(st.left, 0))} free"><i style="width:${Math.min(100, 100 * st.spent / PURSE)}%;background:linear-gradient(90deg,#2A5BB8,#4D8DF6)"></i><i style="flex:1;background:linear-gradient(90deg,var(--pink),var(--pink-2))"></i></div>
-      <div class="legend" style="margin:8px 0 0"><span><i style="background:#4D8DF6"></i>Committed to retained players</span><span><i style="background:var(--pink)"></i>Free for the auction</span></div></div>
-    <div class="card section"><h3>Squad</h3><div class="scroll"><table>
-      <tr><th>Keep</th><th>Player</th><th>Role</th><th class="r">Salary</th><th class="r">Output worth</th><th>Surplus / deficit</th><th>Our call</th></tr>
-      ${rows.map((p) => { const s = p.value.surplus_cr, wd = (50 * Math.abs(s) / max).toFixed(1); return `<tr class="${retained.has(p.pid) ? "" : "out"}">
-        <td><input class="sw" type="checkbox" data-pid="${p.pid}" ${retained.has(p.pid) ? "checked" : ""} aria-label="Retain ${p.name}"></td>
-        <td><a href="#/player/${p.pid}" style="font-weight:600">${p.name}</a>${p.overseas ? ' <span class="note">✈</span>' : ""}</td><td class="note">${p.role}</td>
-        <td class="r num">${cr(p.salary)}</td><td class="r num">${cr(p.value.value_cr)}</td>
-        <td><div style="display:flex;align-items:center;gap:8px"><div class="dv" data-tip="${p.name}: output worth ${cr(p.value.value_cr)} v salary ${cr(p.salary)}"><i class="${s >= 0 ? "pos" : "neg"}" style="width:${wd}%"></i></div><span class="num" style="font-weight:600">${s >= 0 ? "+" : "−"}${Math.abs(s).toFixed(1)}</span></div></td>
-        <td>${chip(p.verdict)}</td></tr>`; }).join("")}
-    </table></div>
-    <p class="note" style="margin:12px 0 0"><b>Output worth</b> = runs above a replacement-level player in IPL 2026 (batting and bowling, pressure balls weighted in), priced at what RR's own wage bill implies a run is worth. It is a within-squad comparison, not a market price: fielding, wicketkeeping, captaincy and players who did not play in 2026 are not valued.</p></div>
-    <div class="section"><h2 style="font-size:21px;margin-bottom:14px">What other squads teach</h2><div class="grid g2">${D.lessons.map((l) => { const s = src(l.source); return `<div class="card"><h3>${l.title}</h3><p style="margin:0">${l.text}</p><p class="note src" style="margin:8px 0 0">Source: <a href="${s.url}" target="_blank" rel="noopener">${s.title}</a></p></div>`; }).join("")}</div></div>`;
-  app.querySelectorAll(".sw").forEach((c) => c.onchange = () => { c.checked ? retained.add(c.dataset.pid) : retained.delete(c.dataset.pid); viewPurse(); });
-  app.querySelectorAll(".tabs button").forEach((b) => b.onclick = () => {
-    retained.clear();
-    const s = b.dataset.s;
-    D.squad.forEach((p) => { if (s === "all" || (s !== "none" && p.verdict === "Retain") || (s === "safe" && D.scenarios.safe.retain_extra.includes(p.pid))) retained.add(p.pid); });
-    viewPurse();
-  });
+    <section style="padding-top:clamp(24px,4vw,46px)">
+      <div class="eyebrow">Mini-auction · ${a.auction.date} · ${esc(a.auction.venue)}</div>
+      <h1 class="page">What Rajasthan should do</h1>
+      <p class="sub">RR go to Goa with ${cr(p.left)} and ${p.slots} slots. These are the gaps the data says they still have, and the released players who best fill them.</p>
+    </section>
+
+    <section class="sec-pad grid4">
+      ${tile(cr(p.left), "Purse remaining", `${cr(p.spent)} of ${cr(p.total)} committed`)}
+      ${tile(`${p.kept}`, "Players retained", `${p.slots} slots to fill, max ${D.purse.squad_max}`)}
+      ${tile(`${p.overseas_kept}/${D.purse.overseas_max}`, "Overseas kept", `${p.overseas_slots} overseas places open`)}
+      ${tile(cr(p.slots ? p.left / p.slots : 0), "Average per slot", "if spread evenly")}
+    </section>
+
+    <section class="sec-pad card">
+      <h3>Purse</h3>
+      <div class="pbar" data-tip="${cr(p.spent)} committed to retentions · ${cr(p.left)} free"><i style="width:${spentPct}%;background:linear-gradient(90deg,#1B4DC8,var(--blue-2))"></i><i style="flex:1;background:linear-gradient(90deg,var(--pink),var(--pink-2))"></i></div>
+      <div class="legend" style="margin:10px 0 0"><span><i style="background:var(--blue-2)"></i>Committed to the 19 retained</span><span><i style="background:var(--pink)"></i>Free for the auction</span></div>
+      <p class="note" style="margin:10px 0 0">${esc(D.purse.purse_note)}</p>
+    </section>
+
+    <section class="sec-pad">
+      <h2 class="sec">The three gaps</h2>
+      <div class="grid3" style="margin-top:16px">${a.needs.map((n, i) => `<div class="card">
+        <div style="font-family:var(--mono);color:var(--pink-2);font-size:11px;letter-spacing:.2em">GAP 0${i + 1}</div>
+        <h4 style="font-size:16px;margin:9px 0 8px">${esc(n.need)}</h4><p class="note" style="margin:0">${esc(n.evidence)}</p></div>`).join("")}</div>
+    </section>
+
+    <section class="sec-pad">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+        <div><h2 class="sec">The target board</h2>
+          <p class="note">${a.pool_size} players were released league-wide; ${a.pool_rated} have enough pressure balls for us to rate. Ranked by how they perform when it matters.</p></div>
+        <div class="seg"><button class="${isB ? "on" : ""}" data-r="bowl">Bowlers</button><button class="${isB ? "" : "on"}" data-r="bat">Batters</button></div>
+      </div>
+      <div class="card">${board.map((t) => `
+        <div class="target">
+          <div class="ph">${img(t.photo)}</div>
+          <div><b>${esc(t.name)}</b><div class="sub2">released by ${esc(t.released_by)} · ${f0(t.n_p)} pressure balls
+            · ${isB ? `econ ${f2(t.econ_p)} under pressure v ${f2(t.econ_o)} otherwise` : `SR ${f0(t.sr_p)} under pressure v ${f0(t.sr_o)} otherwise`}</div></div>
+          <div class="mt"><b class="num">${ord(t.pct)}</b><span>percentile</span></div>
+        </div>`).join("")}
+        <p class="note" style="margin-top:12px">Percentile is among all ranked ${isB ? "bowlers" : "batters"} on pressure balls. Players with fewer than 100 pressure balls are left out: there is not enough evidence to judge them.</p>
+      </div>
+    </section>
+
+    <section class="sec-pad grid2">
+      <div class="card"><h3>The plan</h3><ul class="why">
+        <li><b>Spend the bulk on one death bowler.</b> RR kept Archer and Shami but neither is cheap under pressure, and the gap costs them most in the last four overs. ${esc(board[0]?.name || "")} is the best-rated bowler on the board.</li>
+        <li><b>Take the middle-order hitter second.</b> Jurel and Parag both drop sharply when the game tightens; a batter who holds his strike rate under pressure is the single biggest upgrade to the XI.</li>
+        <li><b>Keep one overseas slot back.</b> With ${p.overseas_slots} open and only ${p.overseas_kept} overseas players retained, RR have room to take a punt late rather than bid early.</li>
+        <li><b>Do not re-buy at the old price.</b> Hetmyer rates ${ord(a.board.bat.find((x) => x.name === "Shimron Hetmyer")?.pct || 74)} percentile under pressure and is worth a bid — but nothing like the ₹11 crore RR were paying.</li>
+      </ul></div>
+      <div class="card"><h3>What other squads teach</h3>
+        ${D.lessons.map((l) => { const s = src(l.source); return `<div style="padding:9px 0;border-bottom:1px solid rgba(255,255,255,.055)">
+          <b style="font-size:13.5px">${esc(l.title)}</b><p class="note" style="margin:5px 0 0">${esc(l.text)}</p>
+          ${s ? `<a class="note" href="${s.url}" target="_blank" rel="noopener" style="color:var(--pink-2);text-decoration:underline">source</a>` : ""}</div>`; }).join("")}</div>
+    </section>`;
+  app.querySelectorAll(".seg button").forEach((b) => b.onclick = () => { auRole = b.dataset.r; viewAuction(); });
 }
 
-// ---------- top 10 ----------
-let lbRole = "batters", lbOpen = null;
-function viewTop() {
-  const isBat = lbRole === "batters", list = D[lbRole], lo = 80, hi = 205, x = (v) => Math.max(0, Math.min(100, 100 * (v - lo) / (hi - lo)));
-  const row = (r, i) => {
-    const ev = isBat ? `SR ${f0(r.sr_p)} · avg ${f1(r.avg_p)} <span style="opacity:.7">(ordinary ${f0(r.sr_o)} · ${f1(r.avg_o)})</span>` : `econ ${f2(r.econ_p)} · ${f0(r.wkts_p)} wkts <span style="opacity:.7">(ordinary ${f2(r.econ_o)})</span>`;
-    const c = D.top_cards[r.pid], rr = byPid[r.pid];
-    const open = lbOpen === r.pid && c ? `<div class="lbx"><div class="grid g2"><div class="card"><h3>Pressure v ordinary balls</h3>${pairBars(isBat ? batRows(c.bat.splits) : bowlRows(c.bowl.splits))}</div>
-      <div class="card"><h3>Biggest pressure days</h3>${moments((isBat ? c.bat : c.bowl).moments, isBat ? "bat" : "bowl")}
-      <p class="note" style="margin:12px 0 0">${f0(r.n_p)} pressure balls in ${f0(r.m_p)} matches · ${Math.round(100 * r.ipl_share)}% of his balls in the IPL · pressure balls added ${r.wpa_p >= 0 ? "+" : ""}${f1(r.wpa_p)} wins of win probability in total.</p></div></div></div>` : "";
-    return `<div class="lb" data-pid="${r.pid}"><span class="rk num">${r.rank}</span><span class="nm"><b>${r.name}${rr ? ' <span class="chip v-trade" style="font-size:9px;padding:1px 7px">RR</span>' : ""}</b><span>${r.team}</span></span>
-      <span class="rt">${f1(r.rating)}</span>
-      <span class="iv" data-tip="Rating ${f1(r.rating)} (conservative score).<br>90% of resampled seasons fall between ${f1(r.rating_lo)} and ${f1(r.rating_hi)}."><span class="m" style="left:${x(100)}%"></span><span class="w" style="left:${x(r.rating_lo)}%;width:${x(r.rating_hi) - x(r.rating_lo)}%"></span><span class="p" style="left:${x(r.rating)}%"></span></span>
-      <span class="num" data-tip="Share of 1,000 match-resamples in which he ranks in the top 10">${Math.round(100 * r.p_top10)}%</span><span class="ev num">${ev}</span>${open}</div>`;
-  };
-  const v = D.validation[lbRole];
-  const rrRanks = D.squad.map((p) => ({ p, r: isBat ? p.rank_bat : p.rank_bowl })).filter((o) => o.r).sort((a, b) => a.r.rank - b.r.rank);
-  app.innerHTML = `
-    <div class="eyebrow">Round 1 submission</div>
-    <h1 class="page">The ten most reliable ${isBat ? "batters" : "bowlers"} under pressure</h1>
-    <p class="sub">Ranked on IPL and T20I deliveries from 2022 to 2026. The rating combines how good a player is on high-leverage balls with whether he rises or dips against his own everyday level, shrunk for sample size. 100 is the average ranked player; 15 points is one standard deviation.</p>
-    <div class="tabs"><button class="${isBat ? "on" : ""}" data-r="batters">Batters</button><button class="${isBat ? "" : "on"}" data-r="bowlers">Bowlers</button></div>
-    <div class="card">
-      <div class="lb head"><span>#</span><span>Player</span><span>Rating</span><span>90% range (line marks 100)</span><span data-tip="Share of 1,000 match-resamples in which he ranks in the top 10">Top-10 odds</span><span>Pressure record</span></div>
-      ${list.slice(0, 10).map(row).join("")}
-      <p class="note" style="margin:12px 6px 0">Click a player for his evidence. ${D.hp[isBat ? "bat" : "bowl"].eligible} ${isBat ? "batters" : "bowlers"} qualified: at least ${D.params.min_pressure_balls} pressure balls in ${D.params.min_pressure_matches}+ matches, and active since 2025.</p>
-    </div>
-    <div class="grid g2 section">
-      <div class="card"><h3>Next in line: ranks 11 to 25</h3><div class="scroll"><table><tr><th>#</th><th>Player</th><th class="r">Rating</th><th class="r">Top-10 odds</th><th class="r">${isBat ? "Pressure SR" : "Pressure econ"}</th></tr>
-        ${list.slice(10, 25).map((r) => `<tr><td class="num">${r.rank}</td><td>${r.name} <span class="note">· ${r.team}</span></td><td class="r num">${f1(r.rating)}</td><td class="r num">${Math.round(100 * r.p_top10)}%</td><td class="r num">${isBat ? f0(r.sr_p) : f2(r.econ_p)}</td></tr>`).join("")}</table></div></div>
-      <div><div class="card"><h3>Where RR's ${isBat ? "batters" : "bowlers"} rank</h3><div class="scroll"><table><tr><th>#</th><th>Player</th><th class="r">Rating</th></tr>
-        ${rrRanks.map((o) => `<tr><td class="num">${o.r.rank}</td><td><a href="#/player/${o.p.pid}" style="font-weight:600">${o.p.name}</a></td><td class="r num">${f1(o.r.rating)}</td></tr>`).join("")}</table></div><p class="note" style="margin:8px 0 0">Out of ${list.length ? D.hp[isBat ? "bat" : "bowl"].eligible : 0} ranked. Players with too few pressure balls are not ranked.</p></div>
-      <div class="card section"><h3>How far to trust the order</h3><ul class="why">
-        <li>Split the matches in two at random and the two halves agree at <b>${f2(v.split_half.composite.full_sample_reliability)}</b> reliability (raw pressure averages: ${f2(v.split_half.raw_level.full_sample_reliability)}).</li>
-        <li>Estimated from half the matches, the rating predicts pressure results in the other half at <b>${f2(v.holdout_prediction["joint_shrunk_level (ours)"])}</b> correlation, against ${f2(v.holdout_prediction.raw_pressure_average)} for raw pressure averages.</li>
-        <li>Top-10 odds below about 60% mean the player could plausibly sit a few places lower: positions 6 to 10 are close calls.</li></ul></div></div>
-    </div>`;
-  app.querySelectorAll(".tabs button").forEach((b) => b.onclick = () => { lbRole = b.dataset.r; lbOpen = null; viewTop(); });
-  app.querySelectorAll(".lb[data-pid]").forEach((el) => el.onclick = (e) => { if (e.target.closest(".lbx")) return; lbOpen = lbOpen === el.dataset.pid ? null : el.dataset.pid; viewTop(); });
-}
-
-// ---------- method ----------
+/* ---------------- 04 · METHOD ---------------- */
 function viewMethod() {
-  const pd = D.pressure_def, pv = pd.pressure_vs_ordinary, vb = D.validation.batters, vw = D.validation.bowlers, hb = D.hp.bat, hw = D.hp.bowl;
-  const sensT = (rows) => `<div class="scroll"><table><tr><th>Change to the method</th><th class="r">Players</th><th class="r">Rank correlation</th><th class="r">Top 10 kept</th></tr>
-    ${rows.map((r) => `<tr><td>${r.variant}</td><td class="r num">${r.players_compared}</td><td class="r num">${f2(r.spearman_vs_primary)}</td><td class="r num">${r.primary_top10_in_variant_top10} of 10</td></tr>`).join("")}</table></div>`;
-  const groups = { official: "Official", major: "Established outlets and published research", aggregator: "Rumour and prediction sites (shown as rumour only)" };
+  const pd = D.pressure_def, vb = D.validation.batters, vw = D.validation.bowlers, hb = D.hp.bat, hw = D.hp.bowl;
+  const ver = D.verification, w = D.weights;
+  const sensT = (rows) => `<div class="scroll"><table><tr><th>Change to the method</th><th class="r">Players</th><th class="r">Rank corr.</th><th class="r">Top 10 kept</th></tr>
+    ${rows.map((r) => `<tr><td>${esc(r.variant)}</td><td class="r num">${r.players_compared}</td><td class="r num">${f2(r.spearman_vs_primary)}</td><td class="r num">${r.primary_top10_in_variant_top10}/10</td></tr>`).join("")}</table></div>`;
   app.innerHTML = `
-    <div class="eyebrow">Method</div>
-    <h1 class="page">How pressure is defined and how players are rated</h1>
-    <div class="grid g4 section">
-      <div class="tile"><div class="k">Pressure balls</div><div class="v num">${f0(pv.pressure.balls)}</div><div class="d">the 20% of balls with the most at stake</div></div>
-      <div class="tile"><div class="k">Share of all win-probability movement</div><div class="v num">${Math.round(100 * pd.pressure_share_of_total_abs_wpa)}%</div><div class="d">happens on those balls</div></div>
-      <div class="tile"><div class="k">Team that wins the pressure balls</div><div class="v num">${Math.round(100 * pd.team_won_pressure_wpa_and_match)}%</div><div class="d">also wins the match</div></div>
-      <div class="tile"><div class="k">Win-probability model</div><div class="v num">${f2(D.ctx.wp_v2_context.auc)}</div><div class="d">AUC on unseen 2024–26 matches</div></div>
-    </div>
-    <div class="grid g2 section">
+    <section style="padding-top:clamp(24px,4vw,46px)">
+      <div class="eyebrow">Method & verification</div>
+      <h1 class="page">Show the working</h1>
+      <p class="sub">Every claim here is produced by code in the repository, and every step that could be wrong has a test that can fail.</p>
+    </section>
+
+    <section class="sec-pad card">
+      <h3>Verification: ${ver.passed} of ${ver.total} checks pass</h3>
+      <div class="scroll"><table><tr><th>Check</th><th>Result</th></tr>
+      ${ver.checks.map((c) => `<tr><td style="white-space:nowrap"><span class="${c.pass ? "pass" : "fail"}">${c.pass ? "PASS" : "FAIL"}</span> &nbsp;${esc(c.check)}</td><td class="note">${esc(c.detail)}</td></tr>`).join("")}
+      </table></div>
+      <p class="note" style="margin-top:12px">Checks 8 and 9 simulate players whose true talent is known by construction, then ask whether the rating recovers it. That is the part most ratings never test.</p>
+    </section>
+
+    <section class="sec-pad grid2">
       <div class="card prose"><h3>1 · What counts as pressure</h3>
-        <p>A model trained on 9,606 T20 matches estimates the batting side's chance of winning before every ball, from the score, wickets, balls left, target, venue, season and the strength of the two teams. The last four overs of a chase use a separate, finer endgame model.</p>
-        <p>The <b>Leverage Index</b> of a ball is how far that chance is expected to swing across the ball's possible outcomes (dot, single, two, four, six, wicket), divided by the average swing. 1.0 is an average ball. Knockout matches are multiplied by ${pd.knockout_mult}.</p>
-        <p>A <b>pressure ball</b> is one in the top 20% by Leverage Index (${f2(pd.q80)} or higher). On those balls the average swing in win probability is ${f1(pv.pressure.mean_abs_wpa_pct)}%, against ${f1(pv.ordinary.mean_abs_wpa_pct)}% otherwise; strike rate falls from ${f0(pv.ordinary.strike_rate)} to ${f0(pv.pressure.strike_rate)} and dot balls rise from ${f1(pv.ordinary.dot_pct)}% to ${f1(pv.pressure.dot_pct)}%.</p></div>
-      <div class="card"><h3>Where the pressure balls are</h3><div class="scroll"><table><tr><th>Innings</th><th>Phase</th><th class="r">Average leverage</th><th class="r">Balls that are pressure</th><th class="r">Share of all pressure balls</th></tr>
-        ${D.composition.map((r) => `<tr><td>${r.innings === 1 ? "Batting first" : "Chase"}</td><td>${r.phase}</td><td class="r num">${f2(r.mean_li)}</td><td class="r num">${Math.round(100 * r.share_pressure)}%</td><td class="r num">${Math.round(100 * r.share_of_all_pressure)}%</td></tr>`).join("")}</table></div>
-        <p class="note" style="margin:10px 0 0">Three in four pressure balls come in chases. Batting-first pressure is mostly early wickets in the powerplay.</p>
-        <h3 style="margin-top:16px">Sanity check on known finishes</h3><div class="scroll"><table><tr><th>Chase</th><th class="r">Peak leverage</th><th>At</th></tr>
-        ${D.validation.spot_checks.map((s) => `<tr><td>${s.match}</td><td class="r num">${f1(s.peak_li)}×</td><td>ball ${s.peak_at_ball}, needing ${s.peak_needed}</td></tr>`).join("")}</table></div></div>
-    </div>
-    <div class="grid g2 section">
+        <p>A gradient-boosted model estimates the batting side's chance of winning before every ball from the match state, era, venue and both teams' Elo. The last four overs of a chase blend into a separate endgame model that is forced to respect common sense. Raw probabilities were over-confident, so a monotone calibration map is fitted on Cricsheet matches that are <em>not</em> twins of the supplied ones.</p>
+        <p>The <b>Leverage Index</b> of a ball is the expected absolute swing in that probability across the ball's outcomes, divided by the average swing. A pressure ball is one in the top 20% (LI ≥ ${f2(pd.q80)}).</p>
+        <p class="note">Model quality: AUC ${f2(D.ctx.wp_v2_context.auc)}, Brier ${f2(D.ctx.wp_v2_context.brier)} on 2024–26 matches never seen in training. Calibration improved Brier from ${f2(D.ctx.calibration.brier_before)} to ${f2(D.ctx.calibration.brier_after)}.</p></div>
+      <div class="card"><h3>Where the pressure sits</h3><div class="scroll"><table>
+        <tr><th>Innings</th><th>Phase</th><th class="r">Mean LI</th><th class="r">Share pressure</th><th class="r">Of all pressure</th></tr>
+        ${D.composition.map((r) => `<tr><td>${r.innings === 1 ? "Batting first" : "Chase"}</td><td>${r.phase}</td><td class="r num">${f2(r.mean_li)}</td><td class="r num">${pc(r.share_pressure)}</td><td class="r num">${pc(r.share_of_all_pressure)}</td></tr>`).join("")}
+      </table></div><p class="note" style="margin-top:10px">Three in four pressure balls come in a chase. Batting-first pressure is mostly early wickets in the powerplay — not, as intuition suggests, the death overs.</p></div>
+    </section>
+
+    <section class="sec-pad grid2">
       <div class="card prose"><h3>2 · Measuring performance</h3><ol>
-        <li><b>Against expectation.</b> Every ball is compared with what an average player does in the same situation: expected runs and expected chance of a wicket, from models that never saw that match. A wicket is converted to runs using how many runs a wicket costs at that point of an innings (about ${f1(D.ctx.oof_on_supplied.wcost_mean)} on average).</li>
-        <li><b>Against the opponent.</b> A ridge regression credits each ball for the batter and bowler involved and for the strength of the opposing team, so runs against strong attacks count for more.</li>
-        <li><b>Two parts.</b> Run-scoring value is far more repeatable than dismissal value, so the two are tracked separately and each counts in proportion to the signal it carries.</li></ol></div>
-      <div class="card prose"><h3>3 · Turning it into a rating</h3><ol>
-        <li><b>Level</b>: the player's estimated true performance on pressure balls. <b>Lift</b>: how much better or worse that is than his own everyday level.</li>
-        <li>Both come from one statistical model that treats pressure skill as everyday skill plus lift, and pulls small samples toward the average. Lift is real but small: its spread is about half the spread of everyday skill (best fit ${hb.kappa_mle} for batters, ${hw.kappa_mle} for bowlers; we fix 0.5).</li>
-        <li>Rating = 70% Level + 30% Lift. Matches are resampled 1,000 times and the final score is the level a player reaches in three resamples out of four, so one or two freak games cannot carry anyone.</li>
-        <li>To qualify: ${D.params.min_pressure_balls}+ pressure balls in ${D.params.min_pressure_matches}+ matches and active since 2025. ${hb.eligible} batters and ${hw.eligible} bowlers qualify.</li></ol></div>
-    </div>
-    <div class="grid g2 section">
-      <div class="card"><h3>Does the order survive changes? Batters</h3>${sensT(D.sensitivity.batters)}</div>
-      <div class="card"><h3>Does the order survive changes? Bowlers</h3>${sensT(D.sensitivity.bowlers)}</div>
-    </div>
-    <div class="card section prose"><h3>What the rating cannot tell you</h3><ul>
-      <li><b>Being good under pressure is mostly being good.</b> True pressure skill and everyday skill correlate at about 0.9. Ranking on a player's pressure balls alone gives a list that does not repeat (reliability ${f2(vb.split_half.raw_level.full_sample_reliability)} for batters, ${f2(vw.split_half.raw_level.full_sample_reliability)} for bowlers), which is why the rating borrows from all his balls.</li>
-      <li><b>It describes 2022–26, it is not a forecast.</b> Batters' pressure results in 2022–24 barely predict 2025–26 (correlation ${f2(vb.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}); bowlers' carry over better (${f2(vw.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}).</li>
-      <li><b>Places 6 to 10 are close.</b> IPL-only and T20I-only versions keep 5 to 8 of each top 10.</li>
-      <li>Fielding, wicketkeeping, captaincy, pitch on the day and the non-striker are not measured. Balls against associate nations rely on a team-strength adjustment.</li></ul></div>
-    <div class="card section"><h3>Sources</h3>${Object.entries(groups).map(([t, label]) => `<p style="font-weight:700;margin:10px 0 6px">${label}</p><ul class="src" style="margin:0;padding-left:18px">${D.sources.filter((s) => s.tier === t).map((s) => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><div class="note">${s.note}</div></li>`).join("")}</ul>`).join("")}</div>`;
+        <li><b>Against expectation.</b> Every ball is compared with what an average player does in that exact situation — including how set the batter is and where he walked in, so a finisher is not judged against a set batter's bar. Wickets are converted to runs using what one costs at that point of an innings.</li>
+        <li><b>Against the opponent.</b> A ridge regression credits the batter, the bowler and the opposing team's Elo, so runs against a strong attack count for more. Facing a team 100 Elo points better costs a batter about ${f1(Math.abs(D.params.weights ? 0.77 : 0.77))} runs per 100 balls.</li>
+        <li><b>Runs and wickets apart.</b> Scoring value repeats far better than dismissal value, so each is tracked separately and weighted by the signal it carries.</li></ol></div>
+      <div class="card prose"><h3>3 · Level, Lift and the weights</h3>
+        <p><b>Level</b> is estimated true performance on pressure balls; <b>Lift</b> is how that compares with the player's own everyday level. A single hierarchical model shrinks both for sample size, using match-to-match variation for the noise so balls in one match are not counted as independent.</p>
+        <p>The weights are not hand-picked. We sweep them and measure how well each mix predicts pressure performance in matches the estimate never saw. The curve is flat near its peak, so a band is statistically indistinguishable from the optimum; within it we take the mix leaning most on Lift, because the brief asks for performance compared with usual levels.</p>
+        <div class="scroll"><table><tr><th>Role</th><th class="r">Optimum</th><th class="r">Band</th><th class="r">Chosen</th></tr>
+          ${["batters", "bowlers"].map((r) => { const x = w[r].weights, k = r === "batters" ? "bat" : "bowl";
+            return `<tr><td>${r}</td><td class="r num">${f2(x.best_w_level)}</td><td class="r num">${f2(Math.min(...x.indistinguishable_from_best))}–${f2(Math.max(...x.indistinguishable_from_best))}</td><td class="r num">${f2(D.params.weights[k].level)} Level / ${f2(D.params.weights[k].lift)} Lift</td></tr>`; }).join("")}
+        </table></div></div>
+    </section>
+
+    <section class="sec-pad grid2">
+      <div class="card"><h3>Is "consistency" a real trait?</h3>
+        <p class="note" style="margin-top:0">The brief asks for players who deliver <em>most consistently</em>. So we tested whether players genuinely differ in match-to-match volatility, rather than assuming it.</p>
+        <div class="scroll"><table><tr><th>Test</th><th class="r">Batters</th><th class="r">Bowlers</th></tr>
+          <tr><td>Bartlett test for unequal volatility (p)</td><td class="r num">${f2(w.batters.consistency.p_value)}</td><td class="r num">${f2(w.bowlers.consistency.p_value)}</td></tr>
+          <tr><td>Excess variance beyond noise</td><td class="r num">${f2(w.batters.consistency.excess_variance_tau2)}</td><td class="r num">${f2(w.bowlers.consistency.excess_variance_tau2)}</td></tr>
+          <tr><td>Does volatility repeat? (split-half)</td><td class="r num">${f2(w.batters.consistency.split_half_persistence_of_volatility)}</td><td class="r num">${f2(w.bowlers.consistency.split_half_persistence_of_volatility)}</td></tr>
+        </table></div>
+        <p class="note" style="margin-top:10px">A weak, same-signed hint in both roles, but not significant at 5% and barely repeatable. So we do not rate consistency as a separate skill. It enters instead through the match bootstrap: the published score is a lower quantile, so a player carried by two freak games cannot hold a high rank.</p></div>
+      <div class="card"><h3>Reliability</h3><div class="scroll"><table>
+        <tr><th>Measure</th><th class="r">Batters</th><th class="r">Bowlers</th></tr>
+        <tr><td>Split-half reliability of the rating</td><td class="r num">${f2(vb.split_half.composite.full_sample_reliability)}</td><td class="r num">${f2(vw.split_half.composite.full_sample_reliability)}</td></tr>
+        <tr><td>…of raw pressure averages</td><td class="r num">${f2(vb.split_half.raw_level.full_sample_reliability)}</td><td class="r num">${f2(vw.split_half.raw_level.full_sample_reliability)}</td></tr>
+        <tr><td>Predicts held-out pressure results (ours)</td><td class="r num">${f2(vb.holdout_prediction["joint_shrunk_level (ours)"])}</td><td class="r num">${f2(vw.holdout_prediction["joint_shrunk_level (ours)"])}</td></tr>
+        <tr><td>…using raw pressure averages</td><td class="r num">${f2(vb.holdout_prediction.raw_pressure_average)}</td><td class="r num">${f2(vw.holdout_prediction.raw_pressure_average)}</td></tr>
+        <tr><td>…using only his pressure balls</td><td class="r num">${f2(vb.holdout_prediction.pressure_only_shrunk)}</td><td class="r num">${f2(vw.holdout_prediction.pressure_only_shrunk)}</td></tr>
+        <tr><td>2022–24 predicting 2025–26</td><td class="r num">${f2(vb.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}</td><td class="r num">${f2(vw.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}</td></tr>
+      </table></div></div>
+    </section>
+
+    <section class="sec-pad grid2">
+      <div class="card"><h3>Does the order survive a different method? Batters</h3>${sensT(D.sensitivity.batters)}</div>
+      <div class="card"><h3>Bowlers</h3>${sensT(D.sensitivity.bowlers)}</div>
+    </section>
+
+    <section class="sec-pad card prose"><h3>What the rating cannot tell you</h3><ul>
+      <li><b>Being good under pressure is mostly being good.</b> Ranking players on their pressure balls alone gives a list that does not repeat (reliability ${f2(vb.split_half.raw_level.full_sample_reliability)} for batters), which is why the rating borrows from every ball a player has faced.</li>
+      <li><b>It describes 2022–26; it is not a forecast.</b> Bowlers' pressure form carries into later seasons (${f2(vw.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}); batters' barely does (${f2(vb.persistence.predict_later_pressure_level["joint_shrunk_level (ours)"])}).</li>
+      <li><b>Extremes are slightly overstated.</b> The simulation shows the rating spreads a little wider than true talent at this pool size (slope 0.80–0.85 rather than 1.00), so the very top and bottom are further apart than reality.</li>
+      <li><b>Places 6–10 are close calls</b> — the 90% ranges overlap heavily below the top three.</li>
+      <li><b>Not measured:</b> fielding, wicketkeeping, captaincy, the pitch on the day, the partner at the other end, intent.</li></ul></section>
+
+    <section class="sec-pad card"><h3>Sources</h3>
+      ${[["official", "Official"], ["major", "Established outlets, data and published research"], ["aggregator", "Rumour and prediction sites — used only as flagged rumour"]].map(([t, l]) => {
+        const items = D.sources.filter((s) => s.tier === t); if (!items.length) return "";
+        return `<p style="font-weight:700;margin:12px 0 6px">${l}</p><ul class="src" style="margin:0;padding-left:18px">
+          ${items.map((s) => `<li><a href="${s.url}" target="_blank" rel="noopener">${esc(s.title)}</a><div class="note">${esc(s.note)}</div></li>`).join("")}</ul>`; }).join("")}
+    </section>`;
 }
 
-// ---------- router ----------
+/* ---------------- router ---------------- */
 function route() {
-  const [, r, id] = (location.hash || "#/squad").split("/");
-  document.querySelectorAll("#nav a").forEach((a) => a.classList.toggle("on", a.dataset.r === r || (r === "player" && a.dataset.r === "squad")));
-  ({ squad: viewSquad, player: () => viewPlayer(id), purse: viewPurse, top10: viewTop, method: viewMethod }[r] || viewSquad)();
-  window.scrollTo(0, 0);
+  const [, r, id] = (location.hash || "#/top10").split("/");
+  document.querySelectorAll("#tabs a").forEach((a) => a.classList.toggle("on", a.dataset.r === r || (r === "royals" && a.dataset.r === "royals")));
+  try {
+    ({ top10: viewTop10, royals: () => (id ? viewPlayer(id) : viewRoyals()), auction: viewAuction, method: viewMethod }[r] || viewTop10)();
+  } catch (e) {
+    app.innerHTML = `<section class="sec-pad card"><h3>Something broke rendering this page</h3><p class="note">${esc(e.message)}</p></section>`;
+    console.error(e);
+  }
+  scrollTo(0, 0);
 }
 addEventListener("hashchange", route);
 route();

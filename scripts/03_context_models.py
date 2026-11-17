@@ -26,15 +26,17 @@ warnings.filterwarnings("ignore")
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 import xgboost as xgb  # noqa: E402
+import joblib  # noqa: E402
+from sklearn.isotonic import IsotonicRegression  # noqa: E402
 from sklearn.metrics import brier_score_loss, log_loss, roc_auc_score  # noqa: E402
 
 from rr_pressure.context import (CTX_FEATURES, REM_FEATURES, WP2_FEATURES, add_basic_context,  # noqa: E402
-                                 attach_elo, attach_elo_provided, compute_elo, fold_of, match_table)
+                                 attach_elo, attach_elo_provided, compute_elo, fold_of, match_table,
+                                 END_FEATURES)
 from rr_pressure.features import WP_FEATURES, model_frame  # noqa: E402
 from rr_pressure.paths import PROCESSED, TRAINED  # noqa: E402
 from rr_pressure.pressure import KNOCKOUT_MULT, leverage, outcome_table, rule_based_pressure  # noqa: E402
 
-END_FEATURES = ["runs_required", "balls_left", "wickets_in_hand"]
 CTX = TRAINED / "ctx"
 CTX.mkdir(exist_ok=True)
 NF = 5
@@ -115,7 +117,7 @@ def holdout_metrics(cs: pd.DataFrame) -> dict:
     return out
 
 
-def score(d: pd.DataFrame, models: dict, table: pd.DataFrame) -> pd.DataFrame:
+def score(d: pd.DataFrame, models: dict, table: pd.DataFrame, cal=None) -> pd.DataFrame:
     """Out-of-fold predictions; fold -1 (no Cricsheet twin) uses the average of all fold models."""
     d = d.copy()
     cols = ["wp", "xr_bat", "xw_bat", "xr_bowl", "xw_bowl", "rem0", "rem1", "li_raw"]
@@ -136,7 +138,7 @@ def score(d: pd.DataFrame, models: dict, table: pd.DataFrame) -> pd.DataFrame:
                 e = avg("wp_end", fr.loc[m, END_FEATURES])
                 w = np.clip((24 - fr.loc[m, "balls_left"].to_numpy()) / 12, 0, 1)
                 base[m] = (1 - w) * base[m] + w * e
-            return base
+            return base if cal is None else np.clip(cal.predict(np.clip(base, 0, 1)), 1e-4, 1 - 1e-4)
 
         wp = wp_fn(sub)
         res["wp"][pos] = wp
@@ -187,10 +189,29 @@ def main() -> None:
             models[k][name].save_model(str(path))
         print(f"fold {k} trained  [{time.time() - t0:.0f}s]")
 
+    # --- probability calibration -------------------------------------------------------------
+    # Raw model probabilities are over-confident near 0 and 1 (trained across leagues of mixed
+    # quality). Fit one monotone map on out-of-fold Cricsheet predictions, excluding the matches
+    # that are twins of the supplied ones, so nothing in the supplied data trains its own calibrator.
+    twins = set(pd.read_csv(PROCESSED / "match_pairs.csv")["match_id_c"])
+    raw = np.zeros(len(cs))
+    for k in range(NF):
+        pos = np.flatnonzero((cs["fold"] == k).to_numpy())
+        raw[pos] = pred(models[k]["wp"], cs.iloc[pos][WP2_FEATURES])
+    m = cs["batting_team_won"].notna().to_numpy() & ~cs["match_id"].isin(twins).to_numpy()
+    cal = IsotonicRegression(out_of_bounds="clip", y_min=0.001, y_max=0.999)
+    cal.fit(raw[m], cs["batting_team_won"].to_numpy()[m])
+    joblib.dump(cal, CTX / "wp_calibrator.joblib")
+    before = brier_score_loss(cs["batting_team_won"][m], raw[m])
+    after = brier_score_loss(cs["batting_team_won"][m], cal.predict(raw[m]))
+    metrics["calibration"] = {"fitted_on_balls": int(m.sum()), "excluded_twin_matches": len(twins),
+                              "brier_before": float(before), "brier_after": float(after)}
+    print(f"calibrator fitted on {m.sum():,} non-twin balls: Brier {before:.4f} -> {after:.4f}")
+
     table = outcome_table(cs[cs["year"] >= 2018])
     table.to_csv(CTX / "outcome_table.csv")
-    pr = score(pr, models, table)
-    cs = score(cs, models, table)
+    pr = score(pr, models, table, cal)
+    cs = score(cs, models, table, cal)
 
     li_mean = float(pr["li_raw"].mean())
     for d in (pr, cs):

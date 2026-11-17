@@ -1,0 +1,1466 @@
+{
+ "generated": "2026-11-18",
+ "purse": {
+  "total": 130.0,
+  "spent": 104.5,
+  "left": 25.5,
+  "kept": 19,
+  "slots": 6,
+  "overseas_kept": 5,
+  "overseas_slots": 3
+ },
+ "scorecard": {
+  "players": 27,
+  "agreed": 22,
+  "rate": 0.815,
+  "by_confidence": {
+   "High": {
+    "n": 9,
+    "agreed": 8
+   },
+   "Medium": {
+    "n": 8,
+    "agreed": 5
+   },
+   "Low": {
+    "n": 10,
+    "agreed": 9
+   }
+  },
+  "misses": [
+   {
+    "name": "Ravindra Jadeja",
+    "ours": "Release & rebuy",
+    "actual": "Retained",
+    "confidence": "Medium"
+   },
+   {
+    "name": "Dasun Shanaka",
+    "ours": "Release",
+    "actual": "Retained",
+    "confidence": "High"
+   },
+   {
+    "name": "Ravi Bishnoi",
+    "ours": "Release & rebuy",
+    "actual": "Retained",
+    "confidence": "Medium"
+   },
+   {
+    "name": "Sandeep Sharma",
+    "ours": "Release",
+    "actual": "Retained",
+    "confidence": "Medium"
+   },
+   {
+    "name": "Vignesh Puthur",
+    "ours": "Retain",
+    "actual": "Released",
+    "confidence": "Low"
+   }
+  ],
+  "rows": [
+   {
+    "pid": "6819",
+    "name": "Yashasvi Jaiswal",
+    "salary": 18.0,
+    "ours": "Retain",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Five straight productive seasons and no pressure dip; expensive but not replaceable.",
+    "photo": "yashasvi-jaiswal.png"
+   },
+   {
+    "pid": "50284",
+    "name": "Vaibhav Sooryavanshi",
+    "salary": 1.1,
+    "ours": "Retain",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "The best pressure batter in the entire dataset, at Rs 1.1 crore.",
+    "photo": "vaibhav-sooryavanshi.png"
+   },
+   {
+    "pid": "6423",
+    "name": "Riyan Parag",
+    "salary": 14.0,
+    "ours": "Retain",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Captain and Indian middle-order core; average under pressure, paid as a star.",
+    "photo": "riyan-parag.png"
+   },
+   {
+    "pid": "7260",
+    "name": "Dhruv Jurel",
+    "salary": 14.0,
+    "ours": "Retain",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Keeper and 515 runs in 2026, but the squad's clearest pressure dip.",
+    "photo": "dhruv-jurel.png"
+   },
+   {
+    "pid": "3297",
+    "name": "Shimron Hetmyer",
+    "salary": 11.0,
+    "ours": "Release",
+    "confidence": "High",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Rs 11 crore for 78 runs in 2026: the clearest release on the list.",
+    "photo": "shimron-hetmyer.png"
+   },
+   {
+    "pid": "8182",
+    "name": "Donovan Ferreira",
+    "salary": 1.0,
+    "ours": "Retain",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "The finisher RR already own: strike rate 179 in 2026 for Rs 1 crore.",
+    "photo": "donovan-ferreira.png"
+   },
+   {
+    "pid": "25139",
+    "name": "Shubham Dubey",
+    "salary": 0.8,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Cheap Indian middle-order cover.",
+    "photo": "shubham-dubey.png"
+   },
+   {
+    "pid": "43798",
+    "name": "Lhuan-dre Pretorius",
+    "salary": 0.3,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "20-year-old overseas top-order prospect at base price.",
+    "photo": "lhuan-dre-pretorius.png"
+   },
+   {
+    "pid": "47523",
+    "name": "Aman Rao",
+    "salary": 0.3,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "No balls in the data: kept on cost and age alone.",
+    "photo": "aman-rao.png"
+   },
+   {
+    "pid": "60700",
+    "name": "Ravi Singh",
+    "salary": 0.95,
+    "ours": "Release",
+    "confidence": "Low",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Withdrew injured after one game; no evidence to justify Rs 0.95 crore.",
+    "photo": "ravi-singh.png"
+   },
+   {
+    "pid": "152",
+    "name": "Ravindra Jadeja",
+    "salary": 14.0,
+    "ours": "Release & rebuy",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": false,
+    "headline": "Still RR's best bowler when it matters, but Rs 14 crore buys far more at auction.",
+    "photo": "ravindra-jadeja.png"
+   },
+   {
+    "pid": "4409",
+    "name": "Sam Curran",
+    "salary": 2.4,
+    "ours": "Trade chip",
+    "confidence": "Medium",
+    "actual": "Traded out",
+    "agree": true,
+    "headline": "Missed 2026; below average in both skills in the IPL. Best used in the reported LSG deal.",
+    "photo": "sam-curran.png"
+   },
+   {
+    "pid": "2436",
+    "name": "Dasun Shanaka",
+    "salary": 2.0,
+    "ours": "Release",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": false,
+    "headline": "Injury replacement who made little impact; 35 years old.",
+    "photo": "dasun-shanaka.png"
+   },
+   {
+    "pid": "3298",
+    "name": "Jofra Archer",
+    "salary": 12.5,
+    "ours": "Retain",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "The only strike bowler: 25 wickets in 2026. Needs a partner for the pressure overs.",
+    "photo": "jofra-archer.png"
+   },
+   {
+    "pid": "7503",
+    "name": "Ravi Bishnoi",
+    "salary": 7.2,
+    "ours": "Release & rebuy",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": false,
+    "headline": "Two poor IPL seasons in a row at Rs 7.2 crore; still a good international bowler.",
+    "photo": "ravi-bishnoi.png"
+   },
+   {
+    "pid": "6806",
+    "name": "Tushar Deshpande",
+    "salary": 6.5,
+    "ours": "Release",
+    "confidence": "High",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Economy of 12 in 2026 on a Rs 6.5 crore contract.",
+    "photo": "tushar-deshpande.png"
+   },
+   {
+    "pid": "2411",
+    "name": "Sandeep Sharma",
+    "salary": 4.0,
+    "ours": "Release",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": false,
+    "headline": "A fine record that has faded: economy 8.2 -> 9.9 -> 11.4.",
+    "photo": "sandeep-sharma.png"
+   },
+   {
+    "pid": "7312",
+    "name": "Nandre Burger",
+    "salary": 3.5,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Useful left-arm depth at a fair price, not the answer for the second strike bowler.",
+    "photo": "nandre-burger.png"
+   },
+   {
+    "pid": "1487",
+    "name": "Adam Milne",
+    "salary": 2.4,
+    "ours": "Release",
+    "confidence": "High",
+    "actual": "Released",
+    "agree": true,
+    "headline": "One game in 2026 for Rs 2.4 crore.",
+    "photo": "adam-milne.png"
+   },
+   {
+    "pid": "26663",
+    "name": "Kwena Maphaka",
+    "salary": 1.5,
+    "ours": "Release",
+    "confidence": "Low",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Talented 20-year-old, but zero games in 2026 and a second left-arm overseas quick.",
+    "photo": "kwena-maphaka.png"
+   },
+   {
+    "pid": "67036",
+    "name": "Brijesh Sharma",
+    "salary": 0.3,
+    "ours": "Retain",
+    "confidence": "High",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Uncapped find: 14 wickets in 13 matches at base price.",
+    "photo": "brijesh-sharma.png"
+   },
+   {
+    "pid": "41503",
+    "name": "Yash Raj Punja",
+    "salary": 0.9,
+    "ours": "Retain",
+    "confidence": "Medium",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "20-year-old leg-spinner who took Bishnoi's place late in the season.",
+    "photo": NaN
+   },
+   {
+    "pid": "7545",
+    "name": "Kuldeep Sen",
+    "salary": 0.75,
+    "ours": "Release",
+    "confidence": "Medium",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Did not play in 2026.",
+    "photo": "kuldeep-sen.png"
+   },
+   {
+    "pid": "8580",
+    "name": "Yudhvir Singh Charak",
+    "salary": 0.35,
+    "ours": "Release",
+    "confidence": "Low",
+    "actual": "Released",
+    "agree": true,
+    "headline": "No games in 2026; economy 12 in 2025.",
+    "photo": "yudhvir-singh-charak.png"
+   },
+   {
+    "pid": "7269",
+    "name": "Sushant Mishra",
+    "salary": 0.3,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Retained",
+    "agree": true,
+    "headline": "Left-arm Indian seamer, two games, base price.",
+    "photo": "sushant-mishra.png"
+   },
+   {
+    "pid": "48557",
+    "name": "Vignesh Puthur",
+    "salary": 0.3,
+    "ours": "Retain",
+    "confidence": "Low",
+    "actual": "Released",
+    "agree": false,
+    "headline": "Left-arm wrist-spin is rare; costs almost nothing to keep.",
+    "photo": "vignesh-puthur.png"
+   },
+   {
+    "pid": "43965",
+    "name": "Emanjot Singh Chahal",
+    "salary": 0.3,
+    "ours": "Release",
+    "confidence": "Low",
+    "actual": "Released",
+    "agree": true,
+    "headline": "Replacement signing who did not play; nothing to analyse.",
+    "photo": "emanjot-singh-chahal.png"
+   }
+  ]
+ },
+ "retained": [
+  {
+   "name": "Riyan Parag",
+   "salary": 14.0,
+   "photo": "riyan-parag.png",
+   "bat": {
+    "rank": 59,
+    "of": 111,
+    "rating": 94.0,
+    "level": 0.0465,
+    "lift": -0.0097,
+    "n_p": 174,
+    "pct": 57.7,
+    "sr_p": 148.3,
+    "sr_o": 152.9,
+    "avg_p": 28.3
+   },
+   "bowl": null
+  },
+  {
+   "name": "Yashasvi Jaiswal",
+   "salary": 18.0,
+   "photo": "yashasvi-jaiswal.png",
+   "bat": {
+    "rank": 28,
+    "of": 111,
+    "rating": 103.7,
+    "level": 0.0691,
+    "lift": 0.0167,
+    "n_p": 402,
+    "pct": 73.0,
+    "sr_p": 159.6,
+    "sr_o": 156.3,
+    "avg_p": 32.0
+   },
+   "bowl": null
+  },
+  {
+   "name": "Vaibhav Sooryavanshi",
+   "salary": 1.1,
+   "photo": "vaibhav-sooryavanshi.png",
+   "bat": {
+    "rank": 1,
+    "of": 111,
+    "rating": 163.0,
+    "level": 0.3428,
+    "lift": 0.0307,
+    "n_p": 162,
+    "pct": 99.1,
+    "sr_p": 239.5,
+    "sr_o": 219.4,
+    "avg_p": 55.4
+   },
+   "bowl": null
+  },
+  {
+   "name": "Ravindra Jadeja",
+   "salary": 14.0,
+   "photo": "ravindra-jadeja.png",
+   "bat": {
+    "rank": 102,
+    "of": 111,
+    "rating": 77.3,
+    "level": -0.0406,
+    "lift": -0.0083,
+    "n_p": 139,
+    "pct": 3.6,
+    "sr_p": 128.1,
+    "sr_o": 136.6,
+    "avg_p": 44.5
+   },
+   "bowl": {
+    "rank": 43,
+    "of": 115,
+    "rating": 98.6,
+    "level": 0.0397,
+    "lift": 0.001,
+    "n_p": 225,
+    "pct": 59.1,
+    "econ_p": 7.69,
+    "econ_o": 7.94,
+    "wkts_p": 10
+   }
+  },
+  {
+   "name": "Dhruv Jurel",
+   "salary": 14.0,
+   "photo": "dhruv-jurel.png",
+   "bat": {
+    "rank": 101,
+    "of": 111,
+    "rating": 77.8,
+    "level": -0.02,
+    "lift": -0.0161,
+    "n_p": 195,
+    "pct": 14.4,
+    "sr_p": 128.7,
+    "sr_o": 158.5,
+    "avg_p": 22.8
+   },
+   "bowl": null
+  },
+  {
+   "name": "Jofra Archer",
+   "salary": 12.5,
+   "photo": "jofra-archer.png",
+   "bat": null,
+   "bowl": {
+    "rank": 46,
+    "of": 115,
+    "rating": 97.5,
+    "level": 0.0538,
+    "lift": -0.013,
+    "n_p": 319,
+    "pct": 67.0,
+    "econ_p": 8.82,
+    "econ_o": 9.14,
+    "wkts_p": 19
+   }
+  },
+  {
+   "name": "Aman Rao Perala",
+   "salary": 0.3,
+   "photo": "aman-rao.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Brijesh Sharma",
+   "salary": 0.3,
+   "photo": "brijesh-sharma.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Nandre Burger",
+   "salary": 3.5,
+   "photo": "nandre-burger.png",
+   "bat": null,
+   "bowl": {
+    "rank": 76,
+    "of": 115,
+    "rating": 88.4,
+    "level": -0.0056,
+    "lift": 0.0015,
+    "n_p": 137,
+    "pct": 31.3,
+    "econ_p": 9.56,
+    "econ_o": 9.91,
+    "wkts_p": 6
+   }
+  },
+  {
+   "name": "Dasun Shanaka",
+   "salary": 2.0,
+   "photo": "dasun-shanaka.png",
+   "bat": {
+    "rank": 44,
+    "of": 111,
+    "rating": 97.3,
+    "level": 0.0552,
+    "lift": -0.005,
+    "n_p": 182,
+    "pct": 64.0,
+    "sr_p": 143.1,
+    "sr_o": 139.9,
+    "avg_p": 43.2
+   },
+   "bowl": {
+    "rank": 57,
+    "of": 115,
+    "rating": 94.9,
+    "level": 0.0194,
+    "lift": 0.0012,
+    "n_p": 101,
+    "pct": 47.0,
+    "econ_p": 9.22,
+    "econ_o": 8.76,
+    "wkts_p": 5
+   }
+  },
+  {
+   "name": "Donovan Ferreira",
+   "salary": 1.0,
+   "photo": "donovan-ferreira.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Lhuan-dre Pretorius",
+   "salary": 0.3,
+   "photo": "lhuan-dre-pretorius.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Ravi Bishnoi",
+   "salary": 7.2,
+   "photo": "ravi-bishnoi.png",
+   "bat": null,
+   "bowl": {
+    "rank": 63,
+    "of": 115,
+    "rating": 93.3,
+    "level": 0.0264,
+    "lift": -0.0102,
+    "n_p": 484,
+    "pct": 52.2,
+    "econ_p": 8.88,
+    "econ_o": 8.22,
+    "wkts_p": 24
+   }
+  },
+  {
+   "name": "Sandeep Sharma",
+   "salary": 4.0,
+   "photo": "sandeep-sharma.png",
+   "bat": null,
+   "bowl": {
+    "rank": 39,
+    "of": 115,
+    "rating": 99.0,
+    "level": 0.0609,
+    "lift": -0.0213,
+    "n_p": 195,
+    "pct": 69.6,
+    "econ_p": 9.89,
+    "econ_o": 8.81,
+    "wkts_p": 3
+   }
+  },
+  {
+   "name": "Shubham Dubey",
+   "salary": 0.8,
+   "photo": "shubham-dubey.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Sushant Mishra",
+   "salary": 0.3,
+   "photo": "sushant-mishra.png",
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Yash Raj Punja",
+   "salary": 0.9,
+   "photo": null,
+   "bat": null,
+   "bowl": null
+  },
+  {
+   "name": "Mohammed Shami",
+   "salary": 10.0,
+   "photo": "mohammad-shami.png",
+   "bat": null,
+   "bowl": {
+    "rank": 53,
+    "of": 115,
+    "rating": 95.8,
+    "level": 0.0102,
+    "lift": 0.0244,
+    "n_p": 338,
+    "pct": 41.7,
+    "econ_p": 7.43,
+    "econ_o": 9.19,
+    "wkts_p": 13
+   }
+  },
+  {
+   "name": "Manimaran Siddharth",
+   "salary": 0.3,
+   "photo": "manimaran-siddharth.png",
+   "bat": null,
+   "bowl": null
+  }
+ ],
+ "needs": [
+  {
+   "need": "A death-overs bowler who does not leak under pressure",
+   "evidence": "Of the bowlers RR kept, Ravi Bishnoi goes at 8.88 on pressure balls against 8.22 otherwise, Mohammed Shami goes at 7.43 on pressure balls against 9.19 otherwise, Jofra Archer goes at 8.82 on pressure balls against 9.14 otherwise.",
+   "target_role": "bowl"
+  },
+  {
+   "need": "A middle-order batter who can score against spin when the game tightens",
+   "evidence": "RR's kept middle order drops under pressure: Dhruv Jurel 129 v 158, Riyan Parag 148 v 153, Dasun Shanaka 143 v 140 (strike rate, pressure v ordinary).",
+   "target_role": "bat"
+  },
+  {
+   "need": "A second overseas quick to share the new ball with Archer",
+   "evidence": "Only Burger and Shanaka remain overseas with the ball, and RR have 3 overseas slots open.",
+   "target_role": "bowl"
+  }
+ ],
+ "board": {
+  "bowl": [
+   {
+    "name": "Matheesha Pathirana",
+    "released_by": "KKR",
+    "photo": "matheesha-pathirana.png",
+    "role": "bowl",
+    "rank": 9,
+    "of": 115,
+    "rating": 117.9,
+    "level": 0.1325,
+    "lift": -0.0032,
+    "n_p": 237,
+    "pct": 93.9,
+    "econ_p": 9.69,
+    "econ_o": 8.67,
+    "wkts_p": 9,
+    "fit": 93.9
+   },
+   {
+    "name": "Mustafizur Rahman",
+    "released_by": "KKR",
+    "photo": "mustafizur-rahman.png",
+    "role": "bowl",
+    "rank": 14,
+    "of": 115,
+    "rating": 111.0,
+    "level": 0.1053,
+    "lift": -0.0093,
+    "n_p": 320,
+    "pct": 88.7,
+    "econ_p": 7.76,
+    "econ_o": 7.81,
+    "wkts_p": 17,
+    "fit": 88.7
+   },
+   {
+    "name": "Blessing Muzarabani",
+    "released_by": "KKR",
+    "photo": "blessing-muzarabani.png",
+    "role": "bowl",
+    "rank": 34,
+    "of": 115,
+    "rating": 101.3,
+    "level": 0.0772,
+    "lift": -0.0188,
+    "n_p": 265,
+    "pct": 80.0,
+    "econ_p": 7.81,
+    "econ_o": 7.41,
+    "wkts_p": 12,
+    "fit": 80.0
+   },
+   {
+    "name": "Lockie Ferguson",
+    "released_by": "PBKS",
+    "photo": "lockie-ferguson.png",
+    "role": "bowl",
+    "rank": 52,
+    "of": 115,
+    "rating": 96.4,
+    "level": 0.0459,
+    "lift": -0.0148,
+    "n_p": 219,
+    "pct": 62.6,
+    "econ_p": 9.63,
+    "econ_o": 8.78,
+    "wkts_p": 13,
+    "fit": 62.6
+   },
+   {
+    "name": "Wanindu Hasaranga",
+    "released_by": "LSG",
+    "photo": "wanindu-hasaranga.png",
+    "role": "bowl",
+    "rank": 42,
+    "of": 115,
+    "rating": 98.7,
+    "level": 0.0404,
+    "lift": -0.0036,
+    "n_p": 358,
+    "pct": 60.0,
+    "econ_p": 8.41,
+    "econ_o": 7.84,
+    "wkts_p": 18,
+    "fit": 60.0
+   },
+   {
+    "name": "Trent Boult",
+    "released_by": "MI",
+    "photo": "trent-boult.png",
+    "role": "bowl",
+    "rank": 49,
+    "of": 115,
+    "rating": 97.0,
+    "level": 0.0355,
+    "lift": -0.0097,
+    "n_p": 451,
+    "pct": 55.7,
+    "econ_p": 7.88,
+    "econ_o": 8.71,
+    "wkts_p": 24,
+    "fit": 55.7
+   },
+   {
+    "name": "Jaydev Unadkat",
+    "released_by": "SRH",
+    "photo": "jaydev-unadkat.png",
+    "role": "bowl",
+    "rank": 60,
+    "of": 115,
+    "rating": 94.2,
+    "level": 0.0214,
+    "lift": 0.0038,
+    "n_p": 129,
+    "pct": 48.7,
+    "econ_p": 9.58,
+    "econ_o": 9.55,
+    "wkts_p": 3,
+    "fit": 48.7
+   },
+   {
+    "name": "Dushmantha Chameera",
+    "released_by": "DC",
+    "photo": "dushmantha-chameera.png",
+    "role": "bowl",
+    "rank": 78,
+    "of": 115,
+    "rating": 87.6,
+    "level": 0.0036,
+    "lift": -0.0051,
+    "n_p": 233,
+    "pct": 36.5,
+    "econ_p": 8.96,
+    "econ_o": 8.81,
+    "wkts_p": 14,
+    "fit": 36.5
+   }
+  ],
+  "bat": [
+   {
+    "name": "Travis Head",
+    "released_by": "SRH",
+    "photo": "travis-head.png",
+    "role": "bat",
+    "rank": 40,
+    "of": 111,
+    "rating": 98.1,
+    "level": 0.0756,
+    "lift": -0.0054,
+    "n_p": 228,
+    "pct": 78.4,
+    "sr_p": 155.8,
+    "sr_o": 181.5,
+    "avg_p": 39.1,
+    "fit": 78.4
+   },
+   {
+    "name": "Shimron Hetmyer",
+    "released_by": "RR",
+    "photo": "shimron-hetmyer.png",
+    "role": "bat",
+    "rank": 35,
+    "of": 111,
+    "rating": 100.3,
+    "level": 0.0695,
+    "lift": 0.0048,
+    "n_p": 224,
+    "pct": 73.9,
+    "sr_p": 160.7,
+    "sr_o": 150.5,
+    "avg_p": 21.2,
+    "fit": 73.9
+   },
+   {
+    "name": "Rahul Tripathi",
+    "released_by": "KKR",
+    "photo": "rahul-tripathi.png",
+    "role": "bat",
+    "rank": 47,
+    "of": 111,
+    "rating": 96.5,
+    "level": 0.0581,
+    "lift": -0.0026,
+    "n_p": 218,
+    "pct": 64.9,
+    "sr_p": 138.4,
+    "sr_o": 142.8,
+    "avg_p": 33.2,
+    "fit": 64.9
+   },
+   {
+    "name": "Pathum Nissanka",
+    "released_by": "DC",
+    "photo": "pathum-nissanka.png",
+    "role": "bat",
+    "rank": 38,
+    "of": 111,
+    "rating": 99.0,
+    "level": 0.0419,
+    "lift": 0.0108,
+    "n_p": 563,
+    "pct": 55.0,
+    "sr_p": 138.0,
+    "sr_o": 135.1,
+    "avg_p": 35.1,
+    "fit": 55.0
+   },
+   {
+    "name": "Kamindu Mendis",
+    "released_by": "SRH",
+    "photo": "kamindu-mendis.png",
+    "role": "bat",
+    "rank": 37,
+    "of": 111,
+    "rating": 99.7,
+    "level": 0.0374,
+    "lift": 0.0179,
+    "n_p": 125,
+    "pct": 50.5,
+    "sr_p": 168.3,
+    "sr_o": 119.9,
+    "avg_p": 41.4,
+    "fit": 50.5
+   },
+   {
+    "name": "Nitish Rana",
+    "released_by": "DC",
+    "photo": "nitish-rana.png",
+    "role": "bat",
+    "rank": 68,
+    "of": 111,
+    "rating": 90.3,
+    "level": 0.0298,
+    "lift": -0.0071,
+    "n_p": 175,
+    "pct": 44.1,
+    "sr_p": 138.9,
+    "sr_o": 148.8,
+    "avg_p": 27.0,
+    "fit": 44.1
+   },
+   {
+    "name": "Nehal Wadhera",
+    "released_by": "PBKS",
+    "photo": "nehal-wadhera.png",
+    "role": "bat",
+    "rank": 73,
+    "of": 111,
+    "rating": 89.5,
+    "level": 0.0198,
+    "lift": -0.0044,
+    "n_p": 143,
+    "pct": 39.6,
+    "sr_p": 137.8,
+    "sr_o": 133.6,
+    "avg_p": 28.1,
+    "fit": 39.6
+   },
+   {
+    "name": "Jacob Bethell",
+    "released_by": "RCB",
+    "photo": "jacob-bethell.png",
+    "role": "bat",
+    "rank": 72,
+    "of": 111,
+    "rating": 89.5,
+    "level": 0.0065,
+    "lift": 0.004,
+    "n_p": 122,
+    "pct": 23.4,
+    "sr_p": 152.9,
+    "sr_o": 146.7,
+    "avg_p": 37.0,
+    "fit": 23.4
+   }
+  ]
+ },
+ "pool_size": 87,
+ "pool_rated": 26,
+ "pool": [
+  {
+   "name": "Matheesha Pathirana",
+   "released_by": "KKR",
+   "photo": "matheesha-pathirana.png",
+   "bat": null,
+   "bowl": {
+    "rank": 9,
+    "of": 115,
+    "rating": 117.9,
+    "level": 0.1325,
+    "lift": -0.0032,
+    "n_p": 237,
+    "pct": 93.9,
+    "econ_p": 9.69,
+    "econ_o": 8.67,
+    "wkts_p": 9
+   },
+   "rated": true,
+   "best_pct": 93.9
+  },
+  {
+   "name": "Mustafizur Rahman",
+   "released_by": "KKR",
+   "photo": "mustafizur-rahman.png",
+   "bat": null,
+   "bowl": {
+    "rank": 14,
+    "of": 115,
+    "rating": 111.0,
+    "level": 0.1053,
+    "lift": -0.0093,
+    "n_p": 320,
+    "pct": 88.7,
+    "econ_p": 7.76,
+    "econ_o": 7.81,
+    "wkts_p": 17
+   },
+   "rated": true,
+   "best_pct": 88.7
+  },
+  {
+   "name": "Blessing Muzarabani",
+   "released_by": "KKR",
+   "photo": "blessing-muzarabani.png",
+   "bat": null,
+   "bowl": {
+    "rank": 34,
+    "of": 115,
+    "rating": 101.3,
+    "level": 0.0772,
+    "lift": -0.0188,
+    "n_p": 265,
+    "pct": 80.0,
+    "econ_p": 7.81,
+    "econ_o": 7.41,
+    "wkts_p": 12
+   },
+   "rated": true,
+   "best_pct": 80.0
+  },
+  {
+   "name": "Travis Head",
+   "released_by": "SRH",
+   "photo": "travis-head.png",
+   "bat": {
+    "rank": 40,
+    "of": 111,
+    "rating": 98.1,
+    "level": 0.0756,
+    "lift": -0.0054,
+    "n_p": 228,
+    "pct": 78.4,
+    "sr_p": 155.8,
+    "sr_o": 181.5,
+    "avg_p": 39.1
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 78.4
+  },
+  {
+   "name": "Shimron Hetmyer",
+   "released_by": "RR",
+   "photo": "shimron-hetmyer.png",
+   "bat": {
+    "rank": 35,
+    "of": 111,
+    "rating": 100.3,
+    "level": 0.0695,
+    "lift": 0.0048,
+    "n_p": 224,
+    "pct": 73.9,
+    "sr_p": 160.7,
+    "sr_o": 150.5,
+    "avg_p": 21.2
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 73.9
+  },
+  {
+   "name": "Rahul Tripathi",
+   "released_by": "KKR",
+   "photo": "rahul-tripathi.png",
+   "bat": {
+    "rank": 47,
+    "of": 111,
+    "rating": 96.5,
+    "level": 0.0581,
+    "lift": -0.0026,
+    "n_p": 218,
+    "pct": 64.9,
+    "sr_p": 138.4,
+    "sr_o": 142.8,
+    "avg_p": 33.2
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 64.9
+  },
+  {
+   "name": "Lockie Ferguson",
+   "released_by": "PBKS",
+   "photo": "lockie-ferguson.png",
+   "bat": null,
+   "bowl": {
+    "rank": 52,
+    "of": 115,
+    "rating": 96.4,
+    "level": 0.0459,
+    "lift": -0.0148,
+    "n_p": 219,
+    "pct": 62.6,
+    "econ_p": 9.63,
+    "econ_o": 8.78,
+    "wkts_p": 13
+   },
+   "rated": true,
+   "best_pct": 62.6
+  },
+  {
+   "name": "Wanindu Hasaranga",
+   "released_by": "LSG",
+   "photo": "wanindu-hasaranga.png",
+   "bat": null,
+   "bowl": {
+    "rank": 42,
+    "of": 115,
+    "rating": 98.7,
+    "level": 0.0404,
+    "lift": -0.0036,
+    "n_p": 358,
+    "pct": 60.0,
+    "econ_p": 8.41,
+    "econ_o": 7.84,
+    "wkts_p": 18
+   },
+   "rated": true,
+   "best_pct": 60.0
+  },
+  {
+   "name": "Trent Boult",
+   "released_by": "MI",
+   "photo": "trent-boult.png",
+   "bat": null,
+   "bowl": {
+    "rank": 49,
+    "of": 115,
+    "rating": 97.0,
+    "level": 0.0355,
+    "lift": -0.0097,
+    "n_p": 451,
+    "pct": 55.7,
+    "econ_p": 7.88,
+    "econ_o": 8.71,
+    "wkts_p": 24
+   },
+   "rated": true,
+   "best_pct": 55.7
+  },
+  {
+   "name": "Pathum Nissanka",
+   "released_by": "DC",
+   "photo": "pathum-nissanka.png",
+   "bat": {
+    "rank": 38,
+    "of": 111,
+    "rating": 99.0,
+    "level": 0.0419,
+    "lift": 0.0108,
+    "n_p": 563,
+    "pct": 55.0,
+    "sr_p": 138.0,
+    "sr_o": 135.1,
+    "avg_p": 35.1
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 55.0
+  },
+  {
+   "name": "Kamindu Mendis",
+   "released_by": "SRH",
+   "photo": "kamindu-mendis.png",
+   "bat": {
+    "rank": 37,
+    "of": 111,
+    "rating": 99.7,
+    "level": 0.0374,
+    "lift": 0.0179,
+    "n_p": 125,
+    "pct": 50.5,
+    "sr_p": 168.3,
+    "sr_o": 119.9,
+    "avg_p": 41.4
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 50.5
+  },
+  {
+   "name": "Jaydev Unadkat",
+   "released_by": "SRH",
+   "photo": "jaydev-unadkat.png",
+   "bat": null,
+   "bowl": {
+    "rank": 60,
+    "of": 115,
+    "rating": 94.2,
+    "level": 0.0214,
+    "lift": 0.0038,
+    "n_p": 129,
+    "pct": 48.7,
+    "econ_p": 9.58,
+    "econ_o": 9.55,
+    "wkts_p": 3
+   },
+   "rated": true,
+   "best_pct": 48.7
+  },
+  {
+   "name": "Nitish Rana",
+   "released_by": "DC",
+   "photo": "nitish-rana.png",
+   "bat": {
+    "rank": 68,
+    "of": 111,
+    "rating": 90.3,
+    "level": 0.0298,
+    "lift": -0.0071,
+    "n_p": 175,
+    "pct": 44.1,
+    "sr_p": 138.9,
+    "sr_o": 148.8,
+    "avg_p": 27.0
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 44.1
+  },
+  {
+   "name": "Nehal Wadhera",
+   "released_by": "PBKS",
+   "photo": "nehal-wadhera.png",
+   "bat": {
+    "rank": 73,
+    "of": 111,
+    "rating": 89.5,
+    "level": 0.0198,
+    "lift": -0.0044,
+    "n_p": 143,
+    "pct": 39.6,
+    "sr_p": 137.8,
+    "sr_o": 133.6,
+    "avg_p": 28.1
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 39.6
+  },
+  {
+   "name": "Dushmantha Chameera",
+   "released_by": "DC",
+   "photo": "dushmantha-chameera.png",
+   "bat": null,
+   "bowl": {
+    "rank": 78,
+    "of": 115,
+    "rating": 87.6,
+    "level": 0.0036,
+    "lift": -0.0051,
+    "n_p": 233,
+    "pct": 36.5,
+    "econ_p": 8.96,
+    "econ_o": 8.81,
+    "wkts_p": 14
+   },
+   "rated": true,
+   "best_pct": 36.5
+  },
+  {
+   "name": "Deepak Chahar",
+   "released_by": "MI",
+   "photo": "deepak-chahar.png",
+   "bat": null,
+   "bowl": {
+    "rank": 68,
+    "of": 115,
+    "rating": 92.8,
+    "level": 0.0011,
+    "lift": 0.0168,
+    "n_p": 277,
+    "pct": 35.7,
+    "econ_p": 7.73,
+    "econ_o": 9.66,
+    "wkts_p": 12
+   },
+   "rated": true,
+   "best_pct": 35.7
+  },
+  {
+   "name": "Tushar Deshpande",
+   "released_by": "RR",
+   "photo": "tushar-deshpande.png",
+   "bat": null,
+   "bowl": {
+    "rank": 80,
+    "of": 115,
+    "rating": 87.1,
+    "level": -0.003,
+    "lift": -0.0094,
+    "n_p": 261,
+    "pct": 33.0,
+    "econ_p": 9.93,
+    "econ_o": 9.97,
+    "wkts_p": 13
+   },
+   "rated": true,
+   "best_pct": 33.0
+  },
+  {
+   "name": "Matt Henry",
+   "released_by": "CSK",
+   "photo": "matt-henry.png",
+   "bat": null,
+   "bowl": {
+    "rank": 77,
+    "of": 115,
+    "rating": 87.8,
+    "level": -0.0105,
+    "lift": 0.0051,
+    "n_p": 155,
+    "pct": 27.8,
+    "econ_p": 8.22,
+    "econ_o": 9.54,
+    "wkts_p": 10
+   },
+   "rated": true,
+   "best_pct": 27.8
+  },
+  {
+   "name": "Adam Milne",
+   "released_by": "RR",
+   "photo": "adam-milne.png",
+   "bat": null,
+   "bowl": {
+    "rank": 92,
+    "of": 115,
+    "rating": 83.3,
+    "level": -0.0133,
+    "lift": -0.0145,
+    "n_p": 146,
+    "pct": 27.0,
+    "econ_p": 10.16,
+    "econ_o": 9.24,
+    "wkts_p": 8
+   },
+   "rated": true,
+   "best_pct": 27.0
+  },
+  {
+   "name": "Jacob Bethell",
+   "released_by": "RCB",
+   "photo": "jacob-bethell.png",
+   "bat": {
+    "rank": 72,
+    "of": 111,
+    "rating": 89.5,
+    "level": 0.0065,
+    "lift": 0.004,
+    "n_p": 122,
+    "pct": 23.4,
+    "sr_p": 152.9,
+    "sr_o": 146.7,
+    "avg_p": 37.0
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 23.4
+  },
+  {
+   "name": "Avesh Khan",
+   "released_by": "LSG",
+   "photo": "avesh-khan.png",
+   "bat": null,
+   "bowl": {
+    "rank": 88,
+    "of": 115,
+    "rating": 84.4,
+    "level": -0.0275,
+    "lift": 0.0044,
+    "n_p": 434,
+    "pct": 19.1,
+    "econ_p": 9.25,
+    "econ_o": 9.75,
+    "wkts_p": 25
+   },
+   "rated": true,
+   "best_pct": 19.1
+  },
+  {
+   "name": "Rachin Ravindra",
+   "released_by": "KKR",
+   "photo": "rachin-ravindra.png",
+   "bat": {
+    "rank": 90,
+    "of": 111,
+    "rating": 82.5,
+    "level": -0.0062,
+    "lift": -0.0055,
+    "n_p": 168,
+    "pct": 18.9,
+    "sr_p": 140.6,
+    "sr_o": 144.9,
+    "avg_p": 46.4
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 18.9
+  },
+  {
+   "name": "Ajinkya Rahane",
+   "released_by": "KKR",
+   "photo": "ajinkya-rahane.png",
+   "bat": {
+    "rank": 97,
+    "of": 111,
+    "rating": 80.2,
+    "level": -0.0202,
+    "lift": -0.0061,
+    "n_p": 222,
+    "pct": 13.5,
+    "sr_p": 132.9,
+    "sr_o": 140.8,
+    "avg_p": 29.5
+   },
+   "bowl": null,
+   "rated": true,
+   "best_pct": 13.5
+  },
+  {
+   "name": "Dilshan Madushanka",
+   "released_by": "SRH",
+   "photo": "dilshan-madushanka.png",
+   "bat": null,
+   "bowl": {
+    "rank": 97,
+    "of": 115,
+    "rating": 81.4,
+    "level": -0.045,
+    "lift": 0.0136,
+    "n_p": 146,
+    "pct": 12.2,
+    "econ_p": 7.68,
+    "econ_o": 11.24,
+    "wkts_p": 6
+   },
+   "rated": true,
+   "best_pct": 12.2
+  },
+  {
+   "name": "Mitchell Starc",
+   "released_by": "DC",
+   "photo": "mitchell-starc.png",
+   "bat": null,
+   "bowl": {
+    "rank": 104,
+    "of": 115,
+    "rating": 76.2,
+    "level": -0.0506,
+    "lift": -0.0028,
+    "n_p": 222,
+    "pct": 10.4,
+    "econ_p": 9.42,
+    "econ_o": 10.07,
+    "wkts_p": 6
+   },
+   "rated": true,
+   "best_pct": 10.4
+  },
+  {
+   "name": "Anrich Nortje",
+   "released_by": "LSG",
+   "photo": "anrich-nortje.png",
+   "bat": null,
+   "bowl": {
+    "rank": 110,
+    "of": 115,
+    "rating": 72.2,
+    "level": -0.0712,
+    "lift": -0.0129,
+    "n_p": 161,
+    "pct": 6.1,
+    "econ_p": 10.31,
+    "econ_o": 10.32,
+    "wkts_p": 7
+   },
+   "rated": true,
+   "best_pct": 6.1
+  }
+ ],
+ "auction": {
+  "date": "2026-12-16",
+  "venue": "ITC Grand Goa",
+  "type": "mini-auction",
+  "squad_max": 25,
+  "overseas_max": 8
+ }
+}

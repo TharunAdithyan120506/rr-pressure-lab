@@ -1,14 +1,14 @@
 variant,players_compared,spearman_vs_primary,primary_top10_in_variant_top10,primary_top10_in_variant_top20,variant_top10
-LI top 30%,110,0.969,9,10,Vaibhav Sooryavanshi; Abhishek Sharma; Suryakumar Yadav; Tim David; Andre Russell; Heinrich Klaasen; Priyansh Arya; Josh Inglis; Finn Allen; Liam Livingstone
-LI top 15%,85,0.968,9,9,Vaibhav Sooryavanshi; Abhishek Sharma; Tim David; Priyansh Arya; Heinrich Klaasen; Suryakumar Yadav; Finn Allen; Josh Inglis; Nicholas Pooran; Travis Head
-LI top 10%,48,0.916,5,5,Vaibhav Sooryavanshi; Abhishek Sharma; Tim David; Suryakumar Yadav; Travis Head; Phil Salt; Nicholas Pooran; Tim Seifert; Rovman Powell; Jos Buttler
-no knockout multiplier,110,0.995,10,10,Vaibhav Sooryavanshi; Abhishek Sharma; Suryakumar Yadav; Tim David; Priyansh Arya; Heinrich Klaasen; Josh Inglis; Finn Allen; Andre Russell; Nicholas Pooran
-rule-based pressure,57,0.904,5,5,Tim David; Suryakumar Yadav; Andre Russell; Heinrich Klaasen; Jos Buttler; Nicholas Pooran; Naman Dhir; Dewald Brevis; Ashutosh Sharma; Sikandar Raza
-pressure sample only (no borrowing),110,0.487,4,4,Liam Livingstone; Rovman Powell; Josh Inglis; Virat Kohli; Priyansh Arya; Nicholas Pooran; Vaibhav Sooryavanshi; Sam Curran; Shreyas Iyer; Washington Sundar
-level only (no lift),110,0.982,10,10,Vaibhav Sooryavanshi; Abhishek Sharma; Suryakumar Yadav; Tim David; Priyansh Arya; Heinrich Klaasen; Andre Russell; Finn Allen; Josh Inglis; Nicholas Pooran
-level 50 / lift 50,110,0.984,9,10,Vaibhav Sooryavanshi; Abhishek Sharma; Priyansh Arya; Josh Inglis; Tim David; Heinrich Klaasen; Suryakumar Yadav; Nicholas Pooran; Finn Allen; Rovman Powell
-no lift talent (kappa 0),110,0.936,9,10,Vaibhav Sooryavanshi; Abhishek Sharma; Suryakumar Yadav; Tim David; Heinrich Klaasen; Priyansh Arya; Andre Russell; Finn Allen; Phil Salt; Nicholas Pooran
-large lift talent (kappa 0.8),110,0.979,8,10,Vaibhav Sooryavanshi; Abhishek Sharma; Priyansh Arya; Josh Inglis; Tim David; Heinrich Klaasen; Suryakumar Yadav; Nicholas Pooran; Liam Livingstone; Rovman Powell
-no opponent adjustment,110,0.986,10,10,Vaibhav Sooryavanshi; Abhishek Sharma; Suryakumar Yadav; Priyansh Arya; Tim David; Finn Allen; Heinrich Klaasen; Josh Inglis; Andre Russell; Nicholas Pooran
-IPL only,63,0.909,8,8,Vaibhav Sooryavanshi; Heinrich Klaasen; Suryakumar Yadav; Priyansh Arya; Nicholas Pooran; Abhishek Sharma; Shreyas Iyer; Tim David; Andre Russell; Rajat Patidar
-T20I only,71,0.795,5,5,Abhishek Sharma; Finn Allen; Tim David; Suryakumar Yadav; Glenn Maxwell; Tim Seifert; Travis Head; Cameron Green; Rovman Powell; Josh Inglis
+LI top 30%,111,0.943,8,10,Vaibhav Sooryavanshi; Tim David; Suryakumar Yadav; Abhishek Sharma; Heinrich Klaasen; Andre Russell; Finn Allen; Priyansh Arya; Rajat Patidar; Phil Salt
+LI top 15%,88,0.971,8,8,Vaibhav Sooryavanshi; Tim David; Abhishek Sharma; Heinrich Klaasen; Suryakumar Yadav; Josh Inglis; Andre Russell; Finn Allen; Nicholas Pooran; Rovman Powell
+LI top 10%,45,0.887,3,3,Tim David; Abhishek Sharma; Suryakumar Yadav; Nicholas Pooran; Rovman Powell; Jos Buttler; Mitchell Marsh; Shreyas Iyer; Phil Salt; Shivam Dube
+no knockout multiplier,111,0.994,10,10,Vaibhav Sooryavanshi; Tim David; Abhishek Sharma; Heinrich Klaasen; Suryakumar Yadav; Priyansh Arya; Finn Allen; Andre Russell; Josh Inglis; Ashutosh Sharma
+rule-based pressure,58,0.875,5,5,Tim David; Suryakumar Yadav; Andre Russell; Rashid Khan; Naman Dhir; Ashutosh Sharma; Heinrich Klaasen; Dewald Brevis; Nicholas Pooran; Marcus Stoinis
+pressure sample only (no borrowing),111,0.485,3,5,Kamindu Mendis; Ryan Rickelton; Reeza Hendricks; Ashutosh Sharma; Sam Curran; Ishan Kishan; Vaibhav Sooryavanshi; Josh Inglis; George Dockrell; Ryan Burl
+level only (no lift),111,0.967,9,10,Vaibhav Sooryavanshi; Abhishek Sharma; Tim David; Suryakumar Yadav; Heinrich Klaasen; Andre Russell; Priyansh Arya; Finn Allen; Josh Inglis; Phil Salt
+level 50 / lift 50,111,0.993,10,10,Vaibhav Sooryavanshi; Tim David; Abhishek Sharma; Heinrich Klaasen; Suryakumar Yadav; Priyansh Arya; Finn Allen; Josh Inglis; Andre Russell; Ashutosh Sharma
+no lift talent (kappa 0),111,0.909,8,10,Vaibhav Sooryavanshi; Abhishek Sharma; Tim David; Suryakumar Yadav; Heinrich Klaasen; Andre Russell; Priyansh Arya; Finn Allen; Nicholas Pooran; Phil Salt
+large lift talent (kappa 0.8),111,0.982,10,10,Vaibhav Sooryavanshi; Tim David; Heinrich Klaasen; Abhishek Sharma; Suryakumar Yadav; Priyansh Arya; Finn Allen; Ashutosh Sharma; Josh Inglis; Andre Russell
+no opponent adjustment,111,0.989,9,10,Vaibhav Sooryavanshi; Abhishek Sharma; Tim David; Suryakumar Yadav; Heinrich Klaasen; Finn Allen; Priyansh Arya; Andre Russell; Josh Inglis; Phil Salt
+IPL only,65,0.914,8,9,Vaibhav Sooryavanshi; Heinrich Klaasen; Tim David; Suryakumar Yadav; Rajat Patidar; Abhishek Sharma; Nicholas Pooran; Priyansh Arya; Ashutosh Sharma; Josh Inglis
+T20I only,71,0.851,4,5,Abhishek Sharma; Tim David; Suryakumar Yadav; Glenn Maxwell; Finn Allen; Harry Brook; Cameron Green; Tim Seifert; Aiden Markram; Jos Buttler

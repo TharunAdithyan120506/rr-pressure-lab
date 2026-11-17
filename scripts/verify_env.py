@@ -28,6 +28,10 @@ FILES = [
     ("reports/rr/cards.json", "player evidence cards"),
     ("reports/rr/squad_metrics.csv", "RR squad value table"),
     ("reports/research/sources.json", "research log"),
+    ("reports/validation/verification.json", "mathematical verification suite"),
+    ("reports/validation/weights_consistency.json", "weight optimisation + consistency test"),
+    ("reports/rr/auction.json", "auction board and scorecard"),
+    ("configs/retentions_2027.json", "official IPL 2027 retention lists"),
     ("reports/SUBMISSION.txt", "submission sheet"),
     ("reports/Methodology_Report.docx", "methodology report"),
     ("dashboard/index.html", "dashboard"),
@@ -60,6 +64,14 @@ def main() -> int:
     figs = list((ROOT / "reports" / "figures").glob("*.png"))
     photos = list((ROOT / "dashboard" / "photos").glob("*.png"))
     print(f"  [{'ok' if len(figs) >= 9 else '!!'}] {len(figs)} report figures · {len(photos)} dashboard photos")
+    try:
+        v = json.loads((ROOT / "reports/validation/verification.json").read_text())
+        ok = v["passed"] == v["total"]
+        bad += not ok
+        print(f"  [{'ok' if ok else '!!'}] verification: {v['passed']}/{v['total']} mathematical checks pass")
+    except Exception as e:
+        bad += 1
+        print(f"  [!!] verification results unreadable: {e}")
     tab = list((ROOT / "models/pretrained/tabpfn").glob("*.safetensors"))
     print(f"  [{'ok' if tab else '--'}] TabPFN weights ({len(tab)} file{'s' if len(tab) != 1 else ''}; optional)")
 

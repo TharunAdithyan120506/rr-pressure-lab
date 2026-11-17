@@ -54,6 +54,14 @@ def add_match_state(df: pd.DataFrame) -> pd.DataFrame:
     bg = df.groupby(["match_id", "innings", "batter"], sort=False)
     df["batter_runs_before"] = bg["runs_batter"].cumsum() - df["runs_batter"]
     df["batter_balls_before"] = bg["is_legal"].cumsum() - df["is_legal"].astype(int)
+    # where the batter walked in: wickets down on his first ball (a position proxy that works
+    # for both data sources, and handles impact players / promotions correctly)
+    first = df.groupby(["match_id", "innings", "batter"], sort=False)["wickets"].transform("first")
+    df["batter_entry_wkt"] = first
+    # how deep the bowler is into his own spell
+    wg = df.groupby(["match_id", "innings", "bowler"], sort=False)
+    df["bowler_balls_before"] = wg["is_legal"].cumsum() - df["is_legal"].astype(int)
+    df["over_ball"] = df.groupby(["match_id", "innings", "over"], sort=False).cumcount()
 
     # outcome label for win-probability models
     df["batting_team_won"] = (df["winner"] == df["batting_team"]).astype("Int8")

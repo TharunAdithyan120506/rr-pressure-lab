@@ -1,14 +1,14 @@
 variant,players_compared,spearman_vs_primary,primary_top10_in_variant_top10,primary_top10_in_variant_top20,variant_top10
-LI top 30%,112,0.964,9,10,Sunil Narine; Jasprit Bumrah; Axar Patel; Kuldeep Yadav; Varun Chakravarthy; Nathan Ellis; Josh Hazlewood; Rashid Khan; Bhuvneshwar Kumar; Krunal Pandya
-LI top 15%,91,0.977,9,10,Sunil Narine; Jasprit Bumrah; Josh Hazlewood; Nathan Ellis; Kuldeep Yadav; Eshan Malinga; Matheesha Pathirana; Varun Chakravarthy; Bhuvneshwar Kumar; Axar Patel
-LI top 10%,57,0.957,6,6,Jasprit Bumrah; Bhuvneshwar Kumar; Kuldeep Yadav; Mitchell Santner; Rashid Khan; Josh Hazlewood; Varun Chakravarthy; Patrick Cummins; Axar Patel; Maheesh Theekshana
-no knockout multiplier,112,0.995,9,10,Jasprit Bumrah; Sunil Narine; Kuldeep Yadav; Nathan Ellis; Bhuvneshwar Kumar; Axar Patel; Josh Hazlewood; Krunal Pandya; Rashid Khan; Varun Chakravarthy
-rule-based pressure,91,0.87,5,8,Jasprit Bumrah; Sunil Narine; Varun Chakravarthy; Mitchell Santner; Josh Hazlewood; Nathan Ellis; Eshan Malinga; Sufiyan Muqeem; Akeal Hosein; Rashid Khan
-pressure sample only (no borrowing),112,0.457,3,4,Digvesh Rathi; Kuldeep Yadav; Mujeeb Ur Rahman; Reece Topley; Josh Hazlewood; Axar Patel; Gudakesh Motie; Patrick Cummins; Saim Ayub; Avesh Khan
-level only (no lift),112,0.975,9,10,Jasprit Bumrah; Sunil Narine; Nathan Ellis; Kuldeep Yadav; Bhuvneshwar Kumar; Varun Chakravarthy; Matheesha Pathirana; Eshan Malinga; Axar Patel; Krunal Pandya
-level 50 / lift 50,112,0.972,9,10,Sunil Narine; Jasprit Bumrah; Kuldeep Yadav; Axar Patel; Josh Hazlewood; Nathan Ellis; Mujeeb Ur Rahman; Bhuvneshwar Kumar; Krunal Pandya; Varun Chakravarthy
-no lift talent (kappa 0),112,0.924,6,9,Jasprit Bumrah; Sunil Narine; Nathan Ellis; Eshan Malinga; Bhuvneshwar Kumar; Matheesha Pathirana; Mitchell Santner; Varun Chakravarthy; Rashid Khan; Mustafizur Rahman
-large lift talent (kappa 0.8),112,0.97,9,10,Sunil Narine; Kuldeep Yadav; Jasprit Bumrah; Josh Hazlewood; Axar Patel; Nathan Ellis; Mujeeb Ur Rahman; Bhuvneshwar Kumar; Krunal Pandya; Varun Chakravarthy
-no opponent adjustment,112,0.981,8,10,Jasprit Bumrah; Sunil Narine; Kuldeep Yadav; Bhuvneshwar Kumar; Mujeeb Ur Rahman; Nathan Ellis; Axar Patel; Matheesha Pathirana; Krunal Pandya; Rashid Khan
-IPL only,68,0.88,7,8,Jasprit Bumrah; Sunil Narine; Matheesha Pathirana; Bhuvneshwar Kumar; Kuldeep Yadav; Eshan Malinga; Krunal Pandya; Axar Patel; Brijesh Sharma; Ravichandran Ashwin
-T20I only,68,0.865,5,6,Nathan Ellis; Lockie Ferguson; Jasprit Bumrah; Mujeeb Ur Rahman; Mitchell Santner; Kagiso Rabada; Rashid Khan; Axar Patel; Kuldeep Yadav; Josh Hazlewood
+LI top 30%,115,0.963,9,10,Jasprit Bumrah; Sunil Narine; Kuldeep Yadav; Josh Hazlewood; Varun Chakravarthy; Nathan Ellis; Rashid Khan; Eshan Malinga; Axar Patel; Krunal Pandya
+LI top 15%,91,0.952,9,10,Jasprit Bumrah; Sunil Narine; Josh Hazlewood; Nathan Ellis; Varun Chakravarthy; Rashid Khan; Matheesha Pathirana; Axar Patel; Eshan Malinga; Mitchell Santner
+LI top 10%,57,0.957,8,8,Jasprit Bumrah; Sunil Narine; Josh Hazlewood; Axar Patel; Varun Chakravarthy; Matheesha Pathirana; Bhuvneshwar Kumar; Mitchell Santner; Kuldeep Yadav; Rashid Khan
+no knockout multiplier,113,0.981,9,10,Jasprit Bumrah; Sunil Narine; Varun Chakravarthy; Axar Patel; Josh Hazlewood; Rashid Khan; Kuldeep Yadav; Kagiso Rabada; Nathan Ellis; Eshan Malinga
+rule-based pressure,92,0.855,6,8,Jasprit Bumrah; Sunil Narine; Varun Chakravarthy; Nathan Ellis; Josh Hazlewood; Sufiyan Muqeem; Mitchell Santner; Eshan Malinga; Akeal Hosein; Abrar Ahmed
+pressure sample only (no borrowing),115,0.191,3,4,Josh Hazlewood; Axar Patel; Kagiso Rabada; Cameron Green; Dilshan Madushanka; Digvesh Rathi; Reece Topley; Richard Ngarava; Gareth Delany; Rashid Khan
+level only (no lift),115,0.987,10,10,Jasprit Bumrah; Sunil Narine; Varun Chakravarthy; Nathan Ellis; Rashid Khan; Matheesha Pathirana; Josh Hazlewood; Eshan Malinga; Kuldeep Yadav; Axar Patel
+level 50 / lift 50,115,0.953,9,10,Jasprit Bumrah; Varun Chakravarthy; Sunil Narine; Josh Hazlewood; Axar Patel; Rashid Khan; Kuldeep Yadav; Kagiso Rabada; Nathan Ellis; Matheesha Pathirana
+no lift talent (kappa 0),115,0.947,7,10,Jasprit Bumrah; Sunil Narine; Nathan Ellis; Matheesha Pathirana; Eshan Malinga; Varun Chakravarthy; Bhuvneshwar Kumar; Mitchell Santner; Mustafizur Rahman; Rashid Khan
+large lift talent (kappa 0.8),115,0.911,8,10,Jasprit Bumrah; Varun Chakravarthy; Josh Hazlewood; Axar Patel; Sunil Narine; Rashid Khan; Kagiso Rabada; Kuldeep Yadav; Reece Topley; Nathan Ellis
+no opponent adjustment,115,0.964,10,10,Jasprit Bumrah; Sunil Narine; Rashid Khan; Varun Chakravarthy; Josh Hazlewood; Axar Patel; Kuldeep Yadav; Matheesha Pathirana; Eshan Malinga; Nathan Ellis
+IPL only,67,0.878,8,10,Jasprit Bumrah; Sunil Narine; Matheesha Pathirana; Axar Patel; Varun Chakravarthy; Eshan Malinga; Maheesh Theekshana; Arshdeep Singh; Rashid Khan; Josh Hazlewood
+T20I only,71,0.812,4,6,Nathan Ellis; Lockie Ferguson; Rashid Khan; Mustafizur Rahman; Kagiso Rabada; Axar Patel; Sam Curran; Liam Dawson; Mitchell Santner; Kuldeep Yadav

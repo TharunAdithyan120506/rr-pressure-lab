@@ -20,7 +20,7 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
 from rr_pressure.paths import PROCESSED, REPORTS  # noqa: E402
-from rr_pressure.ratings import (ACTIVE_SINCE, MIN_PRESSURE_BALLS, MIN_PRESSURE_MATCHES, WEIGHTS, Rater,  # noqa: E402
+from rr_pressure.ratings import (ACTIVE_SINCE, MIN_PRESSURE_BALLS, MIN_PRESSURE_MATCHES, ROLE_WEIGHTS, Rater,  # noqa: E402
                                  opponent_adjust, player_match)
 from rr_pressure.stats import bat_split, bowl_split, wide  # noqa: E402
 
@@ -44,14 +44,14 @@ def main() -> None:
     ]).rename_axis("pid").reset_index()
     q.to_csv(PROCESSED / "player_quality.csv", index=False)
 
-    params = {"weights": WEIGHTS, "min_pressure_balls": MIN_PRESSURE_BALLS,
+    params = {"weights": ROLE_WEIGHTS, "min_pressure_balls": MIN_PRESSURE_BALLS,
               "min_pressure_matches": MIN_PRESSURE_MATCHES, "active_since": ACTIVE_SINCE,
               "bootstrap": B, "ridge_alpha": info["alpha"], "elo_coef_per_100": info["elo_coef_per_100"]}
     print("opposition-strength effect (runs/ball per +100 Elo):", {k: round(v, 4) for k, v in info["elo_coef_per_100"].items()})
     for role, split, idc, team in (("bat", bat_split, "batter_id", "batting_team"),
                                    ("bowl", bowl_split, "bowler_id", "bowling_team")):
         pm, meta = player_match(pr, role)
-        R = Rater(pm, meta)
+        R = Rater(pm, meta, weights=dict(ROLE_WEIGHTS[role]))
         res = R.run(B=B)
         st = wide(split(pr, [idc, "pressure"]))
         res = res.join(st, how="left")

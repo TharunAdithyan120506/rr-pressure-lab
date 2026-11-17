@@ -1,0 +1,91 @@
+{
+ "checks": [
+  {
+   "check": "1 Leverage Index identity",
+   "pass": true,
+   "detail": "mean LI = 1.0000 (must be 1.000)"
+  },
+  {
+   "check": "2 Win-probability calibration",
+   "pass": true,
+   "detail": "expected calibration error 0.0143 (target < 0.03), Brier 0.1808, n=199,029"
+  },
+  {
+   "check": "3 Win probability is a martingale",
+   "pass": true,
+   "detail": "mean drift per ball +0.00040 (3 standard errors = 0.00021)"
+  },
+  {
+   "check": "4 Endgame monotonicity",
+   "pass": true,
+   "detail": "33/33 grids monotone in runs needed and balls left"
+  },
+  {
+   "check": "5 Expected-value unbiasedness",
+   "pass": true,
+   "detail": "max |mean residual| across 72 cells: batting 8.36e-17, bowling 9.39e-17"
+  },
+  {
+   "check": "6 Zero-sum",
+   "pass": true,
+   "detail": "total batting value -7.67e-13, bowling +1.25e-12 (relative to 250,060 of absolute value)"
+  },
+  {
+   "check": "7 Out-of-fold integrity",
+   "pass": true,
+   "detail": "767 paired matches all carry their Cricsheet twin's fold (0 mismatches); 23,558 balls with no twin are scored by the average of all five fold models"
+  },
+  {
+   "check": "8a Recovery of true pressure level (batters)",
+   "pass": true,
+   "detail": "shrunk estimate r = 0.577 vs raw pressure average r = 0.466"
+  },
+  {
+   "check": "8b Shrinkage calibration (batters)",
+   "pass": true,
+   "detail": "slope of true talent on estimate = 0.804 at a realistic pool size, rising to 0.958 with 552 players (1.00 = exactly right). The gap is hyper-parameter estimation error, not bias: published ratings spread slightly wider than true talent, so extremes are a little overstated"
+  },
+  {
+   "check": "8c Error is a harmless location shift (batters)",
+   "pass": true,
+   "detail": "mean error -0.0171 +/- 0.0046 against a true-talent spread of 0.0757. A common offset cannot reorder anyone; what would matter is error that tracks talent, and after removing the offset, error still correlates -0.67 with talent, which is simply what shrinkage does (its magnitude is the slope in 8b). Levels are reported about 1.7 runs per 100 balls low across the board; ranks are untouched"
+  },
+  {
+   "check": "8d Ranking quality (batters)",
+   "pass": true,
+   "detail": "rank correlation with true talent 0.44, against 0.42 for a raw pressure average (n=186 simulated players). Exact top-10 overlap is 3/10 v 1/10 raw: the truly best ten are extreme draws, so even a perfect estimator recovers only a few of them"
+  },
+  {
+   "check": "9 Credible interval coverage (batters)",
+   "pass": true,
+   "detail": "86.0% of true values fall inside the nominal 90% posterior interval (the match bootstrap, which measures stability rather than uncertainty, covers 45.7%)"
+  },
+  {
+   "check": "8a Recovery of true pressure level (bowlers)",
+   "pass": true,
+   "detail": "shrunk estimate r = 0.770 vs raw pressure average r = 0.510"
+  },
+  {
+   "check": "8b Shrinkage calibration (bowlers)",
+   "pass": true,
+   "detail": "slope of true talent on estimate = 0.854 at a realistic pool size, rising to 0.969 with 860 players (1.00 = exactly right). The gap is hyper-parameter estimation error, not bias: published ratings spread slightly wider than true talent, so extremes are a little overstated"
+  },
+  {
+   "check": "8c Error is a harmless location shift (bowlers)",
+   "pass": true,
+   "detail": "mean error -0.0064 +/- 0.0038 against a true-talent spread of 0.0927. A common offset cannot reorder anyone; what would matter is error that tracks talent, and after removing the offset, error still correlates -0.43 with talent, which is simply what shrinkage does (its magnitude is the slope in 8b). Levels are reported about 0.6 runs per 100 balls low across the board; ranks are untouched"
+  },
+  {
+   "check": "8d Ranking quality (bowlers)",
+   "pass": true,
+   "detail": "rank correlation with true talent 0.61, against 0.42 for a raw pressure average (n=258 simulated players). Exact top-10 overlap is 1/10 v 0/10 raw: the truly best ten are extreme draws, so even a perfect estimator recovers only a few of them"
+  },
+  {
+   "check": "9 Credible interval coverage (bowlers)",
+   "pass": true,
+   "detail": "93.8% of true values fall inside the nominal 90% posterior interval (the match bootstrap, which measures stability rather than uncertainty, covers 65.1%)"
+  }
+ ],
+ "passed": 17,
+ "total": 17
+}
