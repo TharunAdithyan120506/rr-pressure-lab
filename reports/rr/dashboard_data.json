@@ -33,7 +33,37 @@
    "runs_vs_exp_p": 125.631,
    "wpa_p": 2.177,
    "photo": "vaibhav-sooryavanshi.png",
-   "team2027": "RR"
+   "team2027": "RR",
+   "note": {
+    "head": "388 runs off 162 pressure balls at a strike rate of 240, averaging 55.",
+    "body": "He goes up a gear when it tightens: 240 under pressure against 219 otherwise. His average actually climbs, from 40 to 55. 41% of his pressure balls go for four or six."
+   },
+   "recent": [
+    {
+     "date": "2026-10-27",
+     "opp": "New Zealand",
+     "comp": "India in New Zealand T20I Series 2026",
+     "line": "11 off 3",
+     "wpa": 21.0,
+     "balls": 3
+    },
+    {
+     "date": "2026-07-23",
+     "opp": "Zimbabwe",
+     "comp": "India in Zimbabwe T20I Series 2026",
+     "line": "25 off 10",
+     "wpa": 21.5,
+     "balls": 10
+    },
+    {
+     "date": "2026-04-10",
+     "opp": "Royal Challengers Bengaluru",
+     "comp": "IPL 2026",
+     "line": "35 off 9",
+     "wpa": 49.6,
+     "balls": 9
+    }
+   ]
   },
   {
    "pid": "6396",
@@ -63,7 +93,37 @@
    "runs_vs_exp_p": 111.048,
    "wpa_p": 2.662,
    "photo": "tim-david.png",
-   "team2027": "RCB"
+   "team2027": "RCB",
+   "note": {
+    "head": "488 runs off 245 pressure balls at a strike rate of 199, averaging 38.",
+    "body": "He goes up a gear when it tightens: 199 under pressure against 175 otherwise. 29% of his pressure balls go for four or six. That puts him in the top 3% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2025-07-25",
+     "opp": "West Indies",
+     "comp": "Australia in West Indies T20I Series 2025",
+     "line": "30 off 9",
+     "wpa": 41.0,
+     "balls": 9
+    },
+    {
+     "date": "2024-02-21",
+     "opp": "New Zealand",
+     "comp": "Australia in New Zealand T20I Series 2024",
+     "line": "31 off 10",
+     "wpa": 84.6,
+     "balls": 10
+    },
+    {
+     "date": "2023-04-30",
+     "opp": "Rajasthan Royals",
+     "comp": "IPL 2023",
+     "line": "41 off 12",
+     "wpa": 82.2,
+     "balls": 12
+    }
+   ]
   },
   {
    "pid": "6281",
@@ -93,7 +153,37 @@
    "runs_vs_exp_p": 152.288,
    "wpa_p": 1.706,
    "photo": "abhishek-sharma.png",
-   "team2027": "SRH"
+   "team2027": "SRH",
+   "note": {
+    "head": "722 runs off 420 pressure balls at a strike rate of 172, averaging 34.",
+    "body": "He scores slower under pressure (172 v 192) but gives his wicket away far less. 29% of his pressure balls go for four or six. That puts him in the top 2% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-10-06",
+     "opp": "West Indies",
+     "comp": "West Indies in India T20I Series 2026",
+     "line": "16 off 4",
+     "wpa": 37.1,
+     "balls": 4
+    },
+    {
+     "date": "2025-05-23",
+     "opp": "Royal Challengers Bengaluru",
+     "comp": "IPL 2025",
+     "line": "18 off 5",
+     "wpa": 19.5,
+     "balls": 5
+    },
+    {
+     "date": "2025-05-19",
+     "opp": "Lucknow Super Giants",
+     "comp": "IPL 2025",
+     "line": "27 off 8",
+     "wpa": 21.9,
+     "balls": 8
+    }
+   ]
   },
   {
    "pid": "4260",
@@ -123,7 +213,37 @@
    "runs_vs_exp_p": 60.166,
    "wpa_p": 1.23,
    "photo": "heinrich-klaasen.png",
-   "team2027": "SRH"
+   "team2027": "SRH",
+   "note": {
+    "head": "297 runs off 158 pressure balls at a strike rate of 188, averaging 37.",
+    "body": "He goes up a gear when it tightens: 188 under pressure against 165 otherwise. 25% of his pressure balls go for four or six. That puts him in the top 5% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-04-29",
+     "opp": "Mumbai Indians",
+     "comp": "IPL 2026",
+     "line": "65 off 29",
+     "wpa": 81.4,
+     "balls": 29
+    },
+    {
+     "date": "2025-05-19",
+     "opp": "Lucknow Super Giants",
+     "comp": "IPL 2025",
+     "line": "17 off 8",
+     "wpa": 13.6,
+     "balls": 8
+    },
+    {
+     "date": "2023-05-04",
+     "opp": "Kolkata Knight Riders",
+     "comp": "IPL 2023",
+     "line": "24 off 9",
+     "wpa": 13.1,
+     "balls": 9
+    }
+   ]
   },
   {
    "pid": "1699",
@@ -153,7 +273,37 @@
    "runs_vs_exp_p": 101.628,
    "wpa_p": 0.803,
    "photo": "suryakumar-yadav.png",
-   "team2027": "MI"
+   "team2027": "MI",
+   "note": {
+    "head": "719 runs off 445 pressure balls at a strike rate of 162, averaging 33.",
+    "body": "He does not lift so much as never drop: 162 under pressure against 168 otherwise. 25% of his pressure balls go for four or six. That puts him in the top 4% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2024-05-06",
+     "opp": "Sunrisers Hyderabad",
+     "comp": "IPL 2024",
+     "line": "43 off 20",
+     "wpa": 36.3,
+     "balls": 20
+    },
+    {
+     "date": "2023-11-23",
+     "opp": "Australia",
+     "comp": "Australia in India T20I Series 2023",
+     "line": "49 off 20",
+     "wpa": 24.2,
+     "balls": 20
+    },
+    {
+     "date": "2023-05-09",
+     "opp": "Royal Challengers Bengaluru",
+     "comp": "IPL 2023",
+     "line": "20 off 7",
+     "wpa": 27.6,
+     "balls": 7
+    }
+   ]
   },
   {
    "pid": "4847",
@@ -183,7 +333,37 @@
    "runs_vs_exp_p": 70.224,
    "wpa_p": 0.886,
    "photo": "finn-allen.png",
-   "team2027": "KKR"
+   "team2027": "KKR",
+   "note": {
+    "head": "273 runs off 159 pressure balls at a strike rate of 172, averaging 21.",
+    "body": "He does not lift so much as never drop: 172 under pressure against 176 otherwise. 28% of his pressure balls go for four or six. That puts him in the top 7% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-05-03",
+     "opp": "Sunrisers Hyderabad",
+     "comp": "IPL 2026",
+     "line": "19 off 9",
+     "wpa": 11.3,
+     "balls": 9
+    },
+    {
+     "date": "2026-04-02",
+     "opp": "Sunrisers Hyderabad",
+     "comp": "IPL 2026",
+     "line": "24 off 5",
+     "wpa": 36.5,
+     "balls": 5
+    },
+    {
+     "date": "2024-01-19",
+     "opp": "Pakistan",
+     "comp": "Pakistan in New Zealand T20I series 2024",
+     "line": "8 off 3",
+     "wpa": 14.9,
+     "balls": 3
+    }
+   ]
   },
   {
    "pid": "25669",
@@ -213,7 +393,37 @@
    "runs_vs_exp_p": 61.375,
    "wpa_p": 0.939,
    "photo": "priyansh-arya.png",
-   "team2027": "PBKS"
+   "team2027": "PBKS",
+   "note": {
+    "head": "271 runs off 134 pressure balls at a strike rate of 202, averaging 27.",
+    "body": "He goes up a gear when it tightens: 202 under pressure against 188 otherwise. 34% of his pressure balls go for four or six. That puts him in the top 6% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-04-25",
+     "opp": "Delhi Capitals",
+     "comp": "IPL 2026",
+     "line": "37 off 13",
+     "wpa": 25.9,
+     "balls": 13
+    },
+    {
+     "date": "2026-04-11",
+     "opp": "Sunrisers Hyderabad",
+     "comp": "IPL 2026",
+     "line": "44 off 15",
+     "wpa": 44.2,
+     "balls": 15
+    },
+    {
+     "date": "2026-04-03",
+     "opp": "Chennai Super Kings",
+     "comp": "IPL 2026",
+     "line": "25 off 7",
+     "wpa": 39.0,
+     "balls": 7
+    }
+   ]
   },
   {
    "pid": "1318",
@@ -243,7 +453,37 @@
    "runs_vs_exp_p": 28.423,
    "wpa_p": -0.887,
    "photo": null,
-   "team2027": "(unsigned)"
+   "team2027": "(unsigned)",
+   "note": {
+    "head": "217 runs off 135 pressure balls at a strike rate of 161, averaging 22.",
+    "body": "He scores slower under pressure (161 v 176) but gives his wicket away far less. 22% of his pressure balls go for four or six. That puts him in the top 5% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2024-02-13",
+     "opp": "Australia",
+     "comp": "West Indies in Australia T20I Series 2024",
+     "line": "5 off 2",
+     "wpa": 5.7,
+     "balls": 2
+    },
+    {
+     "date": "2023-12-13",
+     "opp": "England",
+     "comp": "England in West Indies T20I Series 2023",
+     "line": "20 off 10",
+     "wpa": 34.2,
+     "balls": 10
+    },
+    {
+     "date": "2023-05-08",
+     "opp": "Punjab Kings",
+     "comp": "IPL 2023",
+     "line": "38 off 21",
+     "wpa": 21.2,
+     "balls": 21
+    }
+   ]
   },
   {
    "pid": "8101",
@@ -273,7 +513,37 @@
    "runs_vs_exp_p": 46.681,
    "wpa_p": 1.628,
    "photo": "ashutosh-sharma.png",
-   "team2027": "Delhi Capitals"
+   "team2027": "Delhi Capitals",
+   "note": {
+    "head": "228 runs off 117 pressure balls at a strike rate of 195, averaging 33.",
+    "body": "He goes up a gear when it tightens: 195 under pressure against 157 otherwise. His average actually climbs, from 25 to 33. 29% of his pressure balls go for four or six."
+   },
+   "recent": [
+    {
+     "date": "2026-05-17",
+     "opp": "Rajasthan Royals",
+     "comp": "IPL 2026",
+     "line": "18 off 5",
+     "wpa": 37.7,
+     "balls": 5
+    },
+    {
+     "date": "2026-05-11",
+     "opp": "Punjab Kings",
+     "comp": "IPL 2026",
+     "line": "24 off 10",
+     "wpa": 27.6,
+     "balls": 10
+    },
+    {
+     "date": "2025-03-24",
+     "opp": "Lucknow Super Giants",
+     "comp": "IPL 2025",
+     "line": "34 off 10",
+     "wpa": 109.2,
+     "balls": 10
+    }
+   ]
   },
   {
    "pid": "4736",
@@ -303,7 +573,37 @@
    "runs_vs_exp_p": 60.555,
    "wpa_p": 0.761,
    "photo": "josh-inglis.png",
-   "team2027": "LSG"
+   "team2027": "LSG",
+   "note": {
+    "head": "272 runs off 158 pressure balls at a strike rate of 172, averaging 34.",
+    "body": "He goes up a gear when it tightens: 172 under pressure against 161 otherwise. 28% of his pressure balls go for four or six. That puts him in the top 10% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-05-15",
+     "opp": "Chennai Super Kings",
+     "comp": "IPL 2026",
+     "line": "18 off 12",
+     "wpa": 19.3,
+     "balls": 12
+    },
+    {
+     "date": "2025-06-01",
+     "opp": "Mumbai Indians",
+     "comp": "IPL 2025",
+     "line": "37 off 18",
+     "wpa": 16.2,
+     "balls": 18
+    },
+    {
+     "date": "2025-05-26",
+     "opp": "Mumbai Indians",
+     "comp": "IPL 2025",
+     "line": "26 off 15",
+     "wpa": 17.5,
+     "balls": 15
+    }
+   ]
   },
   {
    "pid": "5553",
@@ -333,7 +633,12 @@
    "runs_vs_exp_p": 81.391,
    "wpa_p": 0.962,
    "photo": "phil-salt.png",
-   "team2027": "RCB"
+   "team2027": "RCB",
+   "note": {
+    "head": "602 runs off 374 pressure balls at a strike rate of 161, averaging 40.",
+    "body": "He scores slower under pressure (161 v 174) but gives his wicket away far less. 26% of his pressure balls go for four or six."
+   },
+   "recent": []
   },
   {
    "pid": "838",
@@ -363,7 +668,12 @@
    "runs_vs_exp_p": 49.833,
    "wpa_p": 1.529,
    "photo": null,
-   "team2027": "(unsigned)"
+   "team2027": "(unsigned)",
+   "note": {
+    "head": "266 runs off 153 pressure balls at a strike rate of 174, averaging 27.",
+    "body": "He goes up a gear when it tightens: 174 under pressure against 160 otherwise. 27% of his pressure balls go for four or six."
+   },
+   "recent": []
   },
   {
    "pid": "3125",
@@ -1236,7 +1546,37 @@
    "runs_saved_p": 83.781,
    "wpa_p": 2.476,
    "photo": "jasprit-bumrah.png",
-   "team2027": "MI"
+   "team2027": "MI",
+   "note": {
+    "head": "12 wickets and an economy of 7.42 across 318 pressure balls.",
+    "body": "Nothing changes when the game tightens: 7.42 an over under pressure against 7.23 otherwise. 43% of his pressure balls are dots. That puts him in the top 1% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-05-10",
+     "opp": "Royal Challengers Bengaluru",
+     "comp": "IPL 2026",
+     "line": "0/16 in 21",
+     "wpa": 36.9,
+     "balls": 21
+    },
+    {
+     "date": "2025-09-10",
+     "opp": "United Arab Emirates",
+     "comp": "Asia Cup 2025",
+     "line": "1/7 in 11",
+     "wpa": 26.3,
+     "balls": 11
+    },
+    {
+     "date": "2025-05-30",
+     "opp": "Gujarat Titans",
+     "comp": "IPL 2025",
+     "line": "1/25 in 22",
+     "wpa": 39.0,
+     "balls": 22
+    }
+   ]
   },
   {
    "pid": "781",
@@ -1267,7 +1607,37 @@
    "runs_saved_p": 51.55,
    "wpa_p": 2.01,
    "photo": "sunil-narine.png",
-   "team2027": "KKR"
+   "team2027": "KKR",
+   "note": {
+    "head": "10 wickets and an economy of 6.67 across 235 pressure balls.",
+    "body": "Nothing changes when the game tightens: 6.67 an over under pressure against 6.91 otherwise. 42% of his pressure balls are dots. That puts him in the top 2% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-04-09",
+     "opp": "Lucknow Super Giants",
+     "comp": "IPL 2026",
+     "line": "1/2 in 11",
+     "wpa": 21.5,
+     "balls": 11
+    },
+    {
+     "date": "2024-04-26",
+     "opp": "Punjab Kings",
+     "comp": "IPL 2024",
+     "line": "0/13 in 11",
+     "wpa": 26.2,
+     "balls": 11
+    },
+    {
+     "date": "2022-04-28",
+     "opp": "Delhi Capitals",
+     "comp": "IPL 2022",
+     "line": "1/9 in 17",
+     "wpa": 30.0,
+     "balls": 17
+    }
+   ]
   },
   {
    "pid": "6256",
@@ -1298,7 +1668,37 @@
    "runs_saved_p": 72.78,
    "wpa_p": 1.708,
    "photo": "varun-chakaravarthy.png",
-   "team2027": "KKR"
+   "team2027": "KKR",
+   "note": {
+    "head": "21 wickets and an economy of 7.03 across 350 pressure balls.",
+    "body": "He gets cheaper when it matters: 7.03 an over under pressure against 8.20 otherwise. 43% of his pressure balls are dots. That puts him in the top 3% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2025-11-06",
+     "opp": "Australia",
+     "comp": "India in Australia T20I Series 2025",
+     "line": "1/6 in 9",
+     "wpa": 26.2,
+     "balls": 9
+    },
+    {
+     "date": "2025-09-26",
+     "opp": "Sri Lanka",
+     "comp": "Asia Cup 2025",
+     "line": "1/24 in 20",
+     "wpa": 26.5,
+     "balls": 20
+    },
+    {
+     "date": "2025-01-31",
+     "opp": "England",
+     "comp": "England in India T20I Series 2025",
+     "line": "2/10 in 13",
+     "wpa": 35.8,
+     "balls": 13
+    }
+   ]
   },
   {
    "pid": "4722",
@@ -1329,7 +1729,37 @@
    "runs_saved_p": 88.404,
    "wpa_p": 2.096,
    "photo": "rashid-khan.png",
-   "team2027": "GT"
+   "team2027": "GT",
+   "note": {
+    "head": "26 wickets and an economy of 6.79 across 482 pressure balls.",
+    "body": "He gets cheaper when it matters: 6.79 an over under pressure against 7.57 otherwise. 38% of his pressure balls are dots. That puts him in the top 5% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-05-21",
+     "opp": "Chennai Super Kings",
+     "comp": "IPL 2026",
+     "line": "3/8 in 7",
+     "wpa": 43.4,
+     "balls": 7
+    },
+    {
+     "date": "2026-04-08",
+     "opp": "Delhi Capitals",
+     "comp": "IPL 2026",
+     "line": "1/7 in 10",
+     "wpa": 26.2,
+     "balls": 10
+    },
+    {
+     "date": "2024-03-17",
+     "opp": "Ireland",
+     "comp": "Afghanistan v Ireland T20I Series 2024",
+     "line": "3/11 in 16",
+     "wpa": 35.2,
+     "balls": 16
+    }
+   ]
   },
   {
    "pid": "830",
@@ -1360,7 +1790,37 @@
    "runs_saved_p": 77.766,
    "wpa_p": 2.708,
    "photo": "josh-hazlewood.png",
-   "team2027": "RCB"
+   "team2027": "RCB",
+   "note": {
+    "head": "30 wickets and an economy of 6.99 across 367 pressure balls.",
+    "body": "He gets cheaper when it matters: 6.99 an over under pressure against 8.70 otherwise. 55% of his pressure balls are dots. That puts him in the top 4% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2025-04-24",
+     "opp": "Rajasthan Royals",
+     "comp": "IPL 2025",
+     "line": "4/25 in 19",
+     "wpa": 75.3,
+     "balls": 19
+    },
+    {
+     "date": "2025-04-07",
+     "opp": "Mumbai Indians",
+     "comp": "IPL 2025",
+     "line": "2/3 in 7",
+     "wpa": 35.3,
+     "balls": 7
+    },
+    {
+     "date": "2022-06-11",
+     "opp": "Sri Lanka",
+     "comp": "Australia in Sri Lanka T20I Series 2022",
+     "line": "1/1 in 10",
+     "wpa": 28.2,
+     "balls": 10
+    }
+   ]
   },
   {
    "pid": "7920",
@@ -1391,7 +1851,37 @@
    "runs_saved_p": 14.711,
    "wpa_p": 0.556,
    "photo": "nathan-ellis.png",
-   "team2027": "SRH"
+   "team2027": "SRH",
+   "note": {
+    "head": "11 wickets and an economy of 8.90 across 188 pressure balls.",
+    "body": "He costs a little more under pressure (8.90 v 8.10) but keeps taking wickets. That puts him in the top 3% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-06-19",
+     "opp": "Bangladesh",
+     "comp": "Australia in Bangladesh T20I Series 2026",
+     "line": "1/11 in 16",
+     "wpa": 34.6,
+     "balls": 16
+    },
+    {
+     "date": "2025-11-02",
+     "opp": "India",
+     "comp": "India in Australia T20I Series 2025",
+     "line": "2/16 in 11",
+     "wpa": 12.5,
+     "balls": 11
+    },
+    {
+     "date": "2023-04-05",
+     "opp": "Rajasthan Royals",
+     "comp": "IPL 2023",
+     "line": "2/4 in 7",
+     "wpa": 27.2,
+     "balls": 7
+    }
+   ]
   },
   {
    "pid": "2876",
@@ -1422,7 +1912,37 @@
    "runs_saved_p": 80.697,
    "wpa_p": 3.066,
    "photo": "axar-patel.png",
-   "team2027": "DC"
+   "team2027": "DC",
+   "note": {
+    "head": "12 wickets and an economy of 7.06 across 363 pressure balls.",
+    "body": "He gets cheaper when it matters: 7.06 an over under pressure against 8.02 otherwise. That puts him in the top 8% of ranked players on pressure balls. His lift over his own everyday level is among the biggest in the pool."
+   },
+   "recent": [
+    {
+     "date": "2026-09-22",
+     "opp": "Japan",
+     "comp": "India in Japan T20I Match 2026",
+     "line": "0/7 in 12",
+     "wpa": 109.6,
+     "balls": 12
+    },
+    {
+     "date": "2023-01-03",
+     "opp": "Sri Lanka",
+     "comp": "Sri Lanka in India T20I Series 2023",
+     "line": "0/10 in 6",
+     "wpa": 22.9,
+     "balls": 6
+    },
+    {
+     "date": "2022-09-20",
+     "opp": "Australia",
+     "comp": "Australia in India T20I Series 2022",
+     "line": "1/5 in 11",
+     "wpa": 32.7,
+     "balls": 11
+    }
+   ]
   },
   {
    "pid": "3644",
@@ -1453,7 +1973,37 @@
    "runs_saved_p": 43.67,
    "wpa_p": 1.612,
    "photo": "kuldeep-yadav.png",
-   "team2027": "LSG"
+   "team2027": "LSG",
+   "note": {
+    "head": "18 wickets and an economy of 7.83 across 273 pressure balls.",
+    "body": "Nothing changes when the game tightens: 7.83 an over under pressure against 8.04 otherwise. That puts him in the top 10% of ranked players on pressure balls. His lift over his own everyday level is among the biggest in the pool."
+   },
+   "recent": [
+    {
+     "date": "2026-05-24",
+     "opp": "Kolkata Knight Riders",
+     "comp": "IPL 2026",
+     "line": "2/8 in 9",
+     "wpa": 29.7,
+     "balls": 9
+    },
+    {
+     "date": "2023-05-02",
+     "opp": "Gujarat Titans",
+     "comp": "IPL 2023",
+     "line": "1/9 in 14",
+     "wpa": 28.6,
+     "balls": 14
+    },
+    {
+     "date": "2022-05-21",
+     "opp": "Mumbai Indians",
+     "comp": "IPL 2022",
+     "line": "1/11 in 10",
+     "wpa": 20.5,
+     "balls": 10
+    }
+   ]
   },
   {
    "pid": "8661",
@@ -1484,7 +2034,37 @@
    "runs_saved_p": 15.01,
    "wpa_p": -0.555,
    "photo": "matheesha-pathirana.png",
-   "team2027": "(released)"
+   "team2027": "(released)",
+   "note": {
+    "head": "9 wickets and an economy of 9.69 across 237 pressure balls.",
+    "body": "He costs a little more under pressure (9.69 v 8.67) but keeps taking wickets. That puts him in the top 6% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2024-04-23",
+     "opp": "Lucknow Super Giants",
+     "comp": "IPL 2024",
+     "line": "1/30 in 18",
+     "wpa": 23.8,
+     "balls": 18
+    },
+    {
+     "date": "2024-02-17",
+     "opp": "Afghanistan",
+     "comp": "Afghanistan in Sri Lanka T20I Series 2024",
+     "line": "3/19 in 17",
+     "wpa": 41.7,
+     "balls": 17
+    },
+    {
+     "date": "2023-05-23",
+     "opp": "Gujarat Titans",
+     "comp": "IPL 2023",
+     "line": "1/10 in 10",
+     "wpa": 28.2,
+     "balls": 10
+    }
+   ]
   },
   {
    "pid": "39657",
@@ -1515,7 +2095,37 @@
    "runs_saved_p": 10.645,
    "wpa_p": 0.005,
    "photo": "eshan-malinga.png",
-   "team2027": "SRH"
+   "team2027": "SRH",
+   "note": {
+    "head": "6 wickets and an economy of 9.00 across 178 pressure balls.",
+    "body": "Nothing changes when the game tightens: 9.00 an over under pressure against 9.08 otherwise. That puts him in the top 7% of ranked players on pressure balls."
+   },
+   "recent": [
+    {
+     "date": "2026-04-18",
+     "opp": "Chennai Super Kings",
+     "comp": "IPL 2026",
+     "line": "1/11 in 9",
+     "wpa": 12.6,
+     "balls": 9
+    },
+    {
+     "date": "2026-04-02",
+     "opp": "Kolkata Knight Riders",
+     "comp": "IPL 2026",
+     "line": "0/2 in 4",
+     "wpa": 20.3,
+     "balls": 4
+    },
+    {
+     "date": "2026-03-28",
+     "opp": "Royal Challengers Bengaluru",
+     "comp": "IPL 2026",
+     "line": "0/1 in 3",
+     "wpa": 16.1,
+     "balls": 3
+    }
+   ]
   },
   {
    "pid": "4101",
@@ -1546,7 +2156,12 @@
    "runs_saved_p": 11.75,
    "wpa_p": 1.092,
    "photo": "mitch-santner.png",
-   "team2027": "MI"
+   "team2027": "MI",
+   "note": {
+    "head": "19 wickets and an economy of 7.65 across 312 pressure balls.",
+    "body": "Nothing changes when the game tightens: 7.65 an over under pressure against 7.40 otherwise. 38% of his pressure balls are dots."
+   },
+   "recent": []
   },
   {
    "pid": "4219",
@@ -1577,7 +2192,12 @@
    "runs_saved_p": 30.955,
    "wpa_p": 0.469,
    "photo": "krunal-pandya.png",
-   "team2027": "RCB"
+   "team2027": "RCB",
+   "note": {
+    "head": "9 wickets and an economy of 7.01 across 183 pressure balls.",
+    "body": "He gets cheaper when it matters: 7.01 an over under pressure against 7.95 otherwise."
+   },
+   "recent": []
   },
   {
    "pid": "3628",
@@ -34237,6 +34857,4200 @@
    "wicket_pct": 5.8,
    "mean_abs_wpa_pct": 4.46,
    "mean_li": 2.93
+  }
+ ],
+ "chases": [
+  {
+   "label": "IPL 2023 final, CSK chase v GT",
+   "balls": [
+    {
+     "b": 0,
+     "wp": 0.5081,
+     "li": 2.46,
+     "r": 0,
+     "wk": false,
+     "need": 171,
+     "left": 90
+    },
+    {
+     "b": 1,
+     "wp": 0.4917,
+     "li": 1.18,
+     "r": 0,
+     "wk": false,
+     "need": 171,
+     "left": 89
+    },
+    {
+     "b": 2,
+     "wp": 0.5072,
+     "li": 1.04,
+     "r": 4,
+     "wk": false,
+     "need": 171,
+     "left": 88
+    },
+    {
+     "b": 3,
+     "wp": 0.4774,
+     "li": 0.9,
+     "r": 2,
+     "wk": false,
+     "need": 167,
+     "left": 87
+    },
+    {
+     "b": 4,
+     "wp": 0.4675,
+     "li": 1.74,
+     "r": 0,
+     "wk": false,
+     "need": 165,
+     "left": 86
+    },
+    {
+     "b": 5,
+     "wp": 0.4917,
+     "li": 1.2,
+     "r": 4,
+     "wk": false,
+     "need": 165,
+     "left": 85
+    },
+    {
+     "b": 6,
+     "wp": 0.4561,
+     "li": 1.76,
+     "r": 0,
+     "wk": false,
+     "need": 161,
+     "left": 84
+    },
+    {
+     "b": 7,
+     "wp": 0.4561,
+     "li": 1.36,
+     "r": 6,
+     "wk": false,
+     "need": 161,
+     "left": 83
+    },
+    {
+     "b": 8,
+     "wp": 0.5081,
+     "li": 2.38,
+     "r": 1,
+     "wk": false,
+     "need": 155,
+     "left": 82
+    },
+    {
+     "b": 9,
+     "wp": 0.5081,
+     "li": 1.83,
+     "r": 1,
+     "wk": false,
+     "need": 154,
+     "left": 81
+    },
+    {
+     "b": 10,
+     "wp": 0.5052,
+     "li": 1.82,
+     "r": 1,
+     "wk": false,
+     "need": 153,
+     "left": 80
+    },
+    {
+     "b": 10,
+     "wp": 0.5142,
+     "li": 2.07,
+     "r": 4,
+     "wk": false,
+     "need": 152,
+     "left": 80
+    },
+    {
+     "b": 11,
+     "wp": 0.5818,
+     "li": 2.71,
+     "r": 1,
+     "wk": false,
+     "need": 148,
+     "left": 79
+    },
+    {
+     "b": 12,
+     "wp": 0.5509,
+     "li": 2.7,
+     "r": 4,
+     "wk": false,
+     "need": 147,
+     "left": 78
+    },
+    {
+     "b": 13,
+     "wp": 0.6402,
+     "li": 1.97,
+     "r": 4,
+     "wk": false,
+     "need": 143,
+     "left": 77
+    },
+    {
+     "b": 14,
+     "wp": 0.6814,
+     "li": 2.33,
+     "r": 1,
+     "wk": false,
+     "need": 139,
+     "left": 76
+    },
+    {
+     "b": 15,
+     "wp": 0.6844,
+     "li": 1.98,
+     "r": 0,
+     "wk": false,
+     "need": 138,
+     "left": 75
+    },
+    {
+     "b": 16,
+     "wp": 0.6526,
+     "li": 2.81,
+     "r": 1,
+     "wk": false,
+     "need": 138,
+     "left": 74
+    },
+    {
+     "b": 17,
+     "wp": 0.6211,
+     "li": 2.98,
+     "r": 1,
+     "wk": false,
+     "need": 137,
+     "left": 73
+    },
+    {
+     "b": 18,
+     "wp": 0.5907,
+     "li": 3.11,
+     "r": 4,
+     "wk": false,
+     "need": 136,
+     "left": 72
+    },
+    {
+     "b": 19,
+     "wp": 0.6844,
+     "li": 3.1,
+     "r": 1,
+     "wk": false,
+     "need": 132,
+     "left": 71
+    },
+    {
+     "b": 20,
+     "wp": 0.6402,
+     "li": 4.03,
+     "r": 1,
+     "wk": false,
+     "need": 131,
+     "left": 70
+    },
+    {
+     "b": 21,
+     "wp": 0.6402,
+     "li": 3.73,
+     "r": 1,
+     "wk": false,
+     "need": 130,
+     "left": 69
+    },
+    {
+     "b": 22,
+     "wp": 0.5818,
+     "li": 2.99,
+     "r": 6,
+     "wk": false,
+     "need": 129,
+     "left": 68
+    },
+    {
+     "b": 23,
+     "wp": 0.7608,
+     "li": 1.79,
+     "r": 4,
+     "wk": false,
+     "need": 123,
+     "left": 67
+    },
+    {
+     "b": 24,
+     "wp": 0.7653,
+     "li": 1.12,
+     "r": 2,
+     "wk": false,
+     "need": 119,
+     "left": 66
+    },
+    {
+     "b": 25,
+     "wp": 0.7808,
+     "li": 1.22,
+     "r": 0,
+     "wk": false,
+     "need": 117,
+     "left": 65
+    },
+    {
+     "b": 26,
+     "wp": 0.7608,
+     "li": 2.34,
+     "r": 1,
+     "wk": false,
+     "need": 117,
+     "left": 64
+    },
+    {
+     "b": 27,
+     "wp": 0.7527,
+     "li": 1.98,
+     "r": 1,
+     "wk": false,
+     "need": 116,
+     "left": 63
+    },
+    {
+     "b": 28,
+     "wp": 0.7231,
+     "li": 3.98,
+     "r": 1,
+     "wk": false,
+     "need": 115,
+     "left": 62
+    },
+    {
+     "b": 28,
+     "wp": 0.7608,
+     "li": 1.76,
+     "r": 0,
+     "wk": false,
+     "need": 114,
+     "left": 62
+    },
+    {
+     "b": 29,
+     "wp": 0.7237,
+     "li": 3.35,
+     "r": 1,
+     "wk": false,
+     "need": 114,
+     "left": 61
+    },
+    {
+     "b": 30,
+     "wp": 0.7231,
+     "li": 2.55,
+     "r": 2,
+     "wk": false,
+     "need": 113,
+     "left": 60
+    },
+    {
+     "b": 31,
+     "wp": 0.7237,
+     "li": 2.59,
+     "r": 2,
+     "wk": false,
+     "need": 111,
+     "left": 59
+    },
+    {
+     "b": 32,
+     "wp": 0.7313,
+     "li": 2.59,
+     "r": 1,
+     "wk": false,
+     "need": 109,
+     "left": 58
+    },
+    {
+     "b": 33,
+     "wp": 0.6566,
+     "li": 2.73,
+     "r": 1,
+     "wk": false,
+     "need": 108,
+     "left": 57
+    },
+    {
+     "b": 34,
+     "wp": 0.6368,
+     "li": 2.91,
+     "r": 2,
+     "wk": false,
+     "need": 107,
+     "left": 56
+    },
+    {
+     "b": 35,
+     "wp": 0.6368,
+     "li": 2.54,
+     "r": 6,
+     "wk": false,
+     "need": 105,
+     "left": 55
+    },
+    {
+     "b": 36,
+     "wp": 0.7608,
+     "li": 1.42,
+     "r": 1,
+     "wk": false,
+     "need": 99,
+     "left": 54
+    },
+    {
+     "b": 37,
+     "wp": 0.7328,
+     "li": 2.63,
+     "r": 1,
+     "wk": false,
+     "need": 98,
+     "left": 53
+    },
+    {
+     "b": 38,
+     "wp": 0.7445,
+     "li": 1.9,
+     "r": 0,
+     "wk": true,
+     "need": 97,
+     "left": 52
+    },
+    {
+     "b": 39,
+     "wp": 0.6211,
+     "li": 1.69,
+     "r": 1,
+     "wk": false,
+     "need": 97,
+     "left": 51
+    },
+    {
+     "b": 40,
+     "wp": 0.6005,
+     "li": 2.71,
+     "r": 2,
+     "wk": false,
+     "need": 96,
+     "left": 50
+    },
+    {
+     "b": 41,
+     "wp": 0.6038,
+     "li": 2.51,
+     "r": 1,
+     "wk": false,
+     "need": 94,
+     "left": 49
+    },
+    {
+     "b": 41,
+     "wp": 0.6368,
+     "li": 1.87,
+     "r": 0,
+     "wk": true,
+     "need": 93,
+     "left": 49
+    },
+    {
+     "b": 42,
+     "wp": 0.5509,
+     "li": 2.56,
+     "r": 1,
+     "wk": false,
+     "need": 93,
+     "left": 48
+    },
+    {
+     "b": 43,
+     "wp": 0.5509,
+     "li": 2.08,
+     "r": 2,
+     "wk": false,
+     "need": 92,
+     "left": 47
+    },
+    {
+     "b": 44,
+     "wp": 0.5603,
+     "li": 2.33,
+     "r": 6,
+     "wk": false,
+     "need": 90,
+     "left": 46
+    },
+    {
+     "b": 45,
+     "wp": 0.6844,
+     "li": 2.29,
+     "r": 0,
+     "wk": false,
+     "need": 84,
+     "left": 45
+    },
+    {
+     "b": 46,
+     "wp": 0.6211,
+     "li": 1.87,
+     "r": 6,
+     "wk": false,
+     "need": 84,
+     "left": 44
+    },
+    {
+     "b": 47,
+     "wp": 0.7352,
+     "li": 1.56,
+     "r": 1,
+     "wk": false,
+     "need": 78,
+     "left": 43
+    },
+    {
+     "b": 48,
+     "wp": 0.7445,
+     "li": 1.47,
+     "r": 1,
+     "wk": false,
+     "need": 77,
+     "left": 42
+    },
+    {
+     "b": 48,
+     "wp": 0.7636,
+     "li": 2.03,
+     "r": 1,
+     "wk": false,
+     "need": 76,
+     "left": 42
+    },
+    {
+     "b": 49,
+     "wp": 0.7445,
+     "li": 1.38,
+     "r": 1,
+     "wk": false,
+     "need": 75,
+     "left": 41
+    },
+    {
+     "b": 50,
+     "wp": 0.7653,
+     "li": 2.27,
+     "r": 1,
+     "wk": false,
+     "need": 74,
+     "left": 40
+    },
+    {
+     "b": 51,
+     "wp": 0.7808,
+     "li": 1.5,
+     "r": 0,
+     "wk": false,
+     "need": 73,
+     "left": 39
+    },
+    {
+     "b": 52,
+     "wp": 0.7445,
+     "li": 1.11,
+     "r": 1,
+     "wk": false,
+     "need": 73,
+     "left": 38
+    },
+    {
+     "b": 53,
+     "wp": 0.7608,
+     "li": 0.53,
+     "r": 0,
+     "wk": false,
+     "need": 72,
+     "left": 37
+    },
+    {
+     "b": 54,
+     "wp": 0.7636,
+     "li": 1.46,
+     "r": 1,
+     "wk": false,
+     "need": 72,
+     "left": 36
+    },
+    {
+     "b": 55,
+     "wp": 0.7128,
+     "li": 1.19,
+     "r": 1,
+     "wk": false,
+     "need": 71,
+     "left": 35
+    },
+    {
+     "b": 56,
+     "wp": 0.7231,
+     "li": 1.96,
+     "r": 2,
+     "wk": false,
+     "need": 70,
+     "left": 34
+    },
+    {
+     "b": 57,
+     "wp": 0.7237,
+     "li": 1.67,
+     "r": 1,
+     "wk": false,
+     "need": 68,
+     "left": 33
+    },
+    {
+     "b": 58,
+     "wp": 0.7313,
+     "li": 2.16,
+     "r": 4,
+     "wk": false,
+     "need": 67,
+     "left": 32
+    },
+    {
+     "b": 59,
+     "wp": 0.7352,
+     "li": 1.52,
+     "r": 4,
+     "wk": false,
+     "need": 63,
+     "left": 31
+    },
+    {
+     "b": 60,
+     "wp": 0.8084,
+     "li": 1.47,
+     "r": 1,
+     "wk": false,
+     "need": 59,
+     "left": 30
+    },
+    {
+     "b": 61,
+     "wp": 0.8019,
+     "li": 1.82,
+     "r": 1,
+     "wk": false,
+     "need": 58,
+     "left": 29
+    },
+    {
+     "b": 62,
+     "wp": 0.7808,
+     "li": 1.23,
+     "r": 2,
+     "wk": false,
+     "need": 57,
+     "left": 28
+    },
+    {
+     "b": 63,
+     "wp": 0.7991,
+     "li": 1.12,
+     "r": 1,
+     "wk": false,
+     "need": 55,
+     "left": 27
+    },
+    {
+     "b": 64,
+     "wp": 0.7653,
+     "li": 2.14,
+     "r": 0,
+     "wk": true,
+     "need": 54,
+     "left": 26
+    },
+    {
+     "b": 65,
+     "wp": 0.664,
+     "li": 2.46,
+     "r": 1,
+     "wk": false,
+     "need": 54,
+     "left": 25
+    },
+    {
+     "b": 66,
+     "wp": 0.6814,
+     "li": 2.61,
+     "r": 1,
+     "wk": false,
+     "need": 53,
+     "left": 24
+    },
+    {
+     "b": 67,
+     "wp": 0.6211,
+     "li": 1.91,
+     "r": 1,
+     "wk": false,
+     "need": 52,
+     "left": 23
+    },
+    {
+     "b": 68,
+     "wp": 0.5614,
+     "li": 1.99,
+     "r": 0,
+     "wk": false,
+     "need": 51,
+     "left": 22
+    },
+    {
+     "b": 69,
+     "wp": 0.5072,
+     "li": 1.75,
+     "r": 1,
+     "wk": false,
+     "need": 51,
+     "left": 21
+    },
+    {
+     "b": 70,
+     "wp": 0.4774,
+     "li": 1.81,
+     "r": 6,
+     "wk": false,
+     "need": 50,
+     "left": 20
+    },
+    {
+     "b": 71,
+     "wp": 0.5224,
+     "li": 2.0,
+     "r": 6,
+     "wk": false,
+     "need": 44,
+     "left": 19
+    },
+    {
+     "b": 72,
+     "wp": 0.6005,
+     "li": 2.77,
+     "r": 6,
+     "wk": false,
+     "need": 38,
+     "left": 18
+    },
+    {
+     "b": 73,
+     "wp": 0.7237,
+     "li": 1.9,
+     "r": 4,
+     "wk": false,
+     "need": 32,
+     "left": 17
+    },
+    {
+     "b": 74,
+     "wp": 0.7608,
+     "li": 1.74,
+     "r": 6,
+     "wk": false,
+     "need": 28,
+     "left": 16
+    },
+    {
+     "b": 75,
+     "wp": 0.8491,
+     "li": 2.43,
+     "r": 0,
+     "wk": true,
+     "need": 22,
+     "left": 15
+    },
+    {
+     "b": 76,
+     "wp": 0.7313,
+     "li": 3.28,
+     "r": 0,
+     "wk": true,
+     "need": 22,
+     "left": 14
+    },
+    {
+     "b": 77,
+     "wp": 0.5614,
+     "li": 3.5,
+     "r": 1,
+     "wk": false,
+     "need": 22,
+     "left": 13
+    },
+    {
+     "b": 78,
+     "wp": 0.5603,
+     "li": 3.76,
+     "r": 1,
+     "wk": false,
+     "need": 21,
+     "left": 12
+    },
+    {
+     "b": 79,
+     "wp": 0.5509,
+     "li": 3.84,
+     "r": 0,
+     "wk": false,
+     "need": 20,
+     "left": 11
+    },
+    {
+     "b": 80,
+     "wp": 0.4893,
+     "li": 3.7,
+     "r": 2,
+     "wk": false,
+     "need": 20,
+     "left": 10
+    },
+    {
+     "b": 81,
+     "wp": 0.5224,
+     "li": 3.34,
+     "r": 2,
+     "wk": false,
+     "need": 18,
+     "left": 9
+    },
+    {
+     "b": 82,
+     "wp": 0.5614,
+     "li": 2.99,
+     "r": 1,
+     "wk": false,
+     "need": 16,
+     "left": 8
+    },
+    {
+     "b": 83,
+     "wp": 0.5081,
+     "li": 3.44,
+     "r": 2,
+     "wk": false,
+     "need": 15,
+     "left": 7
+    },
+    {
+     "b": 84,
+     "wp": 0.4948,
+     "li": 3.92,
+     "r": 0,
+     "wk": false,
+     "need": 13,
+     "left": 6
+    },
+    {
+     "b": 85,
+     "wp": 0.407,
+     "li": 3.64,
+     "r": 1,
+     "wk": false,
+     "need": 13,
+     "left": 5
+    },
+    {
+     "b": 86,
+     "wp": 0.3611,
+     "li": 3.88,
+     "r": 1,
+     "wk": false,
+     "need": 12,
+     "left": 4
+    },
+    {
+     "b": 87,
+     "wp": 0.2958,
+     "li": 3.54,
+     "r": 1,
+     "wk": false,
+     "need": 11,
+     "left": 3
+    },
+    {
+     "b": 88,
+     "wp": 0.2304,
+     "li": 3.44,
+     "r": 6,
+     "wk": false,
+     "need": 10,
+     "left": 2
+    },
+    {
+     "b": 89,
+     "wp": 0.4893,
+     "li": 15.49,
+     "r": 4,
+     "wk": false,
+     "need": 4,
+     "left": 1
+    }
+   ],
+   "peak": {
+    "b": 89,
+    "li": 15.5,
+    "need": 4,
+    "left": 1,
+    "batter": "Ravindra Jadeja",
+    "bowler": "Mohit Sharma"
+   }
+  },
+  {
+   "label": "IPL 2023, KKR chase v GT (Rinku Singh)",
+   "balls": [
+    {
+     "b": 0,
+     "wp": 0.3002,
+     "li": 1.75,
+     "r": 0,
+     "wk": false,
+     "need": 205,
+     "left": 120
+    },
+    {
+     "b": 1,
+     "wp": 0.3089,
+     "li": 1.31,
+     "r": 0,
+     "wk": false,
+     "need": 205,
+     "left": 119
+    },
+    {
+     "b": 2,
+     "wp": 0.2958,
+     "li": 1.02,
+     "r": 0,
+     "wk": false,
+     "need": 205,
+     "left": 118
+    },
+    {
+     "b": 3,
+     "wp": 0.2834,
+     "li": 0.94,
+     "r": 0,
+     "wk": false,
+     "need": 205,
+     "left": 117
+    },
+    {
+     "b": 4,
+     "wp": 0.2778,
+     "li": 0.78,
+     "r": 2,
+     "wk": false,
+     "need": 205,
+     "left": 116
+    },
+    {
+     "b": 5,
+     "wp": 0.2834,
+     "li": 0.83,
+     "r": 0,
+     "wk": false,
+     "need": 203,
+     "left": 115
+    },
+    {
+     "b": 6,
+     "wp": 0.2811,
+     "li": 1.37,
+     "r": 0,
+     "wk": false,
+     "need": 203,
+     "left": 114
+    },
+    {
+     "b": 7,
+     "wp": 0.2617,
+     "li": 1.03,
+     "r": 4,
+     "wk": false,
+     "need": 203,
+     "left": 113
+    },
+    {
+     "b": 8,
+     "wp": 0.2778,
+     "li": 0.8,
+     "r": 1,
+     "wk": false,
+     "need": 199,
+     "left": 112
+    },
+    {
+     "b": 9,
+     "wp": 0.2778,
+     "li": 0.82,
+     "r": 6,
+     "wk": false,
+     "need": 198,
+     "left": 111
+    },
+    {
+     "b": 10,
+     "wp": 0.3089,
+     "li": 0.78,
+     "r": 0,
+     "wk": false,
+     "need": 192,
+     "left": 110
+    },
+    {
+     "b": 11,
+     "wp": 0.319,
+     "li": 0.76,
+     "r": 1,
+     "wk": false,
+     "need": 192,
+     "left": 109
+    },
+    {
+     "b": 12,
+     "wp": 0.319,
+     "li": 0.75,
+     "r": 4,
+     "wk": false,
+     "need": 191,
+     "left": 108
+    },
+    {
+     "b": 13,
+     "wp": 0.3089,
+     "li": 0.84,
+     "r": 2,
+     "wk": false,
+     "need": 187,
+     "left": 107
+    },
+    {
+     "b": 14,
+     "wp": 0.3089,
+     "li": 0.95,
+     "r": 0,
+     "wk": true,
+     "need": 185,
+     "left": 106
+    },
+    {
+     "b": 15,
+     "wp": 0.1729,
+     "li": 0.74,
+     "r": 0,
+     "wk": false,
+     "need": 185,
+     "left": 105
+    },
+    {
+     "b": 16,
+     "wp": 0.1729,
+     "li": 0.96,
+     "r": 6,
+     "wk": false,
+     "need": 185,
+     "left": 104
+    },
+    {
+     "b": 17,
+     "wp": 0.209,
+     "li": 0.9,
+     "r": 0,
+     "wk": false,
+     "need": 179,
+     "left": 103
+    },
+    {
+     "b": 18,
+     "wp": 0.2304,
+     "li": 0.64,
+     "r": 1,
+     "wk": false,
+     "need": 179,
+     "left": 102
+    },
+    {
+     "b": 19,
+     "wp": 0.1983,
+     "li": 0.58,
+     "r": 1,
+     "wk": false,
+     "need": 178,
+     "left": 101
+    },
+    {
+     "b": 20,
+     "wp": 0.2304,
+     "li": 1.03,
+     "r": 0,
+     "wk": false,
+     "need": 177,
+     "left": 100
+    },
+    {
+     "b": 21,
+     "wp": 0.214,
+     "li": 1.18,
+     "r": 0,
+     "wk": false,
+     "need": 177,
+     "left": 99
+    },
+    {
+     "b": 22,
+     "wp": 0.1983,
+     "li": 1.3,
+     "r": 0,
+     "wk": false,
+     "need": 177,
+     "left": 98
+    },
+    {
+     "b": 23,
+     "wp": 0.1803,
+     "li": 1.04,
+     "r": 0,
+     "wk": true,
+     "need": 177,
+     "left": 97
+    },
+    {
+     "b": 24,
+     "wp": 0.0919,
+     "li": 0.34,
+     "r": 0,
+     "wk": false,
+     "need": 177,
+     "left": 96
+    },
+    {
+     "b": 25,
+     "wp": 0.0919,
+     "li": 0.28,
+     "r": 1,
+     "wk": false,
+     "need": 177,
+     "left": 95
+    },
+    {
+     "b": 26,
+     "wp": 0.0919,
+     "li": 0.41,
+     "r": 1,
+     "wk": false,
+     "need": 176,
+     "left": 94
+    },
+    {
+     "b": 27,
+     "wp": 0.0919,
+     "li": 0.31,
+     "r": 4,
+     "wk": false,
+     "need": 175,
+     "left": 93
+    },
+    {
+     "b": 28,
+     "wp": 0.1009,
+     "li": 0.41,
+     "r": 1,
+     "wk": false,
+     "need": 171,
+     "left": 92
+    },
+    {
+     "b": 29,
+     "wp": 0.1009,
+     "li": 0.2,
+     "r": 2,
+     "wk": false,
+     "need": 170,
+     "left": 91
+    },
+    {
+     "b": 30,
+     "wp": 0.0919,
+     "li": 0.31,
+     "r": 0,
+     "wk": false,
+     "need": 168,
+     "left": 90
+    },
+    {
+     "b": 31,
+     "wp": 0.1009,
+     "li": 0.48,
+     "r": 4,
+     "wk": false,
+     "need": 168,
+     "left": 89
+    },
+    {
+     "b": 32,
+     "wp": 0.1009,
+     "li": 0.52,
+     "r": 0,
+     "wk": false,
+     "need": 164,
+     "left": 88
+    },
+    {
+     "b": 33,
+     "wp": 0.0926,
+     "li": 0.49,
+     "r": 1,
+     "wk": false,
+     "need": 164,
+     "left": 87
+    },
+    {
+     "b": 34,
+     "wp": 0.1009,
+     "li": 0.5,
+     "r": 1,
+     "wk": false,
+     "need": 163,
+     "left": 86
+    },
+    {
+     "b": 35,
+     "wp": 0.1009,
+     "li": 0.35,
+     "r": 0,
+     "wk": false,
+     "need": 162,
+     "left": 85
+    },
+    {
+     "b": 36,
+     "wp": 0.0919,
+     "li": 0.32,
+     "r": 1,
+     "wk": false,
+     "need": 162,
+     "left": 84
+    },
+    {
+     "b": 37,
+     "wp": 0.0868,
+     "li": 0.27,
+     "r": 4,
+     "wk": false,
+     "need": 161,
+     "left": 83
+    },
+    {
+     "b": 38,
+     "wp": 0.1009,
+     "li": 0.2,
+     "r": 6,
+     "wk": false,
+     "need": 157,
+     "left": 82
+    },
+    {
+     "b": 39,
+     "wp": 0.1085,
+     "li": 0.76,
+     "r": 1,
+     "wk": false,
+     "need": 151,
+     "left": 81
+    },
+    {
+     "b": 40,
+     "wp": 0.1085,
+     "li": 0.68,
+     "r": 0,
+     "wk": false,
+     "need": 150,
+     "left": 80
+    },
+    {
+     "b": 41,
+     "wp": 0.0919,
+     "li": 0.48,
+     "r": 1,
+     "wk": false,
+     "need": 150,
+     "left": 79
+    },
+    {
+     "b": 42,
+     "wp": 0.0919,
+     "li": 0.51,
+     "r": 0,
+     "wk": false,
+     "need": 149,
+     "left": 78
+    },
+    {
+     "b": 43,
+     "wp": 0.0919,
+     "li": 0.47,
+     "r": 0,
+     "wk": false,
+     "need": 149,
+     "left": 77
+    },
+    {
+     "b": 44,
+     "wp": 0.0868,
+     "li": 0.22,
+     "r": 6,
+     "wk": false,
+     "need": 149,
+     "left": 76
+    },
+    {
+     "b": 45,
+     "wp": 0.1085,
+     "li": 0.48,
+     "r": 0,
+     "wk": false,
+     "need": 143,
+     "left": 75
+    },
+    {
+     "b": 46,
+     "wp": 0.1009,
+     "li": 0.53,
+     "r": 0,
+     "wk": false,
+     "need": 143,
+     "left": 74
+    },
+    {
+     "b": 47,
+     "wp": 0.0919,
+     "li": 0.47,
+     "r": 6,
+     "wk": false,
+     "need": 143,
+     "left": 73
+    },
+    {
+     "b": 48,
+     "wp": 0.1179,
+     "li": 0.77,
+     "r": 2,
+     "wk": false,
+     "need": 137,
+     "left": 72
+    },
+    {
+     "b": 49,
+     "wp": 0.1185,
+     "li": 1.05,
+     "r": 1,
+     "wk": false,
+     "need": 135,
+     "left": 71
+    },
+    {
+     "b": 50,
+     "wp": 0.1205,
+     "li": 1.09,
+     "r": 1,
+     "wk": false,
+     "need": 134,
+     "left": 70
+    },
+    {
+     "b": 51,
+     "wp": 0.1185,
+     "li": 0.89,
+     "r": 1,
+     "wk": false,
+     "need": 133,
+     "left": 69
+    },
+    {
+     "b": 52,
+     "wp": 0.1179,
+     "li": 0.98,
+     "r": 4,
+     "wk": false,
+     "need": 132,
+     "left": 68
+    },
+    {
+     "b": 53,
+     "wp": 0.1491,
+     "li": 1.21,
+     "r": 1,
+     "wk": false,
+     "need": 128,
+     "left": 67
+    },
+    {
+     "b": 54,
+     "wp": 0.1491,
+     "li": 1.43,
+     "r": 1,
+     "wk": false,
+     "need": 127,
+     "left": 66
+    },
+    {
+     "b": 55,
+     "wp": 0.1337,
+     "li": 1.35,
+     "r": 4,
+     "wk": false,
+     "need": 126,
+     "left": 65
+    },
+    {
+     "b": 56,
+     "wp": 0.1729,
+     "li": 1.61,
+     "r": 1,
+     "wk": false,
+     "need": 122,
+     "left": 64
+    },
+    {
+     "b": 57,
+     "wp": 0.1729,
+     "li": 1.74,
+     "r": 0,
+     "wk": false,
+     "need": 121,
+     "left": 63
+    },
+    {
+     "b": 58,
+     "wp": 0.1491,
+     "li": 1.91,
+     "r": 1,
+     "wk": false,
+     "need": 121,
+     "left": 62
+    },
+    {
+     "b": 59,
+     "wp": 0.1337,
+     "li": 1.75,
+     "r": 1,
+     "wk": false,
+     "need": 120,
+     "left": 61
+    },
+    {
+     "b": 60,
+     "wp": 0.1337,
+     "li": 1.39,
+     "r": 1,
+     "wk": false,
+     "need": 119,
+     "left": 60
+    },
+    {
+     "b": 61,
+     "wp": 0.1491,
+     "li": 1.72,
+     "r": 0,
+     "wk": false,
+     "need": 118,
+     "left": 59
+    },
+    {
+     "b": 62,
+     "wp": 0.1179,
+     "li": 1.1,
+     "r": 1,
+     "wk": false,
+     "need": 118,
+     "left": 58
+    },
+    {
+     "b": 63,
+     "wp": 0.1246,
+     "li": 1.05,
+     "r": 6,
+     "wk": false,
+     "need": 117,
+     "left": 57
+    },
+    {
+     "b": 64,
+     "wp": 0.1983,
+     "li": 1.79,
+     "r": 1,
+     "wk": false,
+     "need": 111,
+     "left": 56
+    },
+    {
+     "b": 65,
+     "wp": 0.1803,
+     "li": 2.12,
+     "r": 4,
+     "wk": false,
+     "need": 110,
+     "left": 55
+    },
+    {
+     "b": 66,
+     "wp": 0.2422,
+     "li": 1.33,
+     "r": 4,
+     "wk": false,
+     "need": 106,
+     "left": 54
+    },
+    {
+     "b": 67,
+     "wp": 0.3089,
+     "li": 1.57,
+     "r": 6,
+     "wk": false,
+     "need": 102,
+     "left": 53
+    },
+    {
+     "b": 68,
+     "wp": 0.3611,
+     "li": 1.09,
+     "r": 1,
+     "wk": false,
+     "need": 96,
+     "left": 52
+    },
+    {
+     "b": 69,
+     "wp": 0.3537,
+     "li": 1.28,
+     "r": 0,
+     "wk": false,
+     "need": 95,
+     "left": 51
+    },
+    {
+     "b": 70,
+     "wp": 0.3244,
+     "li": 0.7,
+     "r": 0,
+     "wk": false,
+     "need": 95,
+     "left": 50
+    },
+    {
+     "b": 71,
+     "wp": 0.3244,
+     "li": 0.97,
+     "r": 6,
+     "wk": false,
+     "need": 95,
+     "left": 49
+    },
+    {
+     "b": 72,
+     "wp": 0.3611,
+     "li": 0.46,
+     "r": 1,
+     "wk": false,
+     "need": 89,
+     "left": 48
+    },
+    {
+     "b": 73,
+     "wp": 0.3519,
+     "li": 1.06,
+     "r": 4,
+     "wk": false,
+     "need": 88,
+     "left": 47
+    },
+    {
+     "b": 74,
+     "wp": 0.3611,
+     "li": 0.98,
+     "r": 4,
+     "wk": false,
+     "need": 84,
+     "left": 46
+    },
+    {
+     "b": 75,
+     "wp": 0.3912,
+     "li": 2.08,
+     "r": 0,
+     "wk": false,
+     "need": 80,
+     "left": 45
+    },
+    {
+     "b": 76,
+     "wp": 0.375,
+     "li": 1.63,
+     "r": 1,
+     "wk": false,
+     "need": 80,
+     "left": 44
+    },
+    {
+     "b": 77,
+     "wp": 0.3809,
+     "li": 1.56,
+     "r": 2,
+     "wk": false,
+     "need": 79,
+     "left": 43
+    },
+    {
+     "b": 78,
+     "wp": 0.3809,
+     "li": 1.76,
+     "r": 0,
+     "wk": true,
+     "need": 77,
+     "left": 42
+    },
+    {
+     "b": 79,
+     "wp": 0.3519,
+     "li": 1.94,
+     "r": 0,
+     "wk": false,
+     "need": 77,
+     "left": 41
+    },
+    {
+     "b": 80,
+     "wp": 0.3244,
+     "li": 2.15,
+     "r": 0,
+     "wk": false,
+     "need": 77,
+     "left": 40
+    },
+    {
+     "b": 81,
+     "wp": 0.2834,
+     "li": 2.21,
+     "r": 1,
+     "wk": false,
+     "need": 77,
+     "left": 39
+    },
+    {
+     "b": 82,
+     "wp": 0.2811,
+     "li": 2.27,
+     "r": 2,
+     "wk": false,
+     "need": 76,
+     "left": 38
+    },
+    {
+     "b": 83,
+     "wp": 0.3089,
+     "li": 1.98,
+     "r": 1,
+     "wk": false,
+     "need": 74,
+     "left": 37
+    },
+    {
+     "b": 84,
+     "wp": 0.2859,
+     "li": 1.98,
+     "r": 1,
+     "wk": false,
+     "need": 73,
+     "left": 36
+    },
+    {
+     "b": 85,
+     "wp": 0.2811,
+     "li": 1.85,
+     "r": 1,
+     "wk": false,
+     "need": 72,
+     "left": 35
+    },
+    {
+     "b": 86,
+     "wp": 0.2778,
+     "li": 1.67,
+     "r": 1,
+     "wk": false,
+     "need": 71,
+     "left": 34
+    },
+    {
+     "b": 86,
+     "wp": 0.2958,
+     "li": 1.79,
+     "r": 4,
+     "wk": false,
+     "need": 70,
+     "left": 34
+    },
+    {
+     "b": 87,
+     "wp": 0.3519,
+     "li": 1.99,
+     "r": 0,
+     "wk": false,
+     "need": 66,
+     "left": 33
+    },
+    {
+     "b": 88,
+     "wp": 0.3089,
+     "li": 1.95,
+     "r": 4,
+     "wk": false,
+     "need": 66,
+     "left": 32
+    },
+    {
+     "b": 89,
+     "wp": 0.3611,
+     "li": 2.39,
+     "r": 6,
+     "wk": false,
+     "need": 62,
+     "left": 31
+    },
+    {
+     "b": 90,
+     "wp": 0.5081,
+     "li": 2.21,
+     "r": 0,
+     "wk": false,
+     "need": 56,
+     "left": 30
+    },
+    {
+     "b": 91,
+     "wp": 0.4852,
+     "li": 3.36,
+     "r": 1,
+     "wk": false,
+     "need": 56,
+     "left": 29
+    },
+    {
+     "b": 92,
+     "wp": 0.4382,
+     "li": 3.83,
+     "r": 0,
+     "wk": false,
+     "need": 55,
+     "left": 28
+    },
+    {
+     "b": 93,
+     "wp": 0.3537,
+     "li": 3.18,
+     "r": 4,
+     "wk": false,
+     "need": 55,
+     "left": 27
+    },
+    {
+     "b": 94,
+     "wp": 0.4496,
+     "li": 3.49,
+     "r": 0,
+     "wk": true,
+     "need": 51,
+     "left": 26
+    },
+    {
+     "b": 95,
+     "wp": 0.2958,
+     "li": 3.79,
+     "r": 1,
+     "wk": false,
+     "need": 51,
+     "left": 25
+    },
+    {
+     "b": 96,
+     "wp": 0.2508,
+     "li": 3.56,
+     "r": 0,
+     "wk": true,
+     "need": 50,
+     "left": 24
+    },
+    {
+     "b": 97,
+     "wp": 0.1983,
+     "li": 2.36,
+     "r": 0,
+     "wk": true,
+     "need": 50,
+     "left": 23
+    },
+    {
+     "b": 98,
+     "wp": 0.1085,
+     "li": 0.91,
+     "r": 0,
+     "wk": true,
+     "need": 50,
+     "left": 22
+    },
+    {
+     "b": 99,
+     "wp": 0.0481,
+     "li": 0.36,
+     "r": 0,
+     "wk": false,
+     "need": 50,
+     "left": 21
+    },
+    {
+     "b": 100,
+     "wp": 0.0409,
+     "li": 0.24,
+     "r": 1,
+     "wk": false,
+     "need": 50,
+     "left": 20
+    },
+    {
+     "b": 101,
+     "wp": 0.0481,
+     "li": 0.41,
+     "r": 1,
+     "wk": false,
+     "need": 49,
+     "left": 19
+    },
+    {
+     "b": 102,
+     "wp": 0.0481,
+     "li": 0.29,
+     "r": 0,
+     "wk": false,
+     "need": 48,
+     "left": 18
+    },
+    {
+     "b": 103,
+     "wp": 0.0409,
+     "li": 0.27,
+     "r": 1,
+     "wk": false,
+     "need": 48,
+     "left": 17
+    },
+    {
+     "b": 104,
+     "wp": 0.0392,
+     "li": 0.24,
+     "r": 1,
+     "wk": false,
+     "need": 47,
+     "left": 16
+    },
+    {
+     "b": 105,
+     "wp": 0.0392,
+     "li": 0.24,
+     "r": 1,
+     "wk": false,
+     "need": 46,
+     "left": 15
+    },
+    {
+     "b": 106,
+     "wp": 0.0392,
+     "li": 0.27,
+     "r": 1,
+     "wk": false,
+     "need": 45,
+     "left": 14
+    },
+    {
+     "b": 107,
+     "wp": 0.0392,
+     "li": 0.26,
+     "r": 1,
+     "wk": false,
+     "need": 44,
+     "left": 13
+    },
+    {
+     "b": 108,
+     "wp": 0.0392,
+     "li": 0.23,
+     "r": 1,
+     "wk": false,
+     "need": 43,
+     "left": 12
+    },
+    {
+     "b": 108,
+     "wp": 0.0392,
+     "li": 0.24,
+     "r": 1,
+     "wk": false,
+     "need": 42,
+     "left": 12
+    },
+    {
+     "b": 108,
+     "wp": 0.0392,
+     "li": 0.26,
+     "r": 1,
+     "wk": false,
+     "need": 41,
+     "left": 12
+    },
+    {
+     "b": 109,
+     "wp": 0.0392,
+     "li": 0.37,
+     "r": 1,
+     "wk": false,
+     "need": 40,
+     "left": 11
+    },
+    {
+     "b": 110,
+     "wp": 0.0332,
+     "li": 0.32,
+     "r": 0,
+     "wk": false,
+     "need": 39,
+     "left": 10
+    },
+    {
+     "b": 111,
+     "wp": 0.0254,
+     "li": 0.24,
+     "r": 0,
+     "wk": false,
+     "need": 39,
+     "left": 9
+    },
+    {
+     "b": 112,
+     "wp": 0.0223,
+     "li": 0.18,
+     "r": 6,
+     "wk": false,
+     "need": 39,
+     "left": 8
+    },
+    {
+     "b": 113,
+     "wp": 0.0332,
+     "li": 0.33,
+     "r": 4,
+     "wk": false,
+     "need": 33,
+     "left": 7
+    },
+    {
+     "b": 114,
+     "wp": 0.0392,
+     "li": 0.23,
+     "r": 1,
+     "wk": false,
+     "need": 29,
+     "left": 6
+    },
+    {
+     "b": 115,
+     "wp": 0.031,
+     "li": 0.31,
+     "r": 6,
+     "wk": false,
+     "need": 28,
+     "left": 5
+    },
+    {
+     "b": 116,
+     "wp": 0.0409,
+     "li": 0.66,
+     "r": 6,
+     "wk": false,
+     "need": 22,
+     "left": 4
+    },
+    {
+     "b": 117,
+     "wp": 0.0737,
+     "li": 0.69,
+     "r": 6,
+     "wk": false,
+     "need": 16,
+     "left": 3
+    },
+    {
+     "b": 118,
+     "wp": 0.1009,
+     "li": 2.88,
+     "r": 6,
+     "wk": false,
+     "need": 10,
+     "left": 2
+    },
+    {
+     "b": 119,
+     "wp": 0.3002,
+     "li": 18.49,
+     "r": 6,
+     "wk": false,
+     "need": 4,
+     "left": 1
+    }
+   ],
+   "peak": {
+    "b": 119,
+    "li": 18.5,
+    "need": 4,
+    "left": 1,
+    "batter": "Rinku Singh",
+    "bowler": "Yash Dayal"
+   }
+  },
+  {
+   "label": "IPL 2025 final, PBKS chase v RCB",
+   "balls": [
+    {
+     "b": 0,
+     "wp": 0.4893,
+     "li": 2.35,
+     "r": 4,
+     "wk": false,
+     "need": 191,
+     "left": 120
+    },
+    {
+     "b": 1,
+     "wp": 0.5907,
+     "li": 2.24,
+     "r": 1,
+     "wk": false,
+     "need": 187,
+     "left": 119
+    },
+    {
+     "b": 2,
+     "wp": 0.5907,
+     "li": 3.45,
+     "r": 1,
+     "wk": false,
+     "need": 186,
+     "left": 118
+    },
+    {
+     "b": 3,
+     "wp": 0.5465,
+     "li": 3.75,
+     "r": 0,
+     "wk": false,
+     "need": 185,
+     "left": 117
+    },
+    {
+     "b": 4,
+     "wp": 0.4774,
+     "li": 1.99,
+     "r": 1,
+     "wk": false,
+     "need": 185,
+     "left": 116
+    },
+    {
+     "b": 5,
+     "wp": 0.4675,
+     "li": 1.46,
+     "r": 6,
+     "wk": false,
+     "need": 184,
+     "left": 115
+    },
+    {
+     "b": 6,
+     "wp": 0.6005,
+     "li": 2.68,
+     "r": 0,
+     "wk": false,
+     "need": 178,
+     "left": 114
+    },
+    {
+     "b": 7,
+     "wp": 0.5383,
+     "li": 2.41,
+     "r": 4,
+     "wk": false,
+     "need": 178,
+     "left": 113
+    },
+    {
+     "b": 8,
+     "wp": 0.5907,
+     "li": 2.44,
+     "r": 1,
+     "wk": false,
+     "need": 174,
+     "left": 112
+    },
+    {
+     "b": 9,
+     "wp": 0.5748,
+     "li": 2.43,
+     "r": 0,
+     "wk": false,
+     "need": 173,
+     "left": 111
+    },
+    {
+     "b": 10,
+     "wp": 0.5509,
+     "li": 2.56,
+     "r": 1,
+     "wk": false,
+     "need": 173,
+     "left": 110
+    },
+    {
+     "b": 11,
+     "wp": 0.5081,
+     "li": 2.42,
+     "r": 4,
+     "wk": false,
+     "need": 172,
+     "left": 109
+    },
+    {
+     "b": 12,
+     "wp": 0.5705,
+     "li": 3.52,
+     "r": 0,
+     "wk": false,
+     "need": 168,
+     "left": 108
+    },
+    {
+     "b": 13,
+     "wp": 0.5451,
+     "li": 3.01,
+     "r": 1,
+     "wk": false,
+     "need": 168,
+     "left": 107
+    },
+    {
+     "b": 14,
+     "wp": 0.5142,
+     "li": 2.38,
+     "r": 1,
+     "wk": false,
+     "need": 167,
+     "left": 106
+    },
+    {
+     "b": 15,
+     "wp": 0.5224,
+     "li": 1.52,
+     "r": 1,
+     "wk": false,
+     "need": 166,
+     "left": 105
+    },
+    {
+     "b": 16,
+     "wp": 0.5224,
+     "li": 1.33,
+     "r": 0,
+     "wk": false,
+     "need": 165,
+     "left": 104
+    },
+    {
+     "b": 17,
+     "wp": 0.5081,
+     "li": 0.58,
+     "r": 2,
+     "wk": false,
+     "need": 165,
+     "left": 103
+    },
+    {
+     "b": 18,
+     "wp": 0.5081,
+     "li": 1.0,
+     "r": 2,
+     "wk": false,
+     "need": 163,
+     "left": 102
+    },
+    {
+     "b": 19,
+     "wp": 0.5081,
+     "li": 0.62,
+     "r": 1,
+     "wk": false,
+     "need": 161,
+     "left": 101
+    },
+    {
+     "b": 20,
+     "wp": 0.5081,
+     "li": 0.57,
+     "r": 0,
+     "wk": false,
+     "need": 160,
+     "left": 100
+    },
+    {
+     "b": 21,
+     "wp": 0.5081,
+     "li": 0.52,
+     "r": 0,
+     "wk": false,
+     "need": 160,
+     "left": 99
+    },
+    {
+     "b": 22,
+     "wp": 0.5081,
+     "li": 0.79,
+     "r": 1,
+     "wk": false,
+     "need": 160,
+     "left": 98
+    },
+    {
+     "b": 23,
+     "wp": 0.5072,
+     "li": 0.35,
+     "r": 0,
+     "wk": false,
+     "need": 159,
+     "left": 97
+    },
+    {
+     "b": 24,
+     "wp": 0.4917,
+     "li": 0.51,
+     "r": 1,
+     "wk": false,
+     "need": 159,
+     "left": 96
+    },
+    {
+     "b": 24,
+     "wp": 0.4893,
+     "li": 0.32,
+     "r": 0,
+     "wk": false,
+     "need": 158,
+     "left": 96
+    },
+    {
+     "b": 25,
+     "wp": 0.4852,
+     "li": 1.03,
+     "r": 4,
+     "wk": false,
+     "need": 158,
+     "left": 95
+    },
+    {
+     "b": 26,
+     "wp": 0.4917,
+     "li": 0.28,
+     "r": 4,
+     "wk": false,
+     "need": 154,
+     "left": 94
+    },
+    {
+     "b": 27,
+     "wp": 0.4917,
+     "li": 0.93,
+     "r": 1,
+     "wk": false,
+     "need": 150,
+     "left": 93
+    },
+    {
+     "b": 28,
+     "wp": 0.4917,
+     "li": 0.94,
+     "r": 1,
+     "wk": false,
+     "need": 149,
+     "left": 92
+    },
+    {
+     "b": 29,
+     "wp": 0.5081,
+     "li": 0.5,
+     "r": 0,
+     "wk": true,
+     "need": 148,
+     "left": 91
+    },
+    {
+     "b": 30,
+     "wp": 0.4774,
+     "li": 1.25,
+     "r": 1,
+     "wk": false,
+     "need": 148,
+     "left": 90
+    },
+    {
+     "b": 31,
+     "wp": 0.4893,
+     "li": 1.6,
+     "r": 2,
+     "wk": false,
+     "need": 147,
+     "left": 89
+    },
+    {
+     "b": 32,
+     "wp": 0.4917,
+     "li": 0.84,
+     "r": 0,
+     "wk": false,
+     "need": 145,
+     "left": 88
+    },
+    {
+     "b": 33,
+     "wp": 0.4893,
+     "li": 1.07,
+     "r": 0,
+     "wk": false,
+     "need": 145,
+     "left": 87
+    },
+    {
+     "b": 34,
+     "wp": 0.4561,
+     "li": 1.13,
+     "r": 6,
+     "wk": false,
+     "need": 145,
+     "left": 86
+    },
+    {
+     "b": 35,
+     "wp": 0.4893,
+     "li": 0.85,
+     "r": 0,
+     "wk": false,
+     "need": 139,
+     "left": 85
+    },
+    {
+     "b": 36,
+     "wp": 0.4893,
+     "li": 1.01,
+     "r": 0,
+     "wk": false,
+     "need": 139,
+     "left": 84
+    },
+    {
+     "b": 37,
+     "wp": 0.4774,
+     "li": 1.03,
+     "r": 1,
+     "wk": false,
+     "need": 139,
+     "left": 83
+    },
+    {
+     "b": 38,
+     "wp": 0.4586,
+     "li": 1.14,
+     "r": 0,
+     "wk": false,
+     "need": 138,
+     "left": 82
+    },
+    {
+     "b": 39,
+     "wp": 0.4561,
+     "li": 0.99,
+     "r": 1,
+     "wk": false,
+     "need": 138,
+     "left": 81
+    },
+    {
+     "b": 40,
+     "wp": 0.4496,
+     "li": 1.15,
+     "r": 0,
+     "wk": false,
+     "need": 137,
+     "left": 80
+    },
+    {
+     "b": 41,
+     "wp": 0.4443,
+     "li": 1.24,
+     "r": 1,
+     "wk": false,
+     "need": 137,
+     "left": 79
+    },
+    {
+     "b": 42,
+     "wp": 0.4382,
+     "li": 1.05,
+     "r": 1,
+     "wk": false,
+     "need": 136,
+     "left": 78
+    },
+    {
+     "b": 43,
+     "wp": 0.4443,
+     "li": 0.99,
+     "r": 6,
+     "wk": false,
+     "need": 135,
+     "left": 77
+    },
+    {
+     "b": 44,
+     "wp": 0.4917,
+     "li": 1.12,
+     "r": 1,
+     "wk": false,
+     "need": 129,
+     "left": 76
+    },
+    {
+     "b": 45,
+     "wp": 0.5072,
+     "li": 1.03,
+     "r": 0,
+     "wk": false,
+     "need": 128,
+     "left": 75
+    },
+    {
+     "b": 46,
+     "wp": 0.4948,
+     "li": 1.25,
+     "r": 6,
+     "wk": false,
+     "need": 128,
+     "left": 74
+    },
+    {
+     "b": 47,
+     "wp": 0.5224,
+     "li": 0.65,
+     "r": 1,
+     "wk": false,
+     "need": 122,
+     "left": 73
+    },
+    {
+     "b": 48,
+     "wp": 0.5224,
+     "li": 0.64,
+     "r": 1,
+     "wk": false,
+     "need": 121,
+     "left": 72
+    },
+    {
+     "b": 49,
+     "wp": 0.5224,
+     "li": 0.85,
+     "r": 1,
+     "wk": false,
+     "need": 120,
+     "left": 71
+    },
+    {
+     "b": 50,
+     "wp": 0.5224,
+     "li": 0.92,
+     "r": 0,
+     "wk": true,
+     "need": 119,
+     "left": 70
+    },
+    {
+     "b": 51,
+     "wp": 0.3809,
+     "li": 2.04,
+     "r": 1,
+     "wk": false,
+     "need": 119,
+     "left": 69
+    },
+    {
+     "b": 52,
+     "wp": 0.4023,
+     "li": 1.57,
+     "r": 0,
+     "wk": false,
+     "need": 118,
+     "left": 68
+    },
+    {
+     "b": 53,
+     "wp": 0.4023,
+     "li": 2.66,
+     "r": 1,
+     "wk": false,
+     "need": 118,
+     "left": 67
+    },
+    {
+     "b": 54,
+     "wp": 0.4382,
+     "li": 1.58,
+     "r": 4,
+     "wk": false,
+     "need": 117,
+     "left": 66
+    },
+    {
+     "b": 55,
+     "wp": 0.4586,
+     "li": 0.65,
+     "r": 0,
+     "wk": false,
+     "need": 113,
+     "left": 65
+    },
+    {
+     "b": 56,
+     "wp": 0.4545,
+     "li": 0.76,
+     "r": 1,
+     "wk": false,
+     "need": 113,
+     "left": 64
+    },
+    {
+     "b": 57,
+     "wp": 0.4496,
+     "li": 0.56,
+     "r": 0,
+     "wk": true,
+     "need": 112,
+     "left": 63
+    },
+    {
+     "b": 58,
+     "wp": 0.3519,
+     "li": 0.91,
+     "r": 1,
+     "wk": false,
+     "need": 112,
+     "left": 62
+    },
+    {
+     "b": 59,
+     "wp": 0.3519,
+     "li": 0.81,
+     "r": 1,
+     "wk": false,
+     "need": 111,
+     "left": 61
+    },
+    {
+     "b": 60,
+     "wp": 0.3346,
+     "li": 0.46,
+     "r": 6,
+     "wk": false,
+     "need": 110,
+     "left": 60
+    },
+    {
+     "b": 61,
+     "wp": 0.3822,
+     "li": 0.98,
+     "r": 0,
+     "wk": false,
+     "need": 104,
+     "left": 59
+    },
+    {
+     "b": 62,
+     "wp": 0.3631,
+     "li": 1.05,
+     "r": 1,
+     "wk": false,
+     "need": 104,
+     "left": 58
+    },
+    {
+     "b": 63,
+     "wp": 0.3631,
+     "li": 0.97,
+     "r": 0,
+     "wk": false,
+     "need": 103,
+     "left": 57
+    },
+    {
+     "b": 64,
+     "wp": 0.3484,
+     "li": 1.01,
+     "r": 0,
+     "wk": false,
+     "need": 103,
+     "left": 56
+    },
+    {
+     "b": 65,
+     "wp": 0.3484,
+     "li": 0.84,
+     "r": 0,
+     "wk": false,
+     "need": 103,
+     "left": 55
+    },
+    {
+     "b": 66,
+     "wp": 0.3338,
+     "li": 0.74,
+     "r": 1,
+     "wk": false,
+     "need": 103,
+     "left": 54
+    },
+    {
+     "b": 67,
+     "wp": 0.3346,
+     "li": 0.72,
+     "r": 0,
+     "wk": false,
+     "need": 102,
+     "left": 53
+    },
+    {
+     "b": 68,
+     "wp": 0.3244,
+     "li": 0.74,
+     "r": 1,
+     "wk": false,
+     "need": 102,
+     "left": 52
+    },
+    {
+     "b": 68,
+     "wp": 0.3244,
+     "li": 0.68,
+     "r": 0,
+     "wk": false,
+     "need": 101,
+     "left": 52
+    },
+    {
+     "b": 69,
+     "wp": 0.3244,
+     "li": 0.81,
+     "r": 1,
+     "wk": false,
+     "need": 101,
+     "left": 51
+    },
+    {
+     "b": 70,
+     "wp": 0.3194,
+     "li": 1.53,
+     "r": 6,
+     "wk": false,
+     "need": 100,
+     "left": 50
+    },
+    {
+     "b": 71,
+     "wp": 0.3631,
+     "li": 0.67,
+     "r": 1,
+     "wk": false,
+     "need": 94,
+     "left": 49
+    },
+    {
+     "b": 72,
+     "wp": 0.375,
+     "li": 0.57,
+     "r": 0,
+     "wk": true,
+     "need": 93,
+     "left": 48
+    },
+    {
+     "b": 73,
+     "wp": 0.319,
+     "li": 0.81,
+     "r": 0,
+     "wk": false,
+     "need": 93,
+     "left": 47
+    },
+    {
+     "b": 74,
+     "wp": 0.3089,
+     "li": 0.92,
+     "r": 0,
+     "wk": false,
+     "need": 93,
+     "left": 46
+    },
+    {
+     "b": 75,
+     "wp": 0.3089,
+     "li": 1.09,
+     "r": 1,
+     "wk": false,
+     "need": 93,
+     "left": 45
+    },
+    {
+     "b": 76,
+     "wp": 0.319,
+     "li": 1.73,
+     "r": 1,
+     "wk": false,
+     "need": 92,
+     "left": 44
+    },
+    {
+     "b": 77,
+     "wp": 0.3194,
+     "li": 2.36,
+     "r": 1,
+     "wk": false,
+     "need": 91,
+     "left": 43
+    },
+    {
+     "b": 78,
+     "wp": 0.319,
+     "li": 1.53,
+     "r": 1,
+     "wk": false,
+     "need": 90,
+     "left": 42
+    },
+    {
+     "b": 79,
+     "wp": 0.2834,
+     "li": 2.19,
+     "r": 0,
+     "wk": false,
+     "need": 89,
+     "left": 41
+    },
+    {
+     "b": 80,
+     "wp": 0.2422,
+     "li": 1.99,
+     "r": 2,
+     "wk": false,
+     "need": 89,
+     "left": 40
+    },
+    {
+     "b": 81,
+     "wp": 0.2859,
+     "li": 0.92,
+     "r": 0,
+     "wk": false,
+     "need": 87,
+     "left": 39
+    },
+    {
+     "b": 82,
+     "wp": 0.2778,
+     "li": 1.76,
+     "r": 1,
+     "wk": false,
+     "need": 87,
+     "left": 38
+    },
+    {
+     "b": 83,
+     "wp": 0.2215,
+     "li": 2.58,
+     "r": 1,
+     "wk": false,
+     "need": 86,
+     "left": 37
+    },
+    {
+     "b": 84,
+     "wp": 0.1983,
+     "li": 2.25,
+     "r": 4,
+     "wk": false,
+     "need": 85,
+     "left": 36
+    },
+    {
+     "b": 85,
+     "wp": 0.2778,
+     "li": 1.7,
+     "r": 1,
+     "wk": false,
+     "need": 81,
+     "left": 35
+    },
+    {
+     "b": 86,
+     "wp": 0.2304,
+     "li": 2.08,
+     "r": 6,
+     "wk": false,
+     "need": 80,
+     "left": 34
+    },
+    {
+     "b": 87,
+     "wp": 0.319,
+     "li": 3.11,
+     "r": 1,
+     "wk": false,
+     "need": 74,
+     "left": 33
+    },
+    {
+     "b": 88,
+     "wp": 0.3484,
+     "li": 3.03,
+     "r": 0,
+     "wk": false,
+     "need": 73,
+     "left": 32
+    },
+    {
+     "b": 89,
+     "wp": 0.2859,
+     "li": 3.38,
+     "r": 1,
+     "wk": false,
+     "need": 73,
+     "left": 31
+    },
+    {
+     "b": 90,
+     "wp": 0.2422,
+     "li": 4.19,
+     "r": 1,
+     "wk": false,
+     "need": 72,
+     "left": 30
+    },
+    {
+     "b": 91,
+     "wp": 0.2289,
+     "li": 3.37,
+     "r": 1,
+     "wk": false,
+     "need": 71,
+     "left": 29
+    },
+    {
+     "b": 92,
+     "wp": 0.209,
+     "li": 4.58,
+     "r": 6,
+     "wk": false,
+     "need": 70,
+     "left": 28
+    },
+    {
+     "b": 93,
+     "wp": 0.4239,
+     "li": 3.22,
+     "r": 1,
+     "wk": false,
+     "need": 64,
+     "left": 27
+    },
+    {
+     "b": 94,
+     "wp": 0.3484,
+     "li": 4.4,
+     "r": 1,
+     "wk": false,
+     "need": 63,
+     "left": 26
+    },
+    {
+     "b": 94,
+     "wp": 0.3912,
+     "li": 3.92,
+     "r": 1,
+     "wk": false,
+     "need": 62,
+     "left": 26
+    },
+    {
+     "b": 95,
+     "wp": 0.3484,
+     "li": 4.16,
+     "r": 6,
+     "wk": false,
+     "need": 61,
+     "left": 25
+    },
+    {
+     "b": 96,
+     "wp": 0.4917,
+     "li": 2.42,
+     "r": 0,
+     "wk": false,
+     "need": 55,
+     "left": 24
+    },
+    {
+     "b": 97,
+     "wp": 0.4239,
+     "li": 3.76,
+     "r": 0,
+     "wk": true,
+     "need": 55,
+     "left": 23
+    },
+    {
+     "b": 98,
+     "wp": 0.2389,
+     "li": 2.88,
+     "r": 6,
+     "wk": false,
+     "need": 55,
+     "left": 22
+    },
+    {
+     "b": 99,
+     "wp": 0.3244,
+     "li": 1.93,
+     "r": 0,
+     "wk": true,
+     "need": 49,
+     "left": 21
+    },
+    {
+     "b": 100,
+     "wp": 0.209,
+     "li": 2.86,
+     "r": 1,
+     "wk": false,
+     "need": 49,
+     "left": 20
+    },
+    {
+     "b": 101,
+     "wp": 0.1983,
+     "li": 1.83,
+     "r": 1,
+     "wk": false,
+     "need": 48,
+     "left": 19
+    },
+    {
+     "b": 102,
+     "wp": 0.1491,
+     "li": 1.44,
+     "r": 1,
+     "wk": false,
+     "need": 47,
+     "left": 18
+    },
+    {
+     "b": 103,
+     "wp": 0.1179,
+     "li": 1.32,
+     "r": 0,
+     "wk": true,
+     "need": 46,
+     "left": 17
+    },
+    {
+     "b": 104,
+     "wp": 0.0481,
+     "li": 0.36,
+     "r": 1,
+     "wk": false,
+     "need": 46,
+     "left": 16
+    },
+    {
+     "b": 105,
+     "wp": 0.0481,
+     "li": 0.29,
+     "r": 2,
+     "wk": false,
+     "need": 45,
+     "left": 15
+    },
+    {
+     "b": 106,
+     "wp": 0.0481,
+     "li": 0.26,
+     "r": 1,
+     "wk": false,
+     "need": 43,
+     "left": 14
+    },
+    {
+     "b": 107,
+     "wp": 0.0409,
+     "li": 0.27,
+     "r": 0,
+     "wk": false,
+     "need": 42,
+     "left": 13
+    },
+    {
+     "b": 108,
+     "wp": 0.0392,
+     "li": 0.26,
+     "r": 6,
+     "wk": false,
+     "need": 42,
+     "left": 12
+    },
+    {
+     "b": 109,
+     "wp": 0.0428,
+     "li": 0.33,
+     "r": 0,
+     "wk": false,
+     "need": 36,
+     "left": 11
+    },
+    {
+     "b": 110,
+     "wp": 0.0409,
+     "li": 0.27,
+     "r": 0,
+     "wk": false,
+     "need": 36,
+     "left": 10
+    },
+    {
+     "b": 111,
+     "wp": 0.0392,
+     "li": 0.29,
+     "r": 4,
+     "wk": false,
+     "need": 36,
+     "left": 9
+    },
+    {
+     "b": 112,
+     "wp": 0.0409,
+     "li": 0.25,
+     "r": 2,
+     "wk": false,
+     "need": 32,
+     "left": 8
+    },
+    {
+     "b": 113,
+     "wp": 0.0409,
+     "li": 0.24,
+     "r": 1,
+     "wk": false,
+     "need": 30,
+     "left": 7
+    },
+    {
+     "b": 114,
+     "wp": 0.0392,
+     "li": 0.23,
+     "r": 0,
+     "wk": false,
+     "need": 29,
+     "left": 6
+    },
+    {
+     "b": 115,
+     "wp": 0.0332,
+     "li": 0.25,
+     "r": 0,
+     "wk": false,
+     "need": 29,
+     "left": 5
+    },
+    {
+     "b": 116,
+     "wp": 0.0223,
+     "li": 0.3,
+     "r": 6,
+     "wk": false,
+     "need": 29,
+     "left": 4
+    },
+    {
+     "b": 117,
+     "wp": 0.0223,
+     "li": 0.45,
+     "r": 4,
+     "wk": false,
+     "need": 23,
+     "left": 3
+    },
+    {
+     "b": 118,
+     "wp": 0.0254,
+     "li": 0.31,
+     "r": 6,
+     "wk": false,
+     "need": 19,
+     "left": 2
+    },
+    {
+     "b": 119,
+     "wp": 0.0254,
+     "li": 0.0,
+     "r": 6,
+     "wk": false,
+     "need": 13,
+     "left": 1
+    }
+   ],
+   "peak": {
+    "b": 92,
+    "li": 4.6,
+    "need": 70,
+    "left": 28,
+    "batter": "Shashank Singh",
+    "bowler": "Josh Hazlewood"
+   }
+  },
+  {
+   "label": "Asia Cup 2025 final, India chase v Pakistan",
+   "balls": [
+    {
+     "b": 0,
+     "wp": 0.818,
+     "li": 2.71,
+     "r": 0,
+     "wk": false,
+     "need": 147,
+     "left": 120
+    },
+    {
+     "b": 1,
+     "wp": 0.8099,
+     "li": 2.82,
+     "r": 4,
+     "wk": false,
+     "need": 147,
+     "left": 119
+    },
+    {
+     "b": 2,
+     "wp": 0.9041,
+     "li": 1.84,
+     "r": 0,
+     "wk": false,
+     "need": 143,
+     "left": 118
+    },
+    {
+     "b": 3,
+     "wp": 0.8741,
+     "li": 1.83,
+     "r": 0,
+     "wk": false,
+     "need": 143,
+     "left": 117
+    },
+    {
+     "b": 4,
+     "wp": 0.8491,
+     "li": 1.64,
+     "r": 1,
+     "wk": false,
+     "need": 143,
+     "left": 116
+    },
+    {
+     "b": 5,
+     "wp": 0.8491,
+     "li": 1.95,
+     "r": 2,
+     "wk": false,
+     "need": 142,
+     "left": 115
+    },
+    {
+     "b": 6,
+     "wp": 0.8618,
+     "li": 1.33,
+     "r": 0,
+     "wk": true,
+     "need": 140,
+     "left": 114
+    },
+    {
+     "b": 7,
+     "wp": 0.7906,
+     "li": 2.75,
+     "r": 0,
+     "wk": false,
+     "need": 140,
+     "left": 113
+    },
+    {
+     "b": 8,
+     "wp": 0.7527,
+     "li": 2.61,
+     "r": 1,
+     "wk": false,
+     "need": 140,
+     "left": 112
+    },
+    {
+     "b": 9,
+     "wp": 0.7808,
+     "li": 1.94,
+     "r": 0,
+     "wk": false,
+     "need": 139,
+     "left": 111
+    },
+    {
+     "b": 10,
+     "wp": 0.7608,
+     "li": 2.67,
+     "r": 0,
+     "wk": false,
+     "need": 139,
+     "left": 110
+    },
+    {
+     "b": 11,
+     "wp": 0.7352,
+     "li": 1.83,
+     "r": 2,
+     "wk": false,
+     "need": 139,
+     "left": 109
+    },
+    {
+     "b": 12,
+     "wp": 0.7498,
+     "li": 2.72,
+     "r": 0,
+     "wk": false,
+     "need": 137,
+     "left": 108
+    },
+    {
+     "b": 13,
+     "wp": 0.7237,
+     "li": 2.41,
+     "r": 0,
+     "wk": false,
+     "need": 137,
+     "left": 107
+    },
+    {
+     "b": 14,
+     "wp": 0.7128,
+     "li": 1.98,
+     "r": 0,
+     "wk": true,
+     "need": 137,
+     "left": 106
+    },
+    {
+     "b": 15,
+     "wp": 0.5907,
+     "li": 1.97,
+     "r": 0,
+     "wk": false,
+     "need": 137,
+     "left": 105
+    },
+    {
+     "b": 16,
+     "wp": 0.5818,
+     "li": 1.9,
+     "r": 1,
+     "wk": false,
+     "need": 137,
+     "left": 104
+    },
+    {
+     "b": 17,
+     "wp": 0.6038,
+     "li": 1.5,
+     "r": 1,
+     "wk": false,
+     "need": 136,
+     "left": 103
+    },
+    {
+     "b": 18,
+     "wp": 0.6067,
+     "li": 1.43,
+     "r": 1,
+     "wk": false,
+     "need": 135,
+     "left": 102
+    },
+    {
+     "b": 19,
+     "wp": 0.5907,
+     "li": 1.57,
+     "r": 1,
+     "wk": false,
+     "need": 134,
+     "left": 101
+    },
+    {
+     "b": 20,
+     "wp": 0.6211,
+     "li": 1.3,
+     "r": 2,
+     "wk": false,
+     "need": 133,
+     "left": 100
+    },
+    {
+     "b": 21,
+     "wp": 0.6368,
+     "li": 2.23,
+     "r": 0,
+     "wk": false,
+     "need": 131,
+     "left": 99
+    },
+    {
+     "b": 22,
+     "wp": 0.6211,
+     "li": 1.33,
+     "r": 4,
+     "wk": false,
+     "need": 131,
+     "left": 98
+    },
+    {
+     "b": 23,
+     "wp": 0.6814,
+     "li": 2.55,
+     "r": 0,
+     "wk": true,
+     "need": 127,
+     "left": 97
+    },
+    {
+     "b": 24,
+     "wp": 0.5603,
+     "li": 1.91,
+     "r": 0,
+     "wk": false,
+     "need": 127,
+     "left": 96
+    },
+    {
+     "b": 25,
+     "wp": 0.5509,
+     "li": 1.16,
+     "r": 0,
+     "wk": false,
+     "need": 127,
+     "left": 95
+    },
+    {
+     "b": 26,
+     "wp": 0.5518,
+     "li": 1.45,
+     "r": 1,
+     "wk": false,
+     "need": 127,
+     "left": 94
+    },
+    {
+     "b": 27,
+     "wp": 0.5705,
+     "li": 1.14,
+     "r": 0,
+     "wk": false,
+     "need": 126,
+     "left": 93
+    },
+    {
+     "b": 28,
+     "wp": 0.5509,
+     "li": 0.89,
+     "r": 0,
+     "wk": false,
+     "need": 126,
+     "left": 92
+    },
+    {
+     "b": 29,
+     "wp": 0.5509,
+     "li": 1.11,
+     "r": 4,
+     "wk": false,
+     "need": 126,
+     "left": 91
+    },
+    {
+     "b": 30,
+     "wp": 0.5614,
+     "li": 1.45,
+     "r": 0,
+     "wk": false,
+     "need": 122,
+     "left": 90
+    },
+    {
+     "b": 31,
+     "wp": 0.5614,
+     "li": 1.25,
+     "r": 0,
+     "wk": false,
+     "need": 122,
+     "left": 89
+    },
+    {
+     "b": 32,
+     "wp": 0.5614,
+     "li": 1.15,
+     "r": 4,
+     "wk": false,
+     "need": 122,
+     "left": 88
+    },
+    {
+     "b": 33,
+     "wp": 0.6005,
+     "li": 1.54,
+     "r": 6,
+     "wk": false,
+     "need": 118,
+     "left": 87
+    },
+    {
+     "b": 34,
+     "wp": 0.6844,
+     "li": 1.94,
+     "r": 0,
+     "wk": false,
+     "need": 112,
+     "left": 86
+    },
+    {
+     "b": 35,
+     "wp": 0.6844,
+     "li": 2.76,
+     "r": 1,
+     "wk": false,
+     "need": 112,
+     "left": 85
+    },
+    {
+     "b": 36,
+     "wp": 0.696,
+     "li": 2.71,
+     "r": 0,
+     "wk": false,
+     "need": 111,
+     "left": 84
+    },
+    {
+     "b": 37,
+     "wp": 0.6566,
+     "li": 1.47,
+     "r": 4,
+     "wk": false,
+     "need": 111,
+     "left": 83
+    },
+    {
+     "b": 38,
+     "wp": 0.696,
+     "li": 1.95,
+     "r": 0,
+     "wk": false,
+     "need": 107,
+     "left": 82
+    },
+    {
+     "b": 39,
+     "wp": 0.696,
+     "li": 1.8,
+     "r": 0,
+     "wk": false,
+     "need": 107,
+     "left": 81
+    },
+    {
+     "b": 40,
+     "wp": 0.696,
+     "li": 2.01,
+     "r": 1,
+     "wk": false,
+     "need": 107,
+     "left": 80
+    },
+    {
+     "b": 41,
+     "wp": 0.6814,
+     "li": 1.4,
+     "r": 1,
+     "wk": false,
+     "need": 106,
+     "left": 79
+    },
+    {
+     "b": 42,
+     "wp": 0.6814,
+     "li": 1.67,
+     "r": 1,
+     "wk": false,
+     "need": 105,
+     "left": 78
+    },
+    {
+     "b": 43,
+     "wp": 0.696,
+     "li": 2.04,
+     "r": 1,
+     "wk": false,
+     "need": 104,
+     "left": 77
+    },
+    {
+     "b": 44,
+     "wp": 0.7122,
+     "li": 1.99,
+     "r": 4,
+     "wk": false,
+     "need": 103,
+     "left": 76
+    },
+    {
+     "b": 45,
+     "wp": 0.7122,
+     "li": 1.59,
+     "r": 1,
+     "wk": false,
+     "need": 99,
+     "left": 75
+    },
+    {
+     "b": 46,
+     "wp": 0.7231,
+     "li": 1.34,
+     "r": 0,
+     "wk": false,
+     "need": 98,
+     "left": 74
+    },
+    {
+     "b": 47,
+     "wp": 0.7231,
+     "li": 1.28,
+     "r": 0,
+     "wk": false,
+     "need": 98,
+     "left": 73
+    },
+    {
+     "b": 48,
+     "wp": 0.7237,
+     "li": 1.6,
+     "r": 1,
+     "wk": false,
+     "need": 98,
+     "left": 72
+    },
+    {
+     "b": 49,
+     "wp": 0.7122,
+     "li": 1.33,
+     "r": 1,
+     "wk": false,
+     "need": 97,
+     "left": 71
+    },
+    {
+     "b": 50,
+     "wp": 0.696,
+     "li": 2.06,
+     "r": 1,
+     "wk": false,
+     "need": 96,
+     "left": 70
+    },
+    {
+     "b": 51,
+     "wp": 0.7122,
+     "li": 1.99,
+     "r": 1,
+     "wk": false,
+     "need": 95,
+     "left": 69
+    },
+    {
+     "b": 52,
+     "wp": 0.7128,
+     "li": 1.96,
+     "r": 1,
+     "wk": false,
+     "need": 94,
+     "left": 68
+    },
+    {
+     "b": 53,
+     "wp": 0.7128,
+     "li": 1.84,
+     "r": 0,
+     "wk": false,
+     "need": 93,
+     "left": 67
+    },
+    {
+     "b": 54,
+     "wp": 0.6844,
+     "li": 2.58,
+     "r": 1,
+     "wk": false,
+     "need": 93,
+     "left": 66
+    },
+    {
+     "b": 55,
+     "wp": 0.6844,
+     "li": 2.61,
+     "r": 1,
+     "wk": false,
+     "need": 92,
+     "left": 65
+    },
+    {
+     "b": 56,
+     "wp": 0.6814,
+     "li": 2.51,
+     "r": 1,
+     "wk": false,
+     "need": 91,
+     "left": 64
+    },
+    {
+     "b": 57,
+     "wp": 0.6814,
+     "li": 2.4,
+     "r": 0,
+     "wk": false,
+     "need": 90,
+     "left": 63
+    },
+    {
+     "b": 58,
+     "wp": 0.6211,
+     "li": 2.05,
+     "r": 1,
+     "wk": false,
+     "need": 90,
+     "left": 62
+    },
+    {
+     "b": 59,
+     "wp": 0.6211,
+     "li": 2.31,
+     "r": 0,
+     "wk": false,
+     "need": 89,
+     "left": 61
+    },
+    {
+     "b": 60,
+     "wp": 0.6368,
+     "li": 2.06,
+     "r": 1,
+     "wk": false,
+     "need": 89,
+     "left": 60
+    },
+    {
+     "b": 61,
+     "wp": 0.6005,
+     "li": 1.93,
+     "r": 1,
+     "wk": false,
+     "need": 88,
+     "left": 59
+    },
+    {
+     "b": 62,
+     "wp": 0.6038,
+     "li": 1.25,
+     "r": 6,
+     "wk": false,
+     "need": 87,
+     "left": 58
+    },
+    {
+     "b": 63,
+     "wp": 0.7122,
+     "li": 1.92,
+     "r": 1,
+     "wk": false,
+     "need": 81,
+     "left": 57
+    },
+    {
+     "b": 64,
+     "wp": 0.71,
+     "li": 1.71,
+     "r": 1,
+     "wk": false,
+     "need": 80,
+     "left": 56
+    },
+    {
+     "b": 65,
+     "wp": 0.6814,
+     "li": 2.0,
+     "r": 1,
+     "wk": false,
+     "need": 79,
+     "left": 55
+    },
+    {
+     "b": 66,
+     "wp": 0.7122,
+     "li": 1.75,
+     "r": 1,
+     "wk": false,
+     "need": 78,
+     "left": 54
+    },
+    {
+     "b": 67,
+     "wp": 0.7122,
+     "li": 1.68,
+     "r": 0,
+     "wk": false,
+     "need": 77,
+     "left": 53
+    },
+    {
+     "b": 68,
+     "wp": 0.6844,
+     "li": 1.08,
+     "r": 0,
+     "wk": false,
+     "need": 77,
+     "left": 52
+    },
+    {
+     "b": 69,
+     "wp": 0.6851,
+     "li": 1.08,
+     "r": 0,
+     "wk": false,
+     "need": 77,
+     "left": 51
+    },
+    {
+     "b": 70,
+     "wp": 0.696,
+     "li": 0.97,
+     "r": 6,
+     "wk": false,
+     "need": 77,
+     "left": 50
+    },
+    {
+     "b": 71,
+     "wp": 0.7313,
+     "li": 1.65,
+     "r": 0,
+     "wk": false,
+     "need": 71,
+     "left": 49
+    },
+    {
+     "b": 72,
+     "wp": 0.7128,
+     "li": 1.25,
+     "r": 1,
+     "wk": false,
+     "need": 71,
+     "left": 48
+    },
+    {
+     "b": 73,
+     "wp": 0.7313,
+     "li": 1.12,
+     "r": 0,
+     "wk": true,
+     "need": 70,
+     "left": 47
+    },
+    {
+     "b": 74,
+     "wp": 0.6814,
+     "li": 1.88,
+     "r": 0,
+     "wk": false,
+     "need": 70,
+     "left": 46
+    },
+    {
+     "b": 75,
+     "wp": 0.6402,
+     "li": 1.92,
+     "r": 0,
+     "wk": false,
+     "need": 70,
+     "left": 45
+    },
+    {
+     "b": 76,
+     "wp": 0.6368,
+     "li": 1.14,
+     "r": 1,
+     "wk": false,
+     "need": 70,
+     "left": 44
+    },
+    {
+     "b": 77,
+     "wp": 0.6566,
+     "li": 0.73,
+     "r": 0,
+     "wk": false,
+     "need": 69,
+     "left": 43
+    },
+    {
+     "b": 78,
+     "wp": 0.6402,
+     "li": 1.76,
+     "r": 1,
+     "wk": false,
+     "need": 69,
+     "left": 42
+    },
+    {
+     "b": 79,
+     "wp": 0.6814,
+     "li": 2.96,
+     "r": 1,
+     "wk": false,
+     "need": 68,
+     "left": 41
+    },
+    {
+     "b": 80,
+     "wp": 0.6566,
+     "li": 1.25,
+     "r": 1,
+     "wk": false,
+     "need": 67,
+     "left": 40
+    },
+    {
+     "b": 81,
+     "wp": 0.6387,
+     "li": 1.97,
+     "r": 0,
+     "wk": false,
+     "need": 66,
+     "left": 39
+    },
+    {
+     "b": 82,
+     "wp": 0.6005,
+     "li": 1.97,
+     "r": 1,
+     "wk": false,
+     "need": 66,
+     "left": 38
+    },
+    {
+     "b": 83,
+     "wp": 0.5942,
+     "li": 1.94,
+     "r": 1,
+     "wk": false,
+     "need": 65,
+     "left": 37
+    },
+    {
+     "b": 84,
+     "wp": 0.6005,
+     "li": 1.97,
+     "r": 4,
+     "wk": false,
+     "need": 64,
+     "left": 36
+    },
+    {
+     "b": 85,
+     "wp": 0.6526,
+     "li": 1.12,
+     "r": 1,
+     "wk": false,
+     "need": 60,
+     "left": 35
+    },
+    {
+     "b": 86,
+     "wp": 0.6429,
+     "li": 1.69,
+     "r": 4,
+     "wk": false,
+     "need": 59,
+     "left": 34
+    },
+    {
+     "b": 87,
+     "wp": 0.7313,
+     "li": 0.9,
+     "r": 1,
+     "wk": false,
+     "need": 55,
+     "left": 33
+    },
+    {
+     "b": 88,
+     "wp": 0.696,
+     "li": 1.35,
+     "r": 1,
+     "wk": false,
+     "need": 54,
+     "left": 32
+    },
+    {
+     "b": 89,
+     "wp": 0.7128,
+     "li": 1.37,
+     "r": 6,
+     "wk": false,
+     "need": 53,
+     "left": 31
+    },
+    {
+     "b": 90,
+     "wp": 0.7636,
+     "li": 1.75,
+     "r": 6,
+     "wk": false,
+     "need": 47,
+     "left": 30
+    },
+    {
+     "b": 91,
+     "wp": 0.8656,
+     "li": 1.42,
+     "r": 1,
+     "wk": false,
+     "need": 41,
+     "left": 29
+    },
+    {
+     "b": 91,
+     "wp": 0.8741,
+     "li": 1.44,
+     "r": 1,
+     "wk": false,
+     "need": 40,
+     "left": 29
+    },
+    {
+     "b": 92,
+     "wp": 0.8741,
+     "li": 1.54,
+     "r": 1,
+     "wk": false,
+     "need": 39,
+     "left": 28
+    },
+    {
+     "b": 93,
+     "wp": 0.8629,
+     "li": 1.81,
+     "r": 0,
+     "wk": false,
+     "need": 38,
+     "left": 27
+    },
+    {
+     "b": 94,
+     "wp": 0.818,
+     "li": 1.74,
+     "r": 1,
+     "wk": false,
+     "need": 38,
+     "left": 26
+    },
+    {
+     "b": 95,
+     "wp": 0.8403,
+     "li": 2.08,
+     "r": 1,
+     "wk": false,
+     "need": 37,
+     "left": 25
+    },
+    {
+     "b": 96,
+     "wp": 0.8099,
+     "li": 2.11,
+     "r": 1,
+     "wk": false,
+     "need": 36,
+     "left": 24
+    },
+    {
+     "b": 97,
+     "wp": 0.8084,
+     "li": 1.88,
+     "r": 1,
+     "wk": false,
+     "need": 35,
+     "left": 23
+    },
+    {
+     "b": 98,
+     "wp": 0.7906,
+     "li": 1.47,
+     "r": 0,
+     "wk": false,
+     "need": 34,
+     "left": 22
+    },
+    {
+     "b": 99,
+     "wp": 0.7808,
+     "li": 1.56,
+     "r": 2,
+     "wk": false,
+     "need": 34,
+     "left": 21
+    },
+    {
+     "b": 100,
+     "wp": 0.7639,
+     "li": 1.66,
+     "r": 1,
+     "wk": false,
+     "need": 32,
+     "left": 20
+    },
+    {
+     "b": 101,
+     "wp": 0.7445,
+     "li": 1.69,
+     "r": 1,
+     "wk": false,
+     "need": 31,
+     "left": 19
+    },
+    {
+     "b": 102,
+     "wp": 0.7313,
+     "li": 2.11,
+     "r": 1,
+     "wk": false,
+     "need": 30,
+     "left": 18
+    },
+    {
+     "b": 103,
+     "wp": 0.7128,
+     "li": 2.71,
+     "r": 1,
+     "wk": false,
+     "need": 29,
+     "left": 17
+    },
+    {
+     "b": 103,
+     "wp": 0.7313,
+     "li": 2.19,
+     "r": 1,
+     "wk": false,
+     "need": 28,
+     "left": 17
+    },
+    {
+     "b": 104,
+     "wp": 0.7122,
+     "li": 2.57,
+     "r": 1,
+     "wk": false,
+     "need": 27,
+     "left": 16
+    },
+    {
+     "b": 105,
+     "wp": 0.6814,
+     "li": 3.46,
+     "r": 2,
+     "wk": false,
+     "need": 26,
+     "left": 15
+    },
+    {
+     "b": 106,
+     "wp": 0.6814,
+     "li": 3.69,
+     "r": 1,
+     "wk": false,
+     "need": 24,
+     "left": 14
+    },
+    {
+     "b": 107,
+     "wp": 0.6402,
+     "li": 4.23,
+     "r": 6,
+     "wk": false,
+     "need": 23,
+     "left": 13
+    },
+    {
+     "b": 108,
+     "wp": 0.818,
+     "li": 2.79,
+     "r": 1,
+     "wk": false,
+     "need": 17,
+     "left": 12
+    },
+    {
+     "b": 109,
+     "wp": 0.8084,
+     "li": 2.71,
+     "r": 1,
+     "wk": false,
+     "need": 16,
+     "left": 11
+    },
+    {
+     "b": 110,
+     "wp": 0.7991,
+     "li": 3.64,
+     "r": 1,
+     "wk": false,
+     "need": 15,
+     "left": 10
+    },
+    {
+     "b": 111,
+     "wp": 0.7608,
+     "li": 4.15,
+     "r": 4,
+     "wk": false,
+     "need": 14,
+     "left": 9
+    },
+    {
+     "b": 112,
+     "wp": 0.8491,
+     "li": 2.97,
+     "r": 0,
+     "wk": false,
+     "need": 10,
+     "left": 8
+    },
+    {
+     "b": 113,
+     "wp": 0.7991,
+     "li": 4.31,
+     "r": 0,
+     "wk": true,
+     "need": 10,
+     "left": 7
+    },
+    {
+     "b": 114,
+     "wp": 0.6814,
+     "li": 6.28,
+     "r": 2,
+     "wk": false,
+     "need": 10,
+     "left": 6
+    },
+    {
+     "b": 115,
+     "wp": 0.7128,
+     "li": 6.8,
+     "r": 6,
+     "wk": false,
+     "need": 8,
+     "left": 5
+    },
+    {
+     "b": 116,
+     "wp": 0.9674,
+     "li": 1.45,
+     "r": 1,
+     "wk": false,
+     "need": 2,
+     "left": 4
+    },
+    {
+     "b": 117,
+     "wp": 0.9855,
+     "li": 1.15,
+     "r": 4,
+     "wk": false,
+     "need": 1,
+     "left": 3
+    }
+   ],
+   "peak": {
+    "b": 115,
+    "li": 6.8,
+    "need": 8,
+    "left": 5,
+    "batter": "Namboori Tilak Varma",
+    "bowler": "Haris Rauf"
+   }
   }
  ],
  "sensitivity": {

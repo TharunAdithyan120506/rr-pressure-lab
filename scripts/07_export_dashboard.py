@@ -39,6 +39,63 @@ ALIAS = {"varun chakravarthy": "varun chakaravarthy", "mitchell marsh": "mitch m
          "lhuan dre pretorius": "lhuandre pretorius"}
 
 
+
+def note_for(r: dict, role: str, card: dict | None) -> dict:
+    """A short, factual case for why this player holds his place, built from his own numbers."""
+    pct = None
+    if card and card.get("model"):
+        pct = card["model"]["level_pct"]
+    lift_pct = card["model"]["lift_pct"] if card and card.get("model") else None
+    bits = []
+    if role == "bat":
+        head = (f"{int(r['runs_p'])} runs off {int(r['balls_p'])} pressure balls at a strike rate of "
+                f"{r['sr_p']:.0f}" + (f", averaging {r['avg_p']:.0f}." if r.get("avg_p") else "."))
+        d = r["sr_p"] - r["sr_o"]
+        if d > 8:
+            bits.append(f"He goes up a gear when it tightens: {r['sr_p']:.0f} under pressure against {r['sr_o']:.0f} otherwise.")
+        elif d < -8:
+            bits.append(f"He scores slower under pressure ({r['sr_p']:.0f} v {r['sr_o']:.0f}) but gives his wicket away far less.")
+        else:
+            bits.append(f"He does not lift so much as never drop: {r['sr_p']:.0f} under pressure against {r['sr_o']:.0f} otherwise.")
+        if r.get("avg_p") and r.get("avg_o") and r["avg_p"] > r["avg_o"] * 1.25:
+            bits.append(f"His average actually climbs, from {r['avg_o']:.0f} to {r['avg_p']:.0f}.")
+        if r["bnd_pct_p"] >= 22:
+            bits.append(f"{r['bnd_pct_p']:.0f}% of his pressure balls go for four or six.")
+    else:
+        head = (f"{int(r['wkts_p'])} wickets and an economy of {r['econ_p']:.2f} across "
+                f"{int(r['n_p'])} pressure balls.")
+        d = r["econ_o"] - r["econ_p"]
+        if d > 0.5:
+            bits.append(f"He gets cheaper when it matters: {r['econ_p']:.2f} an over under pressure against {r['econ_o']:.2f} otherwise.")
+        elif d < -0.5:
+            bits.append(f"He costs a little more under pressure ({r['econ_p']:.2f} v {r['econ_o']:.2f}) but keeps taking wickets.")
+        else:
+            bits.append(f"Nothing changes when the game tightens: {r['econ_p']:.2f} an over under pressure against {r['econ_o']:.2f} otherwise.")
+        if r["dot_pct_p"] >= 38:
+            bits.append(f"{r['dot_pct_p']:.0f}% of his pressure balls are dots.")
+    if pct is not None and pct >= 90:
+        bits.append(f"That puts him in the top {max(1, round(100 - pct))}% of ranked players on pressure balls.")
+    if lift_pct is not None and lift_pct >= 85:
+        bits.append("His lift over his own everyday level is among the biggest in the pool.")
+    if r["n_p"] < 150:
+        bits.append(f"Only {int(r['n_p'])} pressure balls, so the estimate is pulled toward the average and the range is wide.")
+    return {"head": head, "body": " ".join(bits[:3])}
+
+
+def recent_for(card: dict | None, role: str) -> list:
+    """His biggest pressure days, newest first — the matches behind the rating."""
+    c = (card or {}).get("bat" if role == "bat" else "bowl") or {}
+    out = []
+    for m in (c.get("moments") or []):
+        if m["kind"] != "best":
+            continue
+        line = (f"{m['runs']} off {m['balls']}" if role == "bat"
+                else f"{m['wk']}/{m['runs']} in {m['balls']}")
+        out.append({"date": m["date"], "opp": m["opp"], "comp": m["comp"], "line": line,
+                    "wpa": m["wpa_pct"], "balls": m["balls"]})
+    return sorted(out, key=lambda x: x["date"], reverse=True)[:3]
+
+
 def main() -> None:
     DASH.mkdir(exist_ok=True)
     photos = json.loads((DASH / "photos" / "index.json").read_text(encoding="utf-8"))
@@ -69,12 +126,36 @@ def main() -> None:
         t["rating_hi"] = (100 + 15 * t["hi"] / sd).round(1)
         out = t[cols].round(3)
         rows = json.loads(out.head(40).to_json(orient="records"))
-        for r in rows:
+        role = "bat" if fname == "batters" else "bowl"
+        for i, r in enumerate(rows):
             r["photo"] = photo(r["name"])
             r["team2027"] = team2027.get(pkey(r["name"]), r["team"])
+            cd = cards.get(r["pid"])
+            if i < 12:
+                r["note"] = note_for(r, role, (cd or {}).get(role))
+                r["recent"] = recent_for(cd, role)
         idx = {r["pid"]: {"rank": int(r["rank"]), "rating": r["rating"], "of": len(t),
                           "p_top10": r["p_top10"]} for r in json.loads(out.to_json(orient="records"))}
         return rows, idx, len(t)
+
+    # ball-by-ball win probability for the famous chases, so the explainer can animate a real match
+    sc = pd.read_csv(REPORTS / "validation" / "spot_check_matches.csv")
+    chases = []
+    for label, g in sc.groupby("label", sort=False):
+        g = g.sort_values("balls_bowled")
+        pk = g.loc[g["li"].idxmax()]
+        chases.append({
+            "label": label,
+            "balls": [{"b": int(b), "wp": round(float(w), 4), "li": round(float(l), 2),
+                       "r": int(rt), "wk": bool(k), "need": None if pd.isna(rr) else int(rr),
+                       "left": int(bl)}
+                      for b, w, l, rt, k, rr, bl in
+                      zip(g["balls_bowled"], g["wp"], g["li"], g["runs_total"], g["is_wicket"],
+                          g["runs_required"], g["balls_left"])],
+            "peak": {"b": int(pk["balls_bowled"]), "li": round(float(pk["li"]), 1),
+                     "need": int(pk["runs_required"]), "left": int(pk["balls_left"]),
+                     "batter": pk["batter"], "bowler": pk["bowler"]},
+        })
 
     bat, bat_idx, n_bat = ranking("batters", BAT_COLS)
     bowl, bowl_idx, n_bowl = ranking("bowlers", BOWL_COLS)
@@ -112,6 +193,7 @@ def main() -> None:
         "pressure_def": val["pressure_definition"],
         "composition": pd.read_csv(REPORTS / "validation" / "pressure_composition.csv").to_dict("records"),
         "deciles": pd.read_csv(REPORTS / "validation" / "outcomes_by_li_decile.csv").round(2).to_dict("records"),
+        "chases": chases,
         "sensitivity": sens, "hp": hp, "weights": wc, "verification": verif,
         "params": {k: params[k] for k in ("weights", "min_pressure_balls", "min_pressure_matches",
                                           "active_since", "bootstrap")},
